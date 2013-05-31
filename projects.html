@@ -16,7 +16,7 @@
 		<div class="navbar-inner">
 			<a class="brand" href="index.html">Devan Buggay</a>
 			<ul class="nav">
-				<li><a href="projects.html"><i class="icon-book"></i> Projects</a></li>
+				<li class="active"><a href="projects.html"><i class="icon-book"></i> Projects</a></li>
 				<li><a href="junkyard.html"><i class="icon-trash"></i> Junk Yard</a></li>
 			</ul>
 			<div style="display:inline-block" class="pull-right">
@@ -32,13 +32,44 @@
 
 	<div class="container" style="height: 500px;">
 		<div class="well">
-			<p>
-			Devan Buggay
-			About Me
-			Resume
-			</p>
+			<h2>Projects<small> Yay!</small></h2>
+			<hr>
+			<div class="row">
+				<div class="tabbable tabs-left" > <!-- Only required for left/right tabs -->
+
+					<ul class="nav nav-tabs">
+						<li class="active"><a href="#tab1" data-toggle="tab"><i class="icon-gamepad"></i> Games</a></li>
+						<li><a href="#tab2" data-toggle="tab"><i class="icon-cog"></i> Tools</a></li>
+						<li><a href="#tab3" data-toggle="tab"><i class="icon-random"></i> Misc</a></li>
+					</ul>
+					<div class="tab-content">
+						<div class="tab-pane active" id="tab1">
+							list 1
+						</div>
+						<div class="tab-pane" id="tab2">
+							<div class="hero-unit">
+								<h1>BFMT</h1>
+								<p>Brainfuck Multitool</p>
+								<p>
+									<a class="btn btn-primary btn-large">
+										Link to Github
+									</a>
+								</p>
+							</div>
+						</div>
+						<div class="tab-pane" id="tab3">
+							list 3
+						</div>
+					</div>
+				</div>
+
+
+
+			</div>
+
 		</div>
 	</div>
+
 
 	<!-- internal scripts -->
 	<script type="text/javascript" src="js/jquery.js"></script>

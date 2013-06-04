@@ -1,3 +1,7 @@
-body {
-	background-color: #ffffff;
+.hero-unit {
+	background-image: url('../img/white_wall_hash.png');	
+}
+
+.well {
+	background-image: url('../img/white_wall_hash.png');
 }

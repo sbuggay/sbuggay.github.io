@@ -1,5 +1,7 @@
 body {
-	/*background: #ccc;*/
+	background: #eee ;
+
+
 }
 
 .container {
@@ -23,7 +25,15 @@ img.center {
 	margin-right: auto;
 }
 
+a.col-lg-4 {
+	text-decoration: none;
+	color: #333;
+}
 
+a.col-lg-4:hover {
+	text-decoration: none;
+	color: #666;
+}
 
 .footer {
 	text-align: left;

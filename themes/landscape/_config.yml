@@ -3,18 +3,11 @@ menu:
   Home: /
   Archives: /archives
   Projects: /projects
+  About: /about
 rss: /atom.xml
 
 # Content
 excerpt_link: Read More
-fancybox: false
-
-# Sidebar
-sidebar: right
-widgets:
-- recent_posts
-- archive
-
 
 # display widgets at the bottom of index pages (pagination == 2)
 index_widgets:

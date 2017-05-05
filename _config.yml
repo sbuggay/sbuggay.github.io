@@ -4,15 +4,15 @@
 
 # Site
 title: devanbuggay
-subtitle:
-description:
-author: 
-language:
-timezone:
+subtitle: 
+description: 
+author:  
+language: english
+timezone: 
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: sbuggay.github.io
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -20,7 +20,6 @@ permalink_defaults:
 # Directory
 source_dir: source
 public_dir: public
-tag_dir: tags
 archive_dir: archives
 category_dir: categories
 code_dir: downloads/code
@@ -68,4 +67,6 @@ theme: landscape
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type:
+  type: git
+  repo: https://github.com/sbuggay/sbuggay.github.io.git
+  branch: master

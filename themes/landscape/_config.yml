@@ -2,6 +2,7 @@
 menu:
   Home: /
   Archives: /archives
+  Projects: /projects
 rss: /atom.xml
 
 # Content
@@ -12,9 +13,6 @@ fancybox: false
 sidebar: right
 widgets:
 - recent_posts
-- category
-- tag
-#- tagcloud
 - archive
 
 

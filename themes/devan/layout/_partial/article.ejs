@@ -20,7 +20,9 @@
       <% } %>
     </div>
     <footer class="article-footer">
-      <%- partial('post/date', {class_name: 'article-date', date_format: null}) %>
+      <% if (!index){ %>
+        <%- partial('post/date', {class_name: 'article-date', date_format: null}) %>
+      <% } %>
     </footer>
   </div>
   <% if (!index){ %>

@@ -26,6 +26,11 @@ code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
 
+# index_generator:
+#   path: '/blog'
+#   per_page: 10
+#   order_by: -date
+
 # Writing
 new_post_name: :title.md # File name of new posts
 default_layout: post
@@ -62,7 +67,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+theme: devan
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html

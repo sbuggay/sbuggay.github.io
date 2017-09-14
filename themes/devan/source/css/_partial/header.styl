@@ -1,6 +1,7 @@
 #header
   height: banner-height
   border-bottom: 1px solid color-border
+  margin-bottom: 20px
 
 #header-outer
   height: 100%
@@ -13,15 +14,26 @@
 
 #main-nav
   display: flex
-  justify-content: left
+  justify-content: space-between
+  align-items: center
   height: 100%
 
 $nav-link
   color: #fff
   text-decoration: none
-  padding: 20px
+  margin-right: 20px
   &:hover
     text-decoration: underline
 
 .main-nav-link
   @extend $nav-link
+
+.main-nav-icon
+  color: #fff
+  text-decoration: none
+  margin-left: 20px
+  font-size: 30px
+
+.twitter-link
+  &:before
+    content: "\f081"

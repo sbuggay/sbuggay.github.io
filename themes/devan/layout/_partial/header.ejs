@@ -2,11 +2,22 @@
   <div id="header-outer" class="outer">
     <div id="header-inner" class="inner">
       <nav id="main-nav">
-        <% for (var i in theme.menu){ %>
-          <a class="main-nav-link" href="<%- url_for(theme.menu[i]) %>"><%= i %></a>
-        <% } %>
-      </nav>
-      <nav id="sub-nav">
+        <div>
+          <% for (var i in theme.menu){ %>
+            <a class="main-nav-link" href="<%- url_for(theme.menu[i]) %>"><%= i %></a>
+          <% } %>
+        </div>
+        <div>
+          <a class="main-nav-icon" href="https://www.linkedin.com/in/devanbuggay/">
+            <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+          </a>
+          <a class="main-nav-icon" href="https://twitter.com/DevanBuggay">
+            <i class="fa fa-twitter-square" aria-hidden="true"></i>
+          </a>
+          <a class="main-nav-icon" href="https://github.com/sbuggay">
+            <i class="fa fa-github-square" aria-hidden="true"></i>
+          </a>
+        <div>
       </nav>
     </div>
   </div>

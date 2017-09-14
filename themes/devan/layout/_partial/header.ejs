@@ -2,9 +2,15 @@
   <div id="header-outer" class="outer">
     <div id="header-inner" class="inner">
       <nav id="main-nav">
+        
         <div>
-          <% for (var i in theme.menu){ %>
-            <a class="main-nav-link" href="<%- url_for(theme.menu[i]) %>"><%= i %></a>
+          
+          <% for (var i in theme.menu) { %>
+            <%if (page.path.replace("index.html", "").replace("/", "") == theme.menu[i].replace("/", "")) { %>
+              <span class="main-nav-link-selected"><%= i %></span>
+            <% } else { %>
+              <a class="main-nav-link" href="<%- url_for(theme.menu[i]) %>"><%= i %></a>
+            <% } %>
           <% } %>
         </div>
         <div>

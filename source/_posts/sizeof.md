@@ -7,4 +7,5 @@ The C `sizeof` operator
 ```c
 #define sizeof(t) (char *)(&t + 1) - (char *)(&t)
 ```
-[https://en.wikipedia.org/wiki/Sizeof](https://en.wikipedia.org/wiki/Sizeof)
+### Reference
+- [https://en.wikipedia.org/wiki/Sizeof](https://en.wikipedia.org/wiki/Sizeof)

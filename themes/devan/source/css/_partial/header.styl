@@ -14,9 +14,16 @@
 
 #main-nav
   display: flex
+  // flex-flow:column wrap
   justify-content: space-between
   align-items: center
   height: 100%
+
+// #main-nav
+//   .flex-container {
+          
+//           height:40px;
+//       }   
 
 $nav-link
   color: #fff
@@ -39,7 +46,12 @@ $nav-link
   text-decoration: none
   margin-left: 20px
   font-size: 30px
-
-.twitter-link
-  &:before
-    content: "\f081"
+  &.twitter
+    &:hover
+      color: #4099FF
+  &.linkedin
+    &:hover
+      color: #0077B5
+  &.github
+    &:hover
+      color: #6e5494

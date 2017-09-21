@@ -27,7 +27,6 @@ module.exports = function(grunt){
 
   grunt.renameTask('clean', '_clean');
 
-  grunt.registerTask('fontawesome', ['gitclone:fontawesome', 'copy:fontawesome', '_clean:tmp']);
   grunt.registerTask('default', ['gitclone', 'copy', '_clean:tmp']);
   grunt.registerTask('clean', ['_clean']);
 };

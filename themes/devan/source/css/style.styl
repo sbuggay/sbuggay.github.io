@@ -12,16 +12,6 @@ input, button
     border: 0
     padding: 0
 
-@font-face
-  font-family: FontAwesome
-  font-style: normal
-  font-weight: lighter
-  src: url(font-icon-path + ".eot?v=#" + font-icon-version)
-  src: url(font-icon-path + ".eot?#iefix&v=#" + font-icon-version) format("embedded-opentype"),
-       url(font-icon-path + ".woff?v=#" + font-icon-version) format("woff"),
-       url(font-icon-path + ".ttf?v=#" + font-icon-version) format("truetype"),
-       url(font-icon-path + ".svg#fontawesomeregular?v=#" + font-icon-version) format("svg")
-
 html, body, #container
   height: 100%
 
@@ -61,16 +51,6 @@ body
   z-index: 1
   background: color-background
 
-if sidebar and sidebar isnt bottom
-  #main
-    @media mq-normal
-      column(main-column)
-
-if sidebar is left
-  @media mq-normal
-    #main
-      float: right
-
 @import "_extend"
 @import "_partial/header"
 @import "_partial/article"
@@ -78,6 +58,3 @@ if sidebar is left
 @import "_partial/archive"
 @import "_partial/footer"
 @import "_partial/highlight"
-
-if sidebar
-  @import "_partial/sidebar"

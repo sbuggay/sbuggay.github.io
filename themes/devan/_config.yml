@@ -1,19 +1,13 @@
 # Header
 menu:
-  Home: /
-  Archives: /archives
-  Projects: /projects
-  Servers: /servers
+  home: /
+  archives: /archives
+  projects: /projects
+  servers: /servers
 rss: /atom.xml
 
 # Content
 excerpt_link: Read More
-
-# display widgets at the bottom of index pages (pagination == 2)
-index_widgets:
-# - category
-# - tagcloud
-# - archive
 
 # widget behavior
 archive_type: 'monthly'
@@ -22,7 +16,3 @@ show_count: false
 # Miscellaneous
 google_analytics: UA-39994684-2
 favicon: /favicon.png
-twitter:
-google_plus:
-fb_admins:
-fb_app_id:

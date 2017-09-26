@@ -6,9 +6,6 @@
   display: flex
   flex-flow: row wrap
 
-.archive-year-wrap
-  margin-bottom: 1em
-
 .archive-year
   @extend $block-caption
 
@@ -23,10 +20,8 @@
 .archive-article-title
   text-decoration: none
   color: color-default
-  transition: color 0.2s
-  line-height: line-height
   &:hover
-    color: color-link
+    text-decoration: underline
 
 .archive-article-footer
   margin-top: 1em
@@ -35,7 +30,6 @@
   color: color-grey
   text-decoration: none
   line-height: 1em
-  margin-bottom: 0.5em
   display: block
 
 #page-nav

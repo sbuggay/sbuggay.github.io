@@ -3,13 +3,17 @@
 
 .archives
   clearfix()
-
-.archive-year-wrap
-  margin-bottom: 1em
+  display: flex
+  flex-flow: row wrap
 
 .archive-year
   @extend $block-caption
 
+<<<<<<< HEAD
+.archive-article
+  width: 33%
+
+=======
 .archives
   column-gap: 10px
   @media mq-tablet
@@ -17,6 +21,7 @@
   @media mq-normal
     column-count: 3
     
+>>>>>>> 03389c8ba2d7830e34be8713b4e2d157406e8fdb
 .archive-article-inner
   @extend $block
   padding: 10px
@@ -25,10 +30,8 @@
 .archive-article-title
   text-decoration: none
   color: color-default
-  transition: color 0.2s
-  line-height: line-height
   &:hover
-    color: color-link
+    text-decoration: underline
 
 .archive-article-footer
   margin-top: 1em
@@ -36,9 +39,7 @@
 .archive-article-date
   color: color-grey
   text-decoration: none
-  font-size: 0.85em
   line-height: 1em
-  margin-bottom: 0.5em
   display: block
 
 #page-nav

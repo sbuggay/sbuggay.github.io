@@ -12,12 +12,12 @@
       <% } %>
       <% last = year; %>
       <section class="archives-wrap">
-        <div class="archive-year-wrap">
+        <h1>
           <a href="<%- url_for(config.archive_dir + '/' + year) %>" class="archive-year"><%= year %></a>
-        </div>
+        </h1>
         <div class="archives">
     <% } %>
-    <%- partial('archive-post', {post: post, even: i % 2 == 0}) %>
+    <%- partial('archive-post', {post: post}) %>
   <% }) %>
   <% if (page.posts.length){ %>
     </div></section>

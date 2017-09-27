@@ -9,7 +9,6 @@
   clearfix()
 
 .article-date
-  @extend $block-caption
   float: left
 
 .article-category
@@ -17,11 +16,8 @@
   line-height: 1em
   color: #ccc
   margin-left: 8px
-  &:before
-    content: "\2022"
 
 .article-category-link
-  @extend $block-caption
   margin: 0 12px 1em
 
 .article-title
@@ -113,7 +109,6 @@
 
 .article-footer
   clearfix()
-  font-size: 0.85em
   line-height: line-height
   border-top: 1px solid color-border
   padding-top: line-height

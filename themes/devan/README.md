@@ -1,29 +1,8 @@
-# Landscape
-
-A brand new default theme for [Hexo].
-
-- [Preview](http://hexo.io/hexo-theme-landscape/)
-
 ## Installation
-
-### Install
-
-``` bash
-$ git clone https://github.com/hexojs/hexo-theme-landscape.git themes/landscape
-```
-
-**Landscape requires Hexo 2.4 and above.**
 
 ### Enable
 
 Modify `theme` setting in `_config.yml` to `landscape`.
-
-### Update
-
-``` bash
-cd themes/landscape
-git pull
-```
 
 ## Configuration
 
@@ -52,24 +31,4 @@ google_plus:
 - **google_analytics** - Google Analytics ID
 - **favicon** - Favicon path
 
-## Features
-
-### Fancybox
-
-Landscape uses [Fancybox] to showcase your photos. You can use Markdown syntax or fancybox tag plugin to add your photos.
-
-```
-![img caption](img url)
-
-{% fancybox img_url [img_thumbnail] [img_caption] %}
-```
 ## Development
-
-### Requirements
-
-- [Grunt] 0.4+
-- Hexo 2.4+
-
-[Hexo]: http://zespia.tw/hexo/
-[Font Awesome]: http://fontawesome.io/
-[Grunt]: http://gruntjs.com/

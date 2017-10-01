@@ -14,11 +14,17 @@ html, body, #container
   height: 100%
 
 body
+  color: color-default
   background: color-background
   font: font-size font-sans
 
+a
+  color: color-default
+  text-decoration: none
+  &:hover
+    text-decoration: underline
+
 .outer
-  clearfix()
   max-width: 900px
   margin: 0 auto
   padding: 0 gutter-width

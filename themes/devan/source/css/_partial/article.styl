@@ -5,9 +5,6 @@
   @extend $block
   overflow: hidden
 
-.article-meta
-  clearfix()
-
 .article-date
   float: left
 
@@ -31,15 +28,11 @@
 
 .article-entry
   @extend $base-style
-  clearfix()
   color: color-default
   padding: 0 article-padding
   p, table
     line-height: line-height
     margin: line-height 0
-  h1, h2, h3, h4, h5, h6
-    line-height: line-height-title
-    margin: line-height-title 0
   a
     color: color-link
     text-decoration: none
@@ -63,29 +56,6 @@
   td
     border-bottom: 1px solid color-border
     padding: 10px 0
-  blockquote
-    font-family: font-serif
-    font-size: 1.4em
-    margin: line-height 20px
-    text-align: center
-    footer
-      font-size: font-size
-      margin: line-height 0
-      font-family: font-sans
-      cite
-        &:before
-          content: "—"
-          padding: 0 0.5em
-  .pullquote
-    text-align: left
-    width: 45%
-    margin: 0
-    &.left
-      margin-left: 0.5em
-      margin-right: 1em
-    &.right
-      margin-right: 0.5em
-      margin-left: 1em
   .caption
     display: block
     font-size: 0.9em
@@ -108,7 +78,6 @@
     text-shadow: 0 1px darken(color-link, 20%)
 
 .article-footer
-  clearfix()
   line-height: line-height
   border-top: 1px solid color-border
   padding-top: line-height
@@ -127,13 +96,11 @@
     content: "#"
 
 #article-nav
-  clearfix()
   position: relative
   margin-top: 20px;
 
 .article-nav-link-wrap
   text-decoration: none
-  box-sizing: border-box
   margin-top: block-margin
   text-align: center
   display: block

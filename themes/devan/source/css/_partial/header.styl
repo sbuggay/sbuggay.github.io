@@ -17,6 +17,10 @@
   @media mq-mobile
     background-color: black
 
+#main-nav-social
+  @media mq-mobile
+    display: none
+
 $nav-link
   color: color-default
   font-size: 1.2em
@@ -27,6 +31,11 @@ $nav-link
 
 .main-nav-link
   @extend $nav-link
+  &:before
+    content: "/"
+  &:first-of-type
+    &:before
+      content: "$"
 
 .main-nav-link-selected
   @extend $nav-link

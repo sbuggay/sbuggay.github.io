@@ -18,7 +18,9 @@
         <%- post.content %>
       <% } %>
     </div>
-    <hr>
+    <% if (index){ %>
+      <hr>
+    <% } %>
   </div>
   <% if (!index){ %>
     <%- partial('post/nav') %>

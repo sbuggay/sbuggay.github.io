@@ -33,7 +33,7 @@
   @extend $base-style
   clearfix()
   color: color-default
-  padding: 0 article-padding
+  padding: 0 article-padding article-padding article-padding
   p, table
     line-height: line-height
     margin: line-height 0
@@ -76,16 +76,12 @@
         &:before
           content: "—"
           padding: 0 0.5em
-  .pullquote
-    text-align: left
-    width: 45%
-    margin: 0
-    &.left
-      margin-left: 0.5em
-      margin-right: 1em
-    &.right
-      margin-right: 0.5em
-      margin-left: 1em
+  hr
+    border: none 
+    height: 1px
+    color: color-default
+    background-color: color-default
+
   .caption
     display: block
     font-size: 0.9em

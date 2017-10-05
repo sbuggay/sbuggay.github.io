@@ -17,8 +17,13 @@
   @media mq-mobile
     background-color: black
 
+#main-nav-social
+  @media mq-mobile
+    display: none
+
 $nav-link
-  color: #fff
+  color: color-default
+  font-size: 1.2em
   text-decoration: none
   margin-right: 20px
   &:hover
@@ -26,6 +31,11 @@ $nav-link
 
 .main-nav-link
   @extend $nav-link
+  &:before
+    content: "/"
+  &:first-of-type
+    &:before
+      content: "$"
 
 .main-nav-link-selected
   @extend $nav-link
@@ -34,7 +44,7 @@ $nav-link
     text-decoration: none
 
 .main-nav-icon
-  color: #fff
+  color: color-default
   text-decoration: none
   margin-left: 20px
   font-size: 30px

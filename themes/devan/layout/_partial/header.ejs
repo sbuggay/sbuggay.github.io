@@ -4,10 +4,10 @@
       <nav id="main-nav">
         <div>
           <% for (var i in theme.menu) { %>
-              <a class="main-nav-link" href="<%- url_for(theme.menu[i]) %>">/<%= i %></a>
+              <a class="main-nav-link" href="<%- url_for(theme.menu[i]) %>"><%= i %></a>
           <% } %>
         </div>
-        <div>
+        <div id="main-nav-social">
           <a class="main-nav-icon linkedin" href="https://www.linkedin.com/in/devanbuggay/">
             <i class="icon-linkedin-squared" aria-hidden="true"></i>
           </a>

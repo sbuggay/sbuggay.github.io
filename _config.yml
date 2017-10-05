@@ -63,7 +63,7 @@ pagination_dir: page
 ## Themes: https://hexo.io/themes/
 theme: devan
 
-all_minifier: true
+all_minifier: false
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html

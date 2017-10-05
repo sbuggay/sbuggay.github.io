@@ -4,9 +4,7 @@
 .article-inner
   @extend $block
   overflow: hidden
-
-.article-meta
-  clearfix()
+  padding-bottom: 1.6em
 
 .article-date
   float: left
@@ -22,8 +20,6 @@
 
 .article-title
   text-decoration: none
-  font-size: 2em
-  color: color-default
   line-height: line-height-title
   transition: color 0.2s
   a&:hover
@@ -31,15 +27,11 @@
 
 .article-entry
   @extend $base-style
-  clearfix()
   color: color-default
   padding: 0 article-padding article-padding article-padding
   p, table
     line-height: line-height
     margin: line-height 0
-  h1, h2, h3, h4, h5, h6
-    line-height: line-height-title
-    margin: line-height-title 0
   a
     color: color-link
     text-decoration: none
@@ -58,11 +50,13 @@
     border-collapse: collapse
     border-spacing: 0
   th
-    border-bottom: 3px solid color-border
+    border-bottom: 1px solid color-border
     padding-bottom: 0.5em
+    font-weight: bold
   td
     border-bottom: 1px solid color-border
     padding: 10px 0
+<<<<<<< HEAD
   blockquote
     font-family: font-serif
     font-size: 1.4em
@@ -82,6 +76,8 @@
     color: color-default
     background-color: color-default
 
+=======
+>>>>>>> 6a961089e279f54effbff10660abfa789c8e7cc8
   .caption
     display: block
     font-size: 0.9em
@@ -104,7 +100,6 @@
     text-shadow: 0 1px darken(color-link, 20%)
 
 .article-footer
-  clearfix()
   line-height: line-height
   border-top: 1px solid color-border
   padding-top: line-height
@@ -123,13 +118,10 @@
     content: "#"
 
 #article-nav
-  clearfix()
   position: relative
-  margin-top: 20px;
 
 .article-nav-link-wrap
   text-decoration: none
-  box-sizing: border-box
   margin-top: block-margin
   text-align: center
   display: block

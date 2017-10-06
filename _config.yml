@@ -63,6 +63,11 @@ pagination_dir: page
 ## Themes: https://hexo.io/themes/
 theme: devan
 
+feed:
+  type: atom
+  path: atom.xml
+  limit: 0
+
 all_minifier: false
 
 # Deployment

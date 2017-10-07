@@ -17,6 +17,10 @@
   @media mq-mobile
     background-color: black
 
+#main-nav-links
+  display: flex
+  height: 100%
+
 #main-nav-social
   @media mq-mobile
     display: none
@@ -30,12 +34,18 @@ $nav-link
     text-decoration: underline
 
 .main-nav-link
-  @extend $nav-link
+  height: 100%
+  padding: 0 10px
+  display: flex
+  align-items: center
   &:before
     content: "/"
   &:first-of-type
+    padding-left: 0
     &:before
       content: "$"
+  &:hover
+    background-color: color-backround-alt
 
 .main-nav-link-selected
   @extend $nav-link

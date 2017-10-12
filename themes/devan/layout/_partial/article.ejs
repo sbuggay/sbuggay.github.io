@@ -22,8 +22,10 @@
     <% if (index){ %>
       <hr>
     <% } %>
+    <% if (!index){ %>
+    <footer class="article-footer">
+      <%- partial('post/nav') %>
+    </footer>
+    <% } %>
   </div>
-  <% if (!index){ %>
-    <%- partial('post/nav') %>
-  <% } %>
 </article>

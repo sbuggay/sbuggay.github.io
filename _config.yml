@@ -24,6 +24,7 @@ category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
+  README.md
 
 # Writing
 new_post_name: :title.md # File name of new posts
@@ -62,6 +63,11 @@ pagination_dir: page
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 theme: devan
+
+feed:
+  type: atom
+  path: atom.xml
+  limit: 0
 
 all_minifier: false
 

@@ -14,8 +14,10 @@
   justify-content: space-between
   align-items: center
   height: 100%
-  @media mq-mobile
-    background-color: black
+
+#main-nav-links
+  display: flex
+  height: 100%
 
 #main-nav-social
   @media mq-mobile
@@ -30,12 +32,19 @@ $nav-link
     text-decoration: underline
 
 .main-nav-link
-  @extend $nav-link
+  height: 100%
+  padding: 0 15px
+  display: flex
+  align-items: center
+  font-size: 1.2em
   &:before
     content: "/"
   &:first-of-type
+    padding-left: 0
     &:before
       content: "$"
+  &:hover
+    background-color: color-backround-alt
 
 .main-nav-link-selected
   @extend $nav-link
@@ -46,14 +55,7 @@ $nav-link
 .main-nav-icon
   color: color-default
   text-decoration: none
-  margin-left: 20px
-  font-size: 30px
-  &.twitter
-    &:hover
-      color: color-twitter
-  &.linkedin
-    &:hover
-      color: color-linkedin
-  &.github
-    &:hover
-      color: #6e5494
+  margin-left: 10px
+  font-size: 1.5em
+  &:hover
+    text-decoration: none

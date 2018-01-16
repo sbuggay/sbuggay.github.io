@@ -2,20 +2,23 @@
   <div id="header-outer" class="outer">
     <div id="header-inner" class="inner">
       <nav id="main-nav">
-        <div>
+        <div id="main-nav-links">
           <% for (var i in theme.menu) { %>
               <a class="main-nav-link" href="<%- url_for(theme.menu[i]) %>"><%= i %></a>
           <% } %>
         </div>
         <div id="main-nav-social">
-          <a class="main-nav-icon linkedin" href="https://www.linkedin.com/in/devanbuggay/">
-            <i class="icon-linkedin-squared" aria-hidden="true"></i>
+          <a class="main-nav-icon" href="https://stackoverflow.com/users/472974/devan-buggay">
+            <i class="fa fa-stack-overflow" aria-hidden="true"></i>
           </a>
-          <a class="main-nav-icon twitter" href="https://twitter.com/DevanBuggay">
-            <i class="icon-twitter-squared" aria-hidden="true"></i>
+          <a class="main-nav-icon" href="https://www.linkedin.com/in/devanbuggay/">
+            <i class="fa fa-linkedin" aria-hidden="true"></i>
           </a>
-          <a class="main-nav-icon github" href="https://github.com/sbuggay">
-            <i class="icon-github-squared" aria-hidden="true"></i>
+          <a class="main-nav-icon" href="https://github.com/sbuggay">
+            <i class="fa fa-github-alt" aria-hidden="true"></i>
+          </a>
+          <a class="main-nav-icon" href="/atom.xml">
+            <i class="fa fa-rss" aria-hidden="true"></i>
           </a>
         <div>
       </nav>

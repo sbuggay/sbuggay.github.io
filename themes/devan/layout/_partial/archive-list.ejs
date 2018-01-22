@@ -1,0 +1,10 @@
+<ul>
+<% to = 0 %>
+<% page.posts.each(function(post) { %>
+    <% if (to < count) { %>
+        <li><a href="<%- url_for(post.path) %>"><%- post.title %></a></li>
+        <% to++ %>
+    <% } %>
+<% }) %>
+</ul>
+<div>... see more posts <a href="/archives">here</a></div>

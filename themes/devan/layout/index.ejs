@@ -1,1 +1,17 @@
-<%- partial('_partial/archive', {pagination: 2, index: true}) %>
+<div id="home">
+    <p>I'm Devan Buggay</p>
+    <div id="latest">
+        <div class="latest-component">
+            <a href="/archives"><h2>Latest posts</h2></a>
+            <%- partial('_partial/archive-list', {count: 5}) %>
+        </div>
+        <div class="latest-component">
+            <a href="/projects"><h2>Projects</h2></a>
+        </div>
+    </div>
+
+    <hr>
+    <h2>
+        Contact
+    </h2>
+</div>

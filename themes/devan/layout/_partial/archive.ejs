@@ -12,9 +12,6 @@
       <% } %>
       <% last = year; %>
       <section class="archives-wrap">
-        <h1>
-          <a href="<%- url_for(config.archive_dir + '/' + year) %>" class="archive-year"><%= year %></a>
-        </h1>
         <div class="archives">
     <% } %>
     <%- partial('archive-post', {post: post}) %>

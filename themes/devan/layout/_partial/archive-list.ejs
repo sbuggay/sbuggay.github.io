@@ -1,5 +1,9 @@
 <ul>
+<% to = 0 %>
 <% page.posts.each(function(post) { %>
-    <li><%- post.title %></li>
+    <% if (to < count) { %>
+        <li><%- post.title %></li>
+        <% to++ %>
+    <% } %>
 <% }) %>
 </ul> 

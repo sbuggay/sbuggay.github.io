@@ -3,9 +3,15 @@
 }
 #latest {
   display: flex;
+  flex-wrap: wrap;
 }
-.latest-component {
-  width: 50%;
+#latest .component {
+  flex: 0 50%;
+}
+@media mq-mobile {
+  #latest .component {
+    flex: 0 100%;
+  }
 }
 ul {
   margin: 1em 0 1em;

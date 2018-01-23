@@ -2,22 +2,21 @@
     <% to = 0 %>
         <% page.posts.each(function(post) { %>
             <% if (to < count) { %>
-                <li>
-                    <a href="<%- url_for(post.path) %>">
-                        <span>
-                            <%- post.title %>
-                        </span>
-                        <div>
-                            <time>
-                                <%= date(post.date, 'MM-D-YYYY') %>
-                    </a>
+            <li>
+                <a href="<%- url_for(post.path) %>">
+                    <span>
+                        <%- post.title %>
+                    </span>
+
+                    <time>
+                        <%= date(post.date, 'MM-D-YYYY') %>
                     </time>
-                    </div>
-                </li>
+                </a>
+            </li>
 <% to++ %>
 <% } %>
 <% }) %>
-<li style="list-style: none;">see more posts
+<li style="list-style: none;"> ... see more posts
     <a href="/archives">here</a>
 </li>
 </ul>

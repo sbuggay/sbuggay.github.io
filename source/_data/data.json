@@ -4,7 +4,8 @@
         {
             "name": "Sentry",
             "link": "https://github.com/sbuggay/sentry",
-            "description": "A self hosted dashboard to monitor servers and services. (typescript, react, redux, node)"
+            "description": "A self hosted dashboard to monitor servers and services.",
+            "tags": ["typescript", "react", "redux", "node"]
         },
         {
             "name": "SongBar",

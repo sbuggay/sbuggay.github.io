@@ -1,0 +1,29 @@
+#home p {
+  margin: 1em 0 1em;
+}
+#latest {
+  display: flex;
+}
+.latest-component {
+  width: 50%;
+}
+ul {
+  margin: 1em 0 1em;
+}
+ul li {
+  list-style: circle;
+}
+ul a {
+  color: color-link;
+}
+ul a:hover {
+  text-decoration: none;
+}
+ul a span:hover {
+  text-decoration: underline;
+}
+ul a time {
+  padding-left: 1em;
+  color: color-orange;
+  font-size: 0.8em;
+}

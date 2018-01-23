@@ -1,0 +1,12 @@
+<ul>
+<% to = 0 %>
+<% for(var i=0; i < site.data.data.projects.length; i++) { %>
+    <% project = site.data.data.projects[i]; %>
+    <% if (to < count) { %>
+        <li>
+            <a href="<%- project.link %>"><%- project.name %></a><span> - </span><%- project.description %>
+        </li>
+        <% to++ %>
+    <% } %>
+<% } %>
+</ul>

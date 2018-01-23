@@ -108,6 +108,7 @@ body {
   color: #ddd;
   background: #1d1f21;
   font: 16px "Helvetica Neue", "Calibri Light", Roboto, sans-serif;
+  line-height: 1.4em;
 }
 a {
   color: #ddd;
@@ -120,13 +121,13 @@ h1 {
   font-size: 2em;
 }
 h2 {
-  font-size: 1.5em;
+  font-size: 1.75em;
 }
 h3 {
-  font-size: 1.17em;
+  font-size: 1.5em;
 }
 h4 {
-  font-size: 1em;
+  font-size: 1.25em;
 }
 .outer {
   max-width: 900px;
@@ -151,6 +152,40 @@ h4 {
   left: 0;
   z-index: 1;
   background: #1d1f21;
+}
+#home p {
+  margin: 1em 0 1em;
+}
+#latest {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+}
+.latest-component {
+  width: 50%;
+}
+ul {
+  margin: 1em 0 1em;
+}
+ul li {
+  list-style: circle;
+}
+ul a {
+  color: #258fb8;
+}
+ul a:hover {
+  text-decoration: none;
+}
+ul a span:hover {
+  text-decoration: underline;
+}
+ul a time {
+  padding-left: 1em;
+  color: #f90;
+  font-size: 0.8em;
 }
 .article-inner,
 .archive-article-inner {
@@ -177,7 +212,7 @@ h4 {
   margin-bottom: 0;
 }
 .article-entry ul {
-  list-style: disc;
+  list-style: circle;
 }
 .article-entry ol {
   list-style: decimal;
@@ -282,7 +317,21 @@ h4 {
   font-size: 1.5em;
 }
 .main-nav-icon:hover {
+  -webkit-transition: color 0.5s ease;
+  -moz-transition: color 0.5s ease;
+  -o-transition: color 0.5s ease;
+  -ms-transition: color 0.5s ease;
+  transition: color 0.5s ease;
   text-decoration: none;
+}
+.main-nav-icon:hover.stack-overflow {
+  color: #f48024;
+}
+.main-nav-icon:hover.linkedin {
+  color: #00aced;
+}
+.main-nav-icon:hover.github {
+  color: #6e5494;
 }
 .article {
   margin: 0px;
@@ -694,22 +743,4 @@ pre .coffeescript .title {
 pre .keyword,
 pre .javascript .function {
   color: #c9c;
-}
-@font-face {
-  font-family: 'fontello';
-  src: url("../font/fontello.eot?10854846");
-  src: url("../font/fontello.eot?10854846#iefix") format('embedded-opentype'), url("../font/fontello.woff2?10854846") format('woff2'), url("../font/fontello.woff?10854846") format('woff'), url("../font/fontello.ttf?10854846") format('truetype'), url("../font/fontello.svg?10854846#fontello") format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
-[class^="icon-"]:before,
-[class*=" icon-"]:before {
-  font-family: "fontello";
-  font-style: normal;
-  font-weight: normal;
-  display: inline-block;
-  text-align: center;
-/* For safety - reset parent styles, that can break glyph codes*/
-  font-variant: normal;
-  text-transform: none;
 }

@@ -4,37 +4,44 @@
         {
             "name": "Sentry",
             "link": "https://github.com/sbuggay/sentry",
-            "description": "A self hosted dashboard to monitor servers and services. (typescript, react, redux, node)"
+            "description": "A self hosted dashboard to monitor servers and services.",
+            "tags": ["typescript", "react", "redux", "node"]
         },
         {
             "name": "SongBar",
             "link": "https://github.com/sbuggay/SongBar",
-            "description": "An application to show track information from iTunes or Spotify in the menu bar. (macos, obj-c)"
+            "description": "An application to show track information from iTunes or Spotify in the menu bar.",
+            "tags": ["macos", "obj-c"]
         },
         {
             "name": "DotaSalt",
             "link": "https://github.com/sbuggay/dotasalt",
-            "description": "A simple DotA 2 match and player viewer. (python, flask)"
+            "description": "A simple DotA 2 match and player viewer.",
+            "tags": ["python", "flask"]
         },
         {
             "name": "csgo-sync",
             "link": "https://github.com/sbuggay/csgo-sync",
-            "description": "npm application to back up and synchronize Counter-Strike: Global Offensive configs. (typescript, node)"
+            "description": "npm application to back up and synchronize Counter-Strike: Global Offensive configs.",
+            "tags": ["typescript", "node"]
         },
         {
             "name": "srcds-manager",
             "link": "https://github.com/sbuggay/srcds-manager",
-            "description": "A web frontend allowing RCON control of hosted servers. (typescript, node)"
+            "description": "A web frontend allowing RCON control of hosted servers.",
+            "tags": ["typescript", "node"]
         },
         {
             "name": "silversrc",
             "link": "https://github.com/sbuggay/silversrc",
-            "description": "A reimplementation of the Quake engine for learning purposes. (c)"
+            "description": "A reimplementation of the Quake engine for learning purposes.",
+            "tags": ["c"]
         },
         {
             "name": "gt-scrape",
             "link": "https://github.com/sbuggay/gt-scrape",
-            "description": "GT scraper for server statistics. (typescript, node)"
+            "description": "GT scraper for server statistics.",
+            "tags": ["typescript", "node"]
         }
     ]
 }

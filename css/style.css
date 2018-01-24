@@ -196,19 +196,26 @@ ul {
 ul li {
   list-style: circle;
 }
-ul a {
+ul li a {
   color: #258fb8;
 }
-ul a:hover {
+ul li a:hover {
   text-decoration: none;
 }
-ul a span:hover {
+ul li a span:hover {
   text-decoration: underline;
 }
-ul a time {
-  padding-left: 1em;
+ul li time {
   color: #f90;
-  font-size: 0.8em;
+  font-size: 0.9em;
+}
+ul .tag {
+  color: #f90;
+  font-size: 0.9em;
+  border: 1px solid #000;
+  border-radius: 5px;
+  background-color: #333;
+  padding: 0 5px;
 }
 .article-inner,
 .archive-article-inner {
@@ -339,6 +346,15 @@ ul a time {
   margin-left: 10px;
   font-size: 1.5em;
 }
+.main-nav-icon.stack-overflow {
+  color: #f48024;
+}
+.main-nav-icon.linkedin {
+  color: #00aced;
+}
+.main-nav-icon.github {
+  color: #6e5494;
+}
 .main-nav-icon:hover {
   -webkit-transition: color 0.5s ease;
   -moz-transition: color 0.5s ease;
@@ -346,15 +362,6 @@ ul a time {
   -ms-transition: color 0.5s ease;
   transition: color 0.5s ease;
   text-decoration: none;
-}
-.main-nav-icon:hover.stack-overflow {
-  color: #f48024;
-}
-.main-nav-icon:hover.linkedin {
-  color: #00aced;
-}
-.main-nav-icon:hover.github {
-  color: #6e5494;
 }
 .article {
   margin: 0px;

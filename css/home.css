@@ -19,17 +19,24 @@ ul {
 ul li {
   list-style: circle;
 }
-ul a {
+ul li a {
   color: color-link;
 }
-ul a:hover {
+ul li a:hover {
   text-decoration: none;
 }
-ul a span:hover {
+ul li a span:hover {
   text-decoration: underline;
 }
-ul a time {
-  padding-left: 1em;
+ul li time {
   color: color-orange;
-  font-size: 0.8em;
+  font-size: 0.9em;
+}
+ul .tag {
+  color: color-orange;
+  font-size: 0.9em;
+  border: 1px solid #000;
+  border-radius: 5px;
+  background-color: #333;
+  padding: 0 5px;
 }

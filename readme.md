@@ -7,10 +7,10 @@ npm install
 
 Development
 ```
-hexo server
+hexo serve
 ```
 
 Deployment to master
 ```
-hexo deploy
+npm run deploy
 ```

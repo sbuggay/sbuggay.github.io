@@ -85,7 +85,7 @@ ga('send', 'pageview');
       
         <p>The map data serialization for Doom 1/2 is pretty well outlined here on the <a href="http://doom.wikia.com/wiki/WAD" target="_blank" rel="external">Doom wikia</a>. Game data (including map information) is stored in WAD (Where’s All the Data?) files. If you want to follow along with a DOOM 1 or DOOM 2 WAD you will need to purchase the games as the game data is not freeware. If not you could try parsing something like <a href="https://freedoom.github.io" target="_blank" rel="external">Freedoom</a>.</p>
 <p>It follows the following format:</p>
-<p>The header struct, refered to as wadinfo_t:</p>
+<p>The header struct, refered to as <code>wadinfo_t</code>:</p>
 <table>
 <thead>
 <tr>
@@ -116,7 +116,7 @@ ga('send', 'pageview');
 </tr>
 </tbody>
 </table>
-<p>The directory struct, refered to as filelump_t:</p>
+<p>The directory struct, refered to as <code>filelump_t</code>:</p>
 <table>
 <thead>
 <tr>
@@ -149,12 +149,12 @@ ga('send', 'pageview');
 </table>
 <p>We will respresents these two structures like this:</p>
 <figure class="highlight c"><table><tr><td class="code"><pre><div class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">header_t</span> &#123;</span></div><div class="line">    <span class="keyword">char</span> id[<span class="number">4</span>];</div><div class="line">    <span class="keyword">int</span> numlumps;</div><div class="line">    <span class="keyword">int</span> infotableofs;</div><div class="line">&#125; <span class="keyword">header_t</span>;</div><div class="line"></div><div class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">directory_t</span> &#123;</span></div><div class="line">    <span class="keyword">int</span> filepos;</div><div class="line">    <span class="keyword">int</span> size;</div><div class="line">    <span class="keyword">char</span> name[<span class="number">8</span>];</div><div class="line">&#125; <span class="keyword">directory_t</span>;</div></pre></td></tr></table></figure>
-<p>Load our WAD into memory and read in the header:</p>
+<p>Lets load our WAD into memory and read in the header:</p>
 <figure class="highlight c"><table><tr><td class="code"><pre><div class="line">FILE *wad = fopen(<span class="string">"DOOM2.WAD"</span>, <span class="string">"rb"</span>);</div><div class="line"></div><div class="line"><span class="keyword">header_t</span> header;</div><div class="line">fread(&amp;header, <span class="keyword">sizeof</span>(<span class="keyword">header_t</span>), <span class="number">1</span>, wad);</div></pre></td></tr></table></figure>
-<p>With our header read in we gain some information. <code>id</code> should be either <code>&quot;IWAD&quot;</code> (for Internal WAD) or <code>&quot;PWAD&quot;</code> (Used for expansions or modding.) <code>numlumps</code> will be how many lump directories we have with <code>infotableofs</code> being the offset of where this list starts in memory. Now we can start reading in our lumps:</p>
+<p>With our header read in we get some information on the structure itself. <code>id</code> should be either <code>&quot;IWAD&quot;</code> (for Internal WAD) or <code>&quot;PWAD&quot;</code> (Used for expansions or modding.) <code>numlumps</code> will be how many lump directories we have with <code>infotableofs</code> being the offset of where this list starts in memory. Now we can start reading in our lumps:</p>
 <figure class="highlight c"><table><tr><td class="code"><pre><div class="line"><span class="comment">// Allocate space for our lumps</span></div><div class="line"><span class="keyword">directory_t</span> *lumps = <span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">directory_t</span>) * header.numlumps);</div><div class="line"></div><div class="line"><span class="comment">// Move the file head to the infotable offset</span></div><div class="line">fseek(wad, header.infotableofs, SEEK_SET);</div><div class="line"><span class="comment">// Read them in</span></div><div class="line">fread(lumps, <span class="keyword">sizeof</span>(<span class="keyword">directory_t</span>), header.numlumps, wad);</div></pre></td></tr></table></figure>
 <p>Lets iterate over the first 20 to see what we have to work with.</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><div class="line"><span class="keyword">directory_t</span> *lump = lumps;</div><div class="line"></div><div class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">15</span>; i++) &#123;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%.8s (%d) [%d]\n"</span>, lump-&gt;name, lump-&gt;filepos, lump-&gt;size);</div><div class="line">    lump++;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="code"><pre><div class="line"><span class="keyword">directory_t</span> *lump = lumps;</div><div class="line"></div><div class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">20</span>; i++) &#123;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%.8s (%d) [%d]\n"</span>, lump-&gt;name, lump-&gt;filepos, lump-&gt;size);</div><div class="line">    lump++;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>Here is the output:</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">PLAYPAL (12) [10752]</div><div class="line">COLORMAP (10764) [8704]</div><div class="line">ENDOOM (19468) [4000]</div><div class="line">DEMO1 (23468) [4834]</div><div class="line">DEMO2 (28304) [8018]</div><div class="line">DEMO3 (36324) [17898]</div><div class="line">MAP01 (54224) [0]</div><div class="line">THINGS (54224) [690]</div><div class="line">LINEDEFS (54916) [5180]</div><div class="line">SIDEDEFS (60096) [15870]</div><div class="line">VERTEXES (75968) [1532]</div><div class="line">SEGS (77500) [7212]</div><div class="line">SSECTORS (84712) [776]</div><div class="line">NODES (85488) [5404]</div><div class="line">SECTORS (90892) [1534]</div><div class="line">REJECT (92428) [436]</div><div class="line">BLOCKMAP (92864) [6418]</div><div class="line">MAP02 (99284) [0]</div><div class="line">THINGS (99284) [1730]</div><div class="line">LINEDEFS (101016) [7322]</div></pre></td></tr></table></figure>
 <p>The first six are:</p>
@@ -166,7 +166,7 @@ ga('send', 'pageview');
 </ul>
 <p>After that we get to what we are actually interested in, a map marker.</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">MAP01 (54224) [0]</div></pre></td></tr></table></figure>
-<p>Notice that the size of this lump is <code>0</code>. This is not always true for WADs though. A better test is testing against the name, which must follow the format of: <code>ExMy</code> or <code>MAPxx</code>.</p>
+<p>Notice that the size of this lump is <code>0</code>. This is not always true for WADs though (games like Hexen actually use this space to store data in.) A better test is testing against the name, which must follow the format of: <code>ExMy</code> or <code>MAPxx</code> in the case of Doom.</p>
 <p>What’s important is what comes after the map markers, these structures are always present:</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">THINGS (54224) [690]</div><div class="line">LINEDEFS (54916) [5180]</div><div class="line">SIDEDEFS (60096) [15870]</div><div class="line">VERTEXES (75968) [1532]</div><div class="line">SEGS (77500) [7212]</div><div class="line">SSECTORS (84712) [776]</div><div class="line">NODES (85488) [5404]</div><div class="line">SECTORS (90892) [1534]</div><div class="line">REJECT (92428) [436]</div><div class="line">BLOCKMAP (92864) [6418]</div></pre></td></tr></table></figure>
 <p>The only ones we need to concern ourselves with are:</p>

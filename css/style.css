@@ -111,7 +111,7 @@ body {
   line-height: 1.4em;
 }
 a {
-  color: #ddd;
+  color: #258fb8;
   text-decoration: none;
 }
 a:hover {
@@ -321,6 +321,7 @@ ul .tag {
   -webkit-align-items: center;
   align-items: center;
   font-size: 1.2em;
+  color: #ddd;
 }
 .main-nav-link:before {
   content: "/";
@@ -345,6 +346,11 @@ ul .tag {
   text-decoration: none;
   margin-left: 10px;
   font-size: 1.5em;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 .main-nav-icon.stack-overflow {
   color: #f48024;
@@ -356,12 +362,12 @@ ul .tag {
   color: #6e5494;
 }
 .main-nav-icon:hover {
-  -webkit-transition: color 0.5s ease;
-  -moz-transition: color 0.5s ease;
-  -o-transition: color 0.5s ease;
-  -ms-transition: color 0.5s ease;
-  transition: color 0.5s ease;
   text-decoration: none;
+  -webkit-transform: scale(1.5);
+  -moz-transform: scale(1.5);
+  -o-transform: scale(1.5);
+  -ms-transform: scale(1.5);
+  transform: scale(1.5);
 }
 .article {
   margin: 0px;

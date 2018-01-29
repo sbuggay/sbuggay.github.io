@@ -1,6 +1,9 @@
 ---
 title: Hashing Windows Processes and Modules
 date: 2016-12-11 14:04:59
+tags:
+    - c++
+    - windows
 ---
 
 ### Enumerating Process List

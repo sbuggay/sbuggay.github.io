@@ -37,6 +37,7 @@ $nav-link
   display: flex
   align-items: center
   font-size: 1.2em
+  color: color-default
   &:before
     content: "/"
   &:first-of-type
@@ -57,6 +58,7 @@ $nav-link
   text-decoration: none
   margin-left: 10px
   font-size: 1.5em
+  transition: all .2s ease-in-out
   &.stack-overflow
     color: color-stackoverflow
   &.linkedin
@@ -64,6 +66,6 @@ $nav-link
   &.github
     color: color-github
   &:hover
-    transition: color 0.5s ease
     text-decoration: none
+    transform: scale(1.5)
     

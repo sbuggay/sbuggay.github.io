@@ -2,33 +2,39 @@
   p
     margin: 1em 0 1em
 
-#latest
-  display: flex
-  flex-wrap: wrap
-  
-  .component
-    flex: 0 50%
-    @media mq-mobile
-      flex: 0 100%
+  hr
+    margin-bottom: 20px
+    border: none
+    height: 1px
+    background-color: color-border
 
-ul
-  margin: 1em 0 1em
-  li
-    list-style: circle
-    a
-      color: color-link 
-      &:hover
-        text-decoration: none
-      span
+  #latest
+    display: flex
+    flex-wrap: wrap
+    
+    .component
+      flex: 0 50%
+      @media mq-tablet
+        flex: 0 100%
+
+  ul
+    margin: 1em 0 1em
+    li
+      list-style: circle
+      a
+        color: color-link 
         &:hover
-          text-decoration: underline
-    time
-      color: color-orange
-      font-size: .9em
-  .tag
-      color: color-orange
-      font-size: .9em
-      border: 1px solid black;
-      border-radius: 5px;
-      background-color: #333;
-      padding: 0 5px;
+          text-decoration: none
+        span
+          &:hover
+            text-decoration: underline
+      time
+        color: color-orange
+        font-size: .9em
+    .tag
+        color: color-orange
+        font-size: .9em
+        border: 1px solid black;
+        border-radius: 5px;
+        background-color: #333;
+        padding: 0 5px;

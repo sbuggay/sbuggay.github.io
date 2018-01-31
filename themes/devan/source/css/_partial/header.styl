@@ -20,7 +20,7 @@
   height: 100%
 
 #main-nav-social
-  @media mq-mobile
+  @media mq-tablet
     display: none
 
 $nav-link
@@ -37,6 +37,8 @@ $nav-link
   display: flex
   align-items: center
   font-size: 1.2em
+  @media mq-tablet
+    font-size 1em
   color: color-default
   &:before
     content: "/"

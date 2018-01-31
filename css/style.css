@@ -131,11 +131,11 @@ h4 {
 }
 .outer {
   max-width: 900px;
-  margin: 0 auto;
+  margin: 0 20px;
 }
-@media screen and (max-width: 479px) {
+@media screen and (min-width: 768px) {
   .outer {
-    margin: 0 6px;
+    margin: 0 auto;
   }
 }
 .clear {
@@ -156,7 +156,13 @@ h4 {
 #home p {
   margin: 1em 0 1em;
 }
-#latest {
+#home hr {
+  margin-bottom: 20px;
+  border: none;
+  height: 1px;
+  background-color: #ddd;
+}
+#home #latest {
   display: -webkit-box;
   display: -moz-box;
   display: -webkit-flex;
@@ -170,46 +176,46 @@ h4 {
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
 }
-#latest .component {
+#home #latest .component {
   -webkit-box-flex: 1;
   -moz-box-flex: 1;
   -o-box-flex: 1;
   box-flex: 1;
-  -webkit-flex: 0 50%;
-  -ms-flex: 0 50%;
-  flex: 0 50%;
+  -webkit-flex: 0 100%;
+  -ms-flex: 0 100%;
+  flex: 0 100%;
 }
-@media screen and (max-width: 479px) {
-  #latest .component {
+@media screen and (min-width: 768px) {
+  #home #latest .component {
     -webkit-box-flex: 1;
     -moz-box-flex: 1;
     -o-box-flex: 1;
     box-flex: 1;
-    -webkit-flex: 0 100%;
-    -ms-flex: 0 100%;
-    flex: 0 100%;
+    -webkit-flex: 0 50%;
+    -ms-flex: 0 50%;
+    flex: 0 50%;
   }
 }
-ul {
+#home ul {
   margin: 1em 0 1em;
 }
-ul li {
+#home ul li {
   list-style: circle;
 }
-ul li a {
+#home ul li a {
   color: #258fb8;
 }
-ul li a:hover {
+#home ul li a:hover {
   text-decoration: none;
 }
-ul li a span:hover {
+#home ul li a span:hover {
   text-decoration: underline;
 }
-ul li time {
+#home ul li time {
   color: #f90;
   font-size: 0.9em;
 }
-ul .tag {
+#home ul .tag {
   color: #f90;
   font-size: 0.9em;
   border: 1px solid #000;
@@ -291,7 +297,7 @@ ul .tag {
   display: flex;
   height: 100%;
 }
-@media screen and (max-width: 479px) {
+@media screen and (min-width: 480px) and (max-width: 767px) {
   #main-nav-social {
     display: none;
   }
@@ -323,6 +329,11 @@ ul .tag {
   font-size: 1.2em;
   color: #ddd;
 }
+@media screen and (min-width: 480px) and (max-width: 767px) {
+  .main-nav-link {
+    font-size: 1em;
+  }
+}
 .main-nav-link:before {
   content: "/";
 }
@@ -342,7 +353,7 @@ ul .tag {
   text-decoration: none;
 }
 .main-nav-icon {
-  color: #ddd;
+  color: color-backround-alt;
   text-decoration: none;
   margin-left: 10px;
   font-size: 1.5em;
@@ -352,22 +363,9 @@ ul .tag {
   -ms-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
-.main-nav-icon.stack-overflow {
-  color: #f48024;
-}
-.main-nav-icon.linkedin {
-  color: #00aced;
-}
-.main-nav-icon.github {
-  color: #6e5494;
-}
 .main-nav-icon:hover {
+  color: #ddd;
   text-decoration: none;
-  -webkit-transform: scale(1.5);
-  -moz-transform: scale(1.5);
-  -o-transform: scale(1.5);
-  -ms-transform: scale(1.5);
-  transform: scale(1.5);
 }
 .article {
   margin: 0px;

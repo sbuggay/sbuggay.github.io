@@ -1,38 +1,44 @@
 #home p {
   margin: 1em 0 1em;
 }
-#latest {
+#home hr {
+  margin-bottom: 20px;
+  border: none;
+  height: 1px;
+  background-color: color-border;
+}
+#home #latest {
   display: flex;
   flex-wrap: wrap;
 }
-#latest .component {
-  flex: 0 50%;
+#home #latest .component {
+  flex: 0 100%;
 }
-@media mq-mobile {
-  #latest .component {
-    flex: 0 100%;
+@media mq-normal {
+  #home #latest .component {
+    flex: 0 50%;
   }
 }
-ul {
+#home ul {
   margin: 1em 0 1em;
 }
-ul li {
+#home ul li {
   list-style: circle;
 }
-ul li a {
+#home ul li a {
   color: color-link;
 }
-ul li a:hover {
+#home ul li a:hover {
   text-decoration: none;
 }
-ul li a span:hover {
+#home ul li a span:hover {
   text-decoration: underline;
 }
-ul li time {
+#home ul li time {
   color: color-orange;
   font-size: 0.9em;
 }
-ul .tag {
+#home ul .tag {
   color: color-orange;
   font-size: 0.9em;
   border: 1px solid #000;

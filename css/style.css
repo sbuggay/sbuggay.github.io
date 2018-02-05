@@ -133,7 +133,7 @@ h4 {
   max-width: 900px;
   margin: 0 20px;
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 900px) {
   .outer {
     margin: 0 auto;
   }
@@ -185,7 +185,7 @@ h4 {
   -ms-flex: 0 100%;
   flex: 0 100%;
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 900px) {
   #home #latest .component {
     -webkit-box-flex: 1;
     -moz-box-flex: 1;
@@ -196,26 +196,37 @@ h4 {
     flex: 0 50%;
   }
 }
-#home ul {
+#home #latest .component hr {
+  margin-bottom: 20px;
+  border: none;
+  height: 1px;
+  background-color: #ddd;
+}
+@media screen and (min-width: 900px) {
+  #home #latest .component hr {
+    display: none;
+  }
+}
+ul {
   margin: 1em 0 1em;
 }
-#home ul li {
+ul li {
   list-style: circle;
 }
-#home ul li a {
+ul li a {
   color: #258fb8;
 }
-#home ul li a:hover {
+ul li a:hover {
   text-decoration: none;
 }
-#home ul li a span:hover {
+ul li a span:hover {
   text-decoration: underline;
 }
-#home ul li time {
+ul li time {
   color: #f90;
   font-size: 0.9em;
 }
-#home ul .tag {
+ul .tag {
   color: #f90;
   font-size: 0.9em;
   border: 1px solid #000;
@@ -297,9 +308,12 @@ h4 {
   display: flex;
   height: 100%;
 }
-@media screen and (min-width: 480px) and (max-width: 767px) {
+#main-nav-social {
+  display: none;
+}
+@media screen and (min-width: 900px) {
   #main-nav-social {
-    display: none;
+    display: block;
   }
 }
 .main-nav-link-selected {
@@ -329,7 +343,7 @@ h4 {
   font-size: 1.2em;
   color: #ddd;
 }
-@media screen and (min-width: 480px) and (max-width: 767px) {
+@media screen and (min-width: 480px) and (max-width: 899px) {
   .main-nav-link {
     font-size: 1em;
   }
@@ -353,7 +367,7 @@ h4 {
   text-decoration: none;
 }
 .main-nav-icon {
-  color: color-backround-alt;
+  color: #ddd;
   text-decoration: none;
   margin-left: 10px;
   font-size: 1.5em;
@@ -364,7 +378,7 @@ h4 {
   transition: all 0.2s ease-in-out;
 }
 .main-nav-icon:hover {
-  color: #ddd;
+  color: #fff;
   text-decoration: none;
 }
 .article {
@@ -490,10 +504,6 @@ a.article-title:hover {
   text-decoration: none;
   text-shadow: 0 1px #1e7293;
 }
-.article-footer {
-  border-top: 1px solid #ddd;
-  padding-top: 1.4em;
-}
 .article-tag-list-item {
   float: left;
   margin-right: 10px;
@@ -502,6 +512,8 @@ a.article-title:hover {
   content: "#";
 }
 #article-nav {
+  border-top: 1px solid #ddd;
+  padding-top: 1.4em;
   margin-bottom: 20px;
 }
 .article-nav-link-wrap {
@@ -514,19 +526,19 @@ a.article-title:hover {
   color: #ddd;
   text-decoration: underline;
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 900px) {
   .article-nav-link-wrap {
     width: 50%;
     margin-top: 0;
   }
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 900px) {
   #article-nav-newer {
     float: right;
     text-align: right;
   }
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 900px) {
   #article-nav-older {
     float: left;
     text-align: left;

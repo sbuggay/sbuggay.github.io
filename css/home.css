@@ -19,26 +19,37 @@
     flex: 0 50%;
   }
 }
-#home ul {
+#home #latest .component hr {
+  margin-bottom: 20px;
+  border: none;
+  height: 1px;
+  background-color: color-border;
+}
+@media mq-normal {
+  #home #latest .component hr {
+    display: none;
+  }
+}
+ul {
   margin: 1em 0 1em;
 }
-#home ul li {
+ul li {
   list-style: circle;
 }
-#home ul li a {
+ul li a {
   color: color-link;
 }
-#home ul li a:hover {
+ul li a:hover {
   text-decoration: none;
 }
-#home ul li a span:hover {
+ul li a span:hover {
   text-decoration: underline;
 }
-#home ul li time {
+ul li time {
   color: color-orange;
   font-size: 0.9em;
 }
-#home ul .tag {
+ul .tag {
   color: color-orange;
   font-size: 0.9em;
   border: 1px solid #000;

@@ -1,5 +1,6 @@
 <ul>
     <% to = 0 %>
+    <% if (count == -1) { count = page.posts.length } %>
     <% page.posts.each(function(post) { %>
     <% if (to < count) { %>
     <li>

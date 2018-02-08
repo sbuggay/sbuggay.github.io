@@ -21,7 +21,10 @@
     <% to++ %>
     <% } %>
     <% }) %>
+
+    <% if (count != page.posts.length) { %>
     <li style="list-style: none;"> ... see more posts
         <a href="/archives">here</a>
     </li>
+    <% } %>
 </ul>

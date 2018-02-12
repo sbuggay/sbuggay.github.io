@@ -1,7 +1,6 @@
 <ul>
-    <% to = 0 %>
-    <% page.posts.each(function(post) { %>
-    <% if (to < count) { %>
+    <% if (count == -1) { count = page.posts.length } %>
+    <% site.posts.sort("date", -1).limit(count).each(function(post) { %>
     <li>
         <a href="<%- url_for(post.path) %>">
         <span>
@@ -17,10 +16,11 @@
         <% }); %>
         </div>
     </li>
-    <% to++ %>
-    <% } %>
-    <% }) %>
+    <% }); %>
+
+    <% if (count != page.posts.length) { %>
     <li style="list-style: none;"> ... see more posts
         <a href="/archives">here</a>
     </li>
+    <% } %>
 </ul>

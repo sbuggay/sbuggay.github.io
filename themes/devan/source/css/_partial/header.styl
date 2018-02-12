@@ -2,6 +2,7 @@
   height: banner-height
   border-bottom: 1px solid color-border
   margin-bottom: 20px
+  overflow-x: hidden
 
 #header-outer
   height: 100%
@@ -20,8 +21,10 @@
   height: 100%
 
 #main-nav-social
-  @media mq-mobile
-    display: none
+  display: none
+  @media mq-normal
+    display: block
+    
 
 $nav-link
   color: color-default
@@ -37,6 +40,8 @@ $nav-link
   display: flex
   align-items: center
   font-size: 1.2em
+  @media mq-tablet
+    font-size 1em
   color: color-default
   &:before
     content: "/"
@@ -59,13 +64,7 @@ $nav-link
   margin-left: 10px
   font-size: 1.5em
   transition: all .2s ease-in-out
-  &.stack-overflow
-    color: color-stackoverflow
-  &.linkedin
-    color: color-linkedin
-  &.github
-    color: color-github
   &:hover
+    color: white
     text-decoration: none
-    transform: scale(1.5)
     

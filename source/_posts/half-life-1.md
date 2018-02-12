@@ -24,10 +24,9 @@ Luckily for us, Valve open sourced the goldsrc engine in 2013. You can find the 
 
 Here is an example. Even though I am holding forward the entire time, the entity is solid until after the death animation is complete.
 
-Take a look at this function under [hldll/dlls/combat.cpp:518](https://github.com/sbuggay/halflife/blob/5d761709a31ce1e71488f2668321de05f791b405/dlls/combat.cpp#L518-L532).
-There were a few commented out lines of code that I have removed for clarity.
+Let's take a look at the relevant function. (There were a few commented out lines of code that I have removed for clarity.)
 
-```c++
+{% code combat.cpp lang:cpp https://github.com/sbuggay/halflife/blob/5d761709a31ce1e71488f2668321de05f791b405/dlls/combat.cpp#L518-L532 hldll/dlls/combat.cpp:518 line_number:true first_line:518 mark:532-533 %}
 void CBaseMonster::BecomeDead( void )
 {
 	// don't let autoaim aim at corpses.
@@ -45,7 +44,7 @@ void CBaseMonster::BecomeDead( void )
 	// make the corpse non-solid to not block the player after death
 	pev->solid = SOLID_NOT;
 }
-```
+{% endcode %}
 
 This function gets called after an entity takes damage and it's health drops below `0`. However, it doesn't normally set the `pev->solid` flag to `SOLID_NOT`. At the bottom, you will see our change.
 
@@ -60,8 +59,6 @@ After our change.
 
 As you can see, the marine no longer blocks us.
 
-
-
 ### With `hud_fastswitch 1`, if there is more than one weapon for that slot there is still an extra action to select it.
 ----
 
@@ -69,11 +66,9 @@ In Half-Life 2, activating a weapon slot that you are already using will automat
 
 I quite liked Half-Life 2's solution to the problem, so let's see if we can implement it.
 
-The relevant code is here: [cl_dll/ammo.cpp:416](https://github.com/ValveSoftware/halflife/blob/5d761709a31ce1e71488f2668321de05f791b405/cl_dll/ammo.cpp#L416-L477). With the signature `void WeaponsResource :: SelectSlot( int iSlot, int fAdvance, int iDirection )`.
+We only need to concern ourselves with the part of the code that actually cares if `hud_fastswitch 1` is active, as we want to make sure we don't regress how the normal weapon selection works.	
 
-We only need to concern ourselves with the part of the code that actually cares if `hud_fastswitch 1` is active, as we want to make sure we don't regress how the normal weapon selection works.
-
-```c++
+{% code combat.cpp lang:cpp https://github.com/ValveSoftware/halflife/blob/5d761709a31ce1e71488f2668321de05f791b405/cl_dll/ammo.cpp#L416-L477 cl_dll/ammo.cpp:416 line_number:true first_line:416 %}
 WEAPON *p = NULL;
 bool fastSwitch = CVAR_GET_FLOAT( "hud_fastswitch" ) != 0;
 
@@ -95,7 +90,7 @@ if ( (gpActiveSel == NULL) || (gpActiveSel == (WEAPON *)1) || (iSlot != gpActive
 		}
 	}
 }
-```
+{% endcode %}
 
 Let's take a look at what we've got here. `p` is going to be a pointer to our eventual selected weapon and `fastSwitch` is a boolean that will be set to `true` if we have `hud_fastswitch 1` active.
 First, it checks to make sure we aren't currently in the weapon menu, that the weapon we selected isn't the crowbar, and that the slot we selected isn't the one currently selected in the weapon menu.

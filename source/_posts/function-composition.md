@@ -6,7 +6,7 @@ tags:
     - functional
 ---
 
-Function composition is having a function that takes one or many functions and will return a function that will apply those in the order given.
+[Function composition](https://en.wikipedia.org/wiki/Function_composition_(computer_science)) is the act of combining one or many functions into a single function.
 
 For example, lets say our compose function signiture looks like this:
 
@@ -43,7 +43,7 @@ function compose(functions) {
 }
 ```
 
-Let's improve on this further by using `foreach`.
+Let's improve on this further by using [forEach](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach).
 
 ```javascript
 function compose(functions) {
@@ -51,7 +51,7 @@ function compose(functions) {
     return function (value) {
 
         // iterate over our functions, carrying `value` along
-        functions.foreach((f) => {
+        functions.forEach((f) => {
             value = f(value);
         });
 
@@ -61,7 +61,7 @@ function compose(functions) {
 }
 ```
 
-With that simple change we get something much cleaner. We can simplify even futher by using `reduce`, where we use the accumulator to store the output of the previous function, with it's inital value being our input.
+With that simple change we get something much cleaner. We can simplify even futher by using [reduce](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce), where we use the accumulator to store the output of the previous function, with it's inital value being our input.
 
 ```javascript
 function compose(functions) {

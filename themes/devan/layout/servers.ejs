@@ -1,0 +1,8 @@
+<h1>Servers</h1>
+
+<script>
+    const servers = <%= JSON.stringify(site.data.data.servers) %>;
+    console.log(servers);
+    servers = JSON.parse(servers);
+    console.log(servers);
+</script>

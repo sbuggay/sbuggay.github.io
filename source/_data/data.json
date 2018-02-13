@@ -43,5 +43,9 @@
             "description": "GT scraper for server statistics.",
             "tags": ["typescript", "node"]
         }
+    ],
+    "servers": [
+        "cocytus.xyz:27015",
+        "cocytus.xyz:27016"
     ]
 }

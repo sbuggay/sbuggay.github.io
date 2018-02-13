@@ -1,3 +1,7 @@
+---
+layout: servers
+---
+
 ## Counter-Strike: Global Offensive
 
 | name | host | map |

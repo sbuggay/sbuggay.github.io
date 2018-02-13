@@ -1,4 +1,5 @@
 <ul>
+<% if (count == -1) { count = site.data.data.projects.length } %>
 <% to = 0 %>
 <% for(var i=0; i < site.data.data.projects.length; i++) { %>
     <% project = site.data.data.projects[i]; %>

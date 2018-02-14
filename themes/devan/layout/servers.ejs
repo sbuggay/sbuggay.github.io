@@ -1,9 +1,20 @@
 <h1>Servers</h1>
-
 <div id="servers">
-    <div v-for="(server, index) in servers">
-        {{ server.url }}
-        {{ server.serverName }}
+    <div class="server" v-for="(server, index) in servers">
+        <div>
+        <div>
+        {{ server.serverName }}</div>
+        <ul>
+            <li>status: <span :class="server.status">{{ server.status }}</span></li>
+            <li>players: {{ server.numPlayers }}/{{ server.maxPlayers }}</li>
+            <li>connect {{ server.ip }}:{{ server.port }}</li>
+            <li>map: {{ server.map }}</li>
+            <li>game: "{{ server.gameName }}" version {{ server.gameVersion }}</li>
+        </ul>
+        </div>
+        <div>
+        <img :src="server.image"></img>
+        </div>
     </div>
 </div>
 

@@ -1,12 +1,13 @@
 <h1>Servers</h1>
 
-<p>This page uses two of my projects: <a>srcds-vue</a> and <a>srcds-info-proxy</a>. I use <a>sentry</a>, another project of mine, to watch and maintain these servers.</p>
-
 <div id="servers">
     <div v-for="(server, index) in servers">
-        { server.name }
+        {{ server.url }}
+        {{ server.serverName }}
     </div>
 </div>
+
+<p>This page uses two of my projects: <a>srcds-vue</a> and <a>srcds-info-proxy</a>. I use <a>sentry</a>, another project of mine, to watch and maintain these servers.</p>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.13/vue.min.js"></script>
 <script>

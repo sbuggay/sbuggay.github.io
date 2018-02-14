@@ -1,28 +1,27 @@
-const data = servers.map((server) => {
-    const [ip, port] = server.split(":");
-    const url = `http://cocytus.xyz:8080/?ip=${ip}&port=${port}`;
-    console.log(url);
-    return fetch(url).then((response) => {
-        console.log(response);
-        return response.json();
-    });
 
-});
 
-Promise.all(data).then((results) => {
-    console.log(results);
-});
-
-const vue = new Vue({
-    el: "servers",
+new Vue({
+    el: "#servers",
     data: {
         servers: [
-            {
-                name: "test"
-            },
-            {
-                name: "test1"
-            }
+            { url: "test" }
         ]
+    },
+    created() {
+        this.servers = servers.map((url) => {
+            return { url: url };
+        });
+
+        this.servers.map((server, index) => {
+            const [ip, port] = server.url.split(":");
+            const url = `http://cocytus.xyz:8080/?ip=${ip}&port=${port}`;
+            fetch(url).then((response) => {
+                response.json().then((json) => {
+                    console.log(json);
+                    this.servers[index] = Object.assign({}, { url: this.servers[index].url }, json);
+                });
+            });
+        });
+
     }
-})
+});

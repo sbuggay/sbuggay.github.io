@@ -1,8 +1,15 @@
 <h1>Servers</h1>
 
+<p>This page uses two of my projects: <a>srcds-vue</a> and <a>srcds-info-proxy</a>. I use <a>sentry</a>, another project of mine, to watch and maintain these servers.</p>
+
+<div id="servers">
+    <div v-for="(server, index) in servers">
+        { server.name }
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.13/vue.min.js"></script>
 <script>
-    const servers = <%= JSON.stringify(site.data.data.servers) %>;
-    console.log(servers);
-    servers = JSON.parse(servers);
-    console.log(servers);
+    servers = <%- JSON.stringify(site.data.data.servers) %>;
 </script>
+<%- js("js/servers") %>

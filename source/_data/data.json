@@ -20,6 +20,12 @@
             "tags": ["python", "flask"]
         },
         {
+            "name": "srcds-info-proxy",
+            "link": "https://github.com/sbuggay/srcds-info-proxy",
+            "description": " A service to proxy A2S_INFO server queries through a REST endpoint. ",
+            "tags": ["javascript", "node", "express"]
+        },
+        {
             "name": "csgo-sync",
             "link": "https://github.com/sbuggay/csgo-sync",
             "description": "npm application to back up and synchronize Counter-Strike: Global Offensive configs.",

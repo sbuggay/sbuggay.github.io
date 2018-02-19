@@ -19,7 +19,6 @@ function compose(functions) {
 const composition = compose([a, b, c]);
 
 // now composition can be used as a function which applies a -> b -> c to generate our output
-
 composition(x);
 ```
 
@@ -67,4 +66,20 @@ With that simple change we get something much cleaner. We can simplify even futh
 function compose(functions) {
     return (value) => functions.reduce((a, f) => f(a), value);
 }
+```
+
+Let's take a look at a working example.
+
+```javascript
+// the functional equivalent of Math.sqrt((x * 2) + 4)
+const composition = compose([
+    (x) => x * 2,
+    (x) => x + 4,
+    Math.sqrt
+]);
+
+composition(4); // 3.4641016151377544
+composition(8); // 4.47213595499958
+composition(15); // 5.830951894845301
+composition(16); // 6
 ```

@@ -6,7 +6,7 @@ tags:
     - functional
 ---
 
-[Function composition](https://en.wikipedia.org/wiki/Function_composition_(computer_science)) is the act of combining one or many functions into a single function.
+<a href="https://en.wikipedia.org/wiki/Function_composition_(computer_science)">Function composition</a> is the act of combining one or many functions into a single function.
 
 For example, lets say our compose function signiture looks like this:
 

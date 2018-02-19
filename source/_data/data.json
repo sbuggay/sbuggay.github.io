@@ -52,6 +52,7 @@
     ],
     "servers": [
         "cocytus.xyz:27015",
-        "cocytus.xyz:27016"
+        "cocytus.xyz:27021",
+        "devan.space:27020"
     ]
 }

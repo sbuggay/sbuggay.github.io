@@ -14,6 +14,14 @@ const serverTemplate = {
     url: ""
 };
 
+function convertToGame(game) {
+    switch (game) {
+        case "Counter-Strike": return "cs";
+        case "Counter-Strike: Source": return "css";
+        case "Counter-Strike: Global Offensive": return "csgo"
+    }
+}
+
 // create vue control
 const serverControl = new Vue({
     el: "#servers",
@@ -46,9 +54,11 @@ const serverControl = new Vue({
             const response = await fetch(url);
             const json = await response.json();
             if (json.status !== "error") {
+
                 const serverData = Object.assign({}, serverTemplate, json, {
                     status: "available",
-                    image: `/images/${json.map}.jpg`
+                    mapImage: `/images/maps/${json.map}.png`,
+                    gameImage: `/images/games/${convertToGame(json.gameName)}.png`
                 });
 
                 Vue.set(this.servers, index, serverData);

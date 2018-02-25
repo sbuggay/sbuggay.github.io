@@ -2,18 +2,15 @@
 <div id="servers">
     <div class="server" v-for="(server, index) in servers">
         <div>
-        <div>
-        {{ server.serverName }}</div>
-        <ul>
-            <li>status: <span :class="server.status">{{ server.status }}</span></li>
-            <li>players: {{ server.numPlayers }}/{{ server.maxPlayers }}</li>
-            <li>connect {{ server.ip }}:{{ server.port }}</li>
-            <li>map: {{ server.map }}</li>
-            <li>game: "{{ server.gameName }}" version {{ server.gameVersion }}</li>
-        </ul>
+        <div><img class="game" :src="server.gameImage"></img> {{ server.serverName }}</div>
+            <p>status: <span :class="server.status">{{ server.status }}</span></p>
+            <p>players: {{ server.numPlayers }}/{{ server.maxPlayers }}</p>
+            <p>map: {{ server.map }}</p>
+            <p>game: "{{ server.gameName }}" version {{ server.gameVersion }}</p>
+            <p><a>connect {{ server.ip }}:{{ server.port }}</a></p>
         </div>
-        <div>
-        <img :src="server.image"></img>
+        <div class="map">
+            <img :src="server.mapImage"></img>
         </div>
     </div>
 </div>

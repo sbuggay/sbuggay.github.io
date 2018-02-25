@@ -1,9 +1,11 @@
 ---
-title: Half-Life 1 Small QOL Changes
+title: Half-Life 1 Quality of Life Changes
 date: 2018-02-04
 tags:
 	- c++
 ---
+
+At the time of writing, Half-Life 1's release date <a href="https://en.wikipedia.org/wiki/Half-Life_(video_game)">is approaching nearly 20 years</a>. It's suprising how well the game has held up considering it's roots are even older than that coming from the Quake 1/2 engine.
 
 On a recent playthrough of Half-Life 1 I ran in to a few minor annoyances:
 - Enemy corpses block player movement until their death animation is done.
@@ -11,7 +13,7 @@ On a recent playthrough of Half-Life 1 I ran in to a few minor annoyances:
 - Using the `use` key slows you down to `0.3` speed.
 - Doors cannot be opened with the `use` key.
 - Items cannot be picked up with the `use` key.
-
+- Weapon impact particles appear on skybox textures.
 
 It's likely that some of these were intentional design decisions made by the developers, but it would be nice to at least have the option.
 

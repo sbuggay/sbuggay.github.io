@@ -14,6 +14,12 @@
             "tags": ["macos", "obj-c"]
         },
         {
+            "name": "github-commit-vue",
+            "link": "https://github.com/sbuggay/github-commit-vue",
+            "description": "A single page app that displays your latest GitHub commits ",
+            "tags": ["javascript", "node", "vue", "github"]
+        },
+        {
             "name": "DotaSalt",
             "link": "https://github.com/sbuggay/dotasalt",
             "description": "A simple DotA 2 match and player viewer.",
@@ -52,7 +58,7 @@
     ],
     "servers": [
         "cocytus.xyz:27015",
-        "cocytus.xyz:27021",
+        "devan.space:27015",
         "devan.space:27020"
     ]
 }

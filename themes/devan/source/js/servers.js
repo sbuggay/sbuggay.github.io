@@ -50,7 +50,7 @@ const serverControl = new Vue({
             });
         },
         fetchServerInfo: async function (ip, port, index) {
-            const url = `http://${domain}/?ip=${ip}&port=${port}`;
+            const url = `https://${domain}/?ip=${ip}&port=${port}`;
             const response = await fetch(url);
             const json = await response.json();
             if (json.status !== "error") {

@@ -107,11 +107,11 @@ body,
 body {
   color: #ddd;
   background: #1d1f21;
-  font: 16px "Helvetica Neue", "Calibri Light", Roboto, sans-serif;
+  font: 16px "Helvetica Neue", Helvetica, 'Open Sans', Arial, sans-serif;
   line-height: 1.4em;
 }
 a {
-  color: #258fb8;
+  color: #73b2cb;
   text-decoration: none;
 }
 a:hover {
@@ -214,7 +214,7 @@ ul li {
   list-style: circle;
 }
 ul li a {
-  color: #258fb8;
+  color: #73b2cb;
 }
 ul li a:hover {
   text-decoration: none;
@@ -233,6 +233,56 @@ ul .tag {
   border-radius: 5px;
   background-color: #333;
   padding: 0 5px;
+}
+#servers {
+  margin-top: 20px;
+}
+#servers .available {
+  color: #b2cb73;
+}
+#servers .warning {
+  color: #cbb873;
+}
+#servers .error {
+  color: #cb7386;
+}
+#servers .pending {
+  color: #fff;
+}
+#servers .server {
+  margin: 20px 0;
+  padding: 20px 20px;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-pack: justify;
+  -moz-box-pack: justify;
+  -o-box-pack: justify;
+  -ms-flex-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  border-radius: 2px;
+  border-left: 4px #b2cb73 solid;
+  background-color: #2d2d2d;
+}
+#servers .server .game {
+  width: 20px;
+  height: 20px;
+}
+#servers .server .map {
+  display: block;
+  -webkit-align-self: center;
+  align-self: center;
+  -ms-flex-item-align: center;
+  height: 120px;
+}
+#servers .server .map img {
+  width: auto;
+  max-width: 160px;
+  height: 100%;
 }
 .article-inner,
 .archive-article-inner {
@@ -422,7 +472,7 @@ a.article-title:hover {
   margin: 1.4em 0;
 }
 .article-entry a {
-  color: #258fb8;
+  color: #73b2cb;
   text-decoration: none;
 }
 .article-entry a:hover {
@@ -436,7 +486,8 @@ a.article-title:hover {
 }
 .article-entry img,
 .article-entry video {
-  height: 100%;
+  max-width: 100%;
+  margin: 0 auto;
   display: block;
 }
 .article-entry iframe {
@@ -471,7 +522,7 @@ a.article-title:hover {
 .article-entry blockquote footer {
   font-size: 16px;
   margin: 1.4em 0;
-  font-family: "Helvetica Neue", "Calibri Light", Roboto, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, 'Open Sans', Arial, sans-serif;
 }
 .article-entry blockquote footer cite:before {
   content: "—";
@@ -500,10 +551,10 @@ a.article-title:hover {
   text-decoration: none;
 }
 .article-more-link a:hover {
-  background: #258fb8;
+  background: #73b2cb;
   color: #fff;
   text-decoration: none;
-  text-shadow: 0 1px #1e7293;
+  text-shadow: 0 1px #4598ba;
 }
 .article-tag-list-item {
   float: left;
@@ -667,7 +718,7 @@ a.article-title:hover {
   border-top: 1px solid #ddd;
 }
 #footer a {
-  color: #258fb8;
+  color: #73b2cb;
   text-decoration: none;
 }
 #footer a:hover {

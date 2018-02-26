@@ -1,0 +1,38 @@
+#servers {
+  margin-top: 20px;
+}
+#servers .available {
+  color: color-available;
+}
+#servers .warning {
+  color: color-warning;
+}
+#servers .error {
+  color: color-error;
+}
+#servers .pending {
+  color: #fff;
+}
+#servers .server {
+  margin: 20px 0;
+  padding: 20px 20px;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 2px;
+  border-left: 4px color-available solid;
+  background-color: #2d2d2d;
+}
+#servers .server .game {
+  width: 20px;
+  height: 20px;
+}
+#servers .server .map {
+  display: block;
+  align-self: center;
+  height: 120px;
+}
+#servers .server .map img {
+  width: auto;
+  max-width: 160px;
+  height: 100%;
+}

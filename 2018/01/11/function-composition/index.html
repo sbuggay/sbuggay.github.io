@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>devanbuggay</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <link rel="alternate" href="/atom.xml" title="devanbuggay" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"> 
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <div id="main-nav-links">
+          
+              <a class="main-nav-link" href="/">home</a>
+          
+              <a class="main-nav-link" href="/projects">projects</a>
+          
+              <a class="main-nav-link" href="/archives">archives</a>
+          
+              <a class="main-nav-link" href="/servers">servers</a>
+          
+        </div>
+        <div id="main-nav-social">
+          <a class="main-nav-icon stack-overflow" href="https://stackoverflow.com/users/472974/devan-buggay" aria-label="stackoverflow">
+            <i class="fa fa-stack-overflow" aria-hidden="true"></i>
+          </a>
+          <a class="main-nav-icon linkedin" href="https://www.linkedin.com/in/devanbuggay/" aria-label="linkedin">
+            <i class="fa fa-linkedin" aria-hidden="true"></i>
+          </a>
+          <a class="main-nav-icon github" href="https://github.com/sbuggay" aria-label="github">
+            <i class="fa fa-github-alt" aria-hidden="true"></i>
+          </a>
+          <a class="main-nav-icon" href="/atom.xml" aria-label="rss">
+            <i class="fa fa-rss" aria-hidden="true"></i>
+          </a>
+        <div>
+      </nav>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-function-composition" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Higher Order Function Composition in JavaScript
+    </h1>
+  
+
+        <time class="archive-article-date" datetime="2018-01-11T08:00:00.000Z" itemprop="datePublished">Jan 11 2018</time>        
+      </header>
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://en.wikipedia.org/wiki/Function_composition_(computer_science)" target="_blank" rel="external">Function composition</a> is the act of combining one or many functions into a single function.</p>
+<p>For example, lets say our compose function signiture looks like this:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">compose</span>(<span class="params">functions</span>) </span>&#123;</div><div class="line">    <span class="comment">// our code to build the composition</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">// we can use this to craft our composition like so, where a, b, c are functions themselves</span></div><div class="line"><span class="keyword">const</span> composition = compose([a, b, c]);</div><div class="line"></div><div class="line"><span class="comment">// now composition can be used as a function which applies a -&gt; b -&gt; c to generate our output</span></div><div class="line">composition(x);</div></pre></td></tr></table></figure>
+<p>How can we build this function?</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">compose</span>(<span class="params">functions</span>) </span>&#123;</div><div class="line">    <span class="comment">// return our inital anonymous function that simply takes in a value</span></div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">value</span>) </span>&#123;</div><div class="line">        <span class="comment">// iterate over our functions, applying them to value in the order given</span></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; functions.length; i++) &#123;</div><div class="line">            <span class="comment">// get our output from this function</span></div><div class="line">            <span class="keyword">let</span> output = functions[i](value);</div><div class="line">            <span class="comment">// set this to value so the next functions input will be this output</span></div><div class="line">            value = output;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">// return our now transformed value</span></div><div class="line">        <span class="keyword">return</span> value;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Let’s improve on this further by using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach" target="_blank" rel="external">forEach</a>.</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">compose</span>(<span class="params">functions</span>) </span>&#123;</div><div class="line">    <span class="comment">// return our inital anonymous function that simply takes in a value</span></div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">value</span>) </span>&#123;</div><div class="line"></div><div class="line">        <span class="comment">// iterate over our functions, carrying `value` along</span></div><div class="line">        functions.forEach(<span class="function">(<span class="params">f</span>) =&gt;</span> &#123;</div><div class="line">            value = f(value);</div><div class="line">        &#125;);</div><div class="line"></div><div class="line">        <span class="comment">// return our now transformed value</span></div><div class="line">        <span class="keyword">return</span> value;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>With that simple change we get something much cleaner. We can simplify even futher by using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce" target="_blank" rel="external">reduce</a>, where we use the accumulator to store the output of the previous function, with it’s inital value being our input.</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">compose</span>(<span class="params">functions</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="function">(<span class="params">value</span>) =&gt;</span> functions.reduce(<span class="function">(<span class="params">a, f</span>) =&gt;</span> f(a), value);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Let’s take a look at a working example.</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="comment">// the functional equivalent of Math.sqrt((x * 2) + 4)</span></div><div class="line"><span class="keyword">const</span> composition = compose([</div><div class="line">    (x) =&gt; x * <span class="number">2</span>,</div><div class="line">    (x) =&gt; x + <span class="number">4</span>,</div><div class="line">    <span class="built_in">Math</span>.sqrt</div><div class="line">]);</div><div class="line"></div><div class="line">composition(<span class="number">4</span>); <span class="comment">// 3.4641016151377544</span></div><div class="line">composition(<span class="number">8</span>); <span class="comment">// 4.47213595499958</span></div><div class="line">composition(<span class="number">15</span>); <span class="comment">// 5.830951894845301</span></div><div class="line">composition(<span class="number">16</span>); <span class="comment">// 6</span></div></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <footer class="article-footer">
+      
+<nav id="article-nav">
+    
+      <a href="/2017/10/04/parsing-idtech1-ue4-p1/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong>Previous</strong>
+        <div class="article-nav-title">id Tech 1 Maps in UE4 Part 1: Parsing WAD Map Data</div>
+      </a>
+    
+  
+    <a href="/2018/02/04/half-life-1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong>Next</strong>
+      <div class="article-nav-title">
+        
+          Half-Life 1 Quality of Life Changes
+        
+      </div>
+    </a>
+  
+</nav>
+
+    </footer>
+    
+  </div>
+</article></section>
+      </div>
+    </div>
+    
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-39994684-2', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  </div>
+</body>
+</html>

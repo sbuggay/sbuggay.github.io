@@ -11,7 +11,7 @@
             "name": "SongBar",
             "link": "https://github.com/sbuggay/SongBar",
             "description": "An application to show track information from iTunes or Spotify in the menu bar.",
-            "tags": ["macos", "obj-c"]
+            "tags": ["macOS", "obj-c"]
         },
         {
             "name": "github-commit-vue",
@@ -23,7 +23,8 @@
             "name": "DotaSalt",
             "link": "https://github.com/sbuggay/dotasalt",
             "description": "A simple DotA 2 match and player viewer.",
-            "tags": ["python", "flask"]
+            "tags": ["python", "flask"],
+            "date": 2013
         },
         {
             "name": "srcds-info-proxy",
@@ -47,7 +48,28 @@
             "name": "silversrc",
             "link": "https://github.com/sbuggay/silversrc",
             "description": "A reimplementation of the Quake engine for learning purposes.",
+            "tags": ["c"],
+            "date": 2014
+        },
+        {
+            "name": "snarge",
+            "link": "https://github.com/sbuggay/snarge",
+            "description": "A 3d bird's eye view engine. Built to learn some basic game engine principles.",
+            "tags": ["opengl", "sdl2", "c++"],
+            "date": 2013
+        },
+        {
+            "name": "ctest",
+            "link": "https://github.com/sbuggay/ctest",
+            "description": "A simple C unit testing framework with auto registering test suites.",
             "tags": ["c"]
+        },
+        {
+            "name": "Perusal",
+            "link": "https://github.com/sbuggay/Perusal",
+            "description": "A simple Reddit client for iOS.",
+            "tags": ["iOS", "obj-c"],
+            "date": 2013
         },
         {
             "name": "gt-scrape",

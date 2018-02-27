@@ -7,6 +7,9 @@
         <li>
             <a href="<%- project.link %>"><%- project.name %></a><span> - </span><%- project.description %>
             <div>
+            <time class="info">
+                <%= project.date %>
+            </time>
             <% for(var j=0; j < project.tags.length; j++) { %>
                 <span class="tag"><%- project.tags[j] %></span>
             <% } %>

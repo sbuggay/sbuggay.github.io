@@ -1,5 +1,7 @@
 #header
-  height: banner-height
+  height: banner-height * 0.75
+  @media mq-normal
+    height: banner-height
   border-bottom: 1px solid color-border
   margin-bottom: 20px
   overflow-x: hidden
@@ -39,9 +41,11 @@ $nav-link
   padding: 0 15px
   display: flex
   align-items: center
-  font-size: 1.2em
-  @media mq-tablet
-    font-size 1em
+  font-size: 1em
+  padding: 0 10px
+  @media mq-normal
+    font-size: 1.2em
+    padding: 0 15px
   color: color-default
   &:before
     content: "/"

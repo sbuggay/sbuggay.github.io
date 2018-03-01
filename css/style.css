@@ -108,7 +108,8 @@ body {
   color: #ddd;
   background: #1d1f21;
   font: 16px "Helvetica Neue", Helvetica, 'Open Sans', Arial, sans-serif;
-  line-height: 1.4em;
+  line-height: 1.5em;
+  letter-spacing: 0.03em;
 }
 a {
   color: #73b2cb;
@@ -279,6 +280,11 @@ ul .tag {
   -ms-flex-item-align: center;
   height: 120px;
 }
+@media screen and (max-width: 479px) {
+  #servers .server .map {
+    display: none;
+  }
+}
 #servers .server .map img {
   width: auto;
   max-width: 160px;
@@ -299,7 +305,7 @@ ul .tag {
 .article-entry ol,
 .article-entry dl {
   margin: 0 20px;
-  line-height: 1.4em;
+  line-height: 1.5em;
 }
 .article-entry ul ul,
 .article-entry ol ul,
@@ -318,10 +324,15 @@ ul .tag {
   font-weight: bold;
 }
 #header {
-  height: 50px;
+  height: 37.5px;
   border-bottom: 1px solid #ddd;
   margin-bottom: 20px;
   overflow-x: hidden;
+}
+@media screen and (min-width: 900px) {
+  #header {
+    height: 50px;
+  }
 }
 #header-outer {
   height: 100%;
@@ -391,12 +402,14 @@ ul .tag {
   -ms-flex-align: center;
   -webkit-align-items: center;
   align-items: center;
-  font-size: 1.2em;
+  font-size: 1em;
+  padding: 0 10px;
   color: #ddd;
 }
-@media screen and (min-width: 480px) and (max-width: 899px) {
+@media screen and (min-width: 900px) {
   .main-nav-link {
-    font-size: 1em;
+    font-size: 1.2em;
+    padding: 0 15px;
   }
 }
 .main-nav-link:before {
@@ -453,7 +466,7 @@ ul .tag {
 }
 .article-title {
   text-decoration: none;
-  line-height: 1.4em;
+  line-height: 1.5em;
   -webkit-transition: color 0.2s;
   -moz-transition: color 0.2s;
   -o-transition: color 0.2s;
@@ -468,8 +481,8 @@ a.article-title:hover {
 }
 .article-entry p,
 .article-entry table {
-  line-height: 1.4em;
-  margin: 1.4em 0;
+  line-height: 1.5em;
+  margin: 1.5em 0;
 }
 .article-entry a {
   color: #73b2cb;
@@ -481,8 +494,8 @@ a.article-title:hover {
 .article-entry ul,
 .article-entry ol,
 .article-entry dl {
-  margin-top: 1.4em;
-  margin-bottom: 1.4em;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
 }
 .article-entry img,
 .article-entry video {
@@ -516,12 +529,12 @@ a.article-title:hover {
 .article-entry blockquote {
   font-family: Georgia, "Times New Roman", serif;
   font-size: 1.4em;
-  margin: 1.4em 20px;
+  margin: 1.5em 20px;
   text-align: center;
 }
 .article-entry blockquote footer {
   font-size: 16px;
-  margin: 1.4em 0;
+  margin: 1.5em 0;
   font-family: "Helvetica Neue", Helvetica, 'Open Sans', Arial, sans-serif;
 }
 .article-entry blockquote footer cite:before {
@@ -565,7 +578,7 @@ a.article-title:hover {
 }
 #article-nav {
   border-top: 1px solid #ddd;
-  padding-top: 1.4em;
+  padding-top: 1.5em;
   margin-bottom: 20px;
 }
 .article-nav-link-wrap {
@@ -597,7 +610,7 @@ a.article-title:hover {
   }
 }
 .article-nav-title {
-  line-height: 1.4em;
+  line-height: 1.5em;
   margin-top: 0.5em;
 }
 .article-gallery {
@@ -725,7 +738,7 @@ a.article-title:hover {
   text-decoration: underline;
 }
 #footer-info {
-  line-height: 1.4em;
+  line-height: 1.5em;
   font-size: 1em;
 }
 .article-entry pre,
@@ -779,7 +792,7 @@ a.article-title:hover {
   padding-right: 20px;
 }
 .article-entry .highlight .line {
-  height: 22.4px;
+  height: 24px;
 }
 .article-entry .highlight .line.marked {
   background: #515151;

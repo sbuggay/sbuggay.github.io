@@ -31,6 +31,11 @@
   align-self: center;
   height: 120px;
 }
+@media mq-mobile {
+  #servers .server .map {
+    display: none;
+  }
+}
 #servers .server .map img {
   width: auto;
   max-width: 160px;

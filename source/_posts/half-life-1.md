@@ -5,7 +5,7 @@ tags:
 	- c++
 ---
 
-At the time of writing, Half-Life 1's release date <a href="https://en.wikipedia.org/wiki/Half-Life_(video_game)">is approaching nearly 20 years</a>. It's suprising how well the game has held up considering it's roots are even older than that coming from the Quake 1/2 engine.
+At the time of writing, Half-Life 1's release date <a href="https://en.wikipedia.org/wiki/Half-Life_(video_game)">is approaching nearly 20 years old</a>. It's suprising how well the game has held up considering it's roots are even older than that coming from the Quake 1/2 engine.
 
 On a recent playthrough of Half-Life 1 I ran in to a few minor annoyances:
 - Enemy corpses block player movement until their death animation is done.
@@ -14,10 +14,11 @@ On a recent playthrough of Half-Life 1 I ran in to a few minor annoyances:
 - Doors cannot be opened with the `use` key.
 - Items cannot be picked up with the `use` key.
 - Weapon impact particles appear on skybox textures.
+- Autoswitching to newly picked up weapons.
 
 It's likely that some of these were intentional design decisions made by the developers, but it would be nice to at least have the option.
 
-Luckily for us, Valve open sourced the goldsrc engine in 2013. You can find the official repo on GitHub here: [https://github.com/ValveSoftware/halflife](https://github.com/ValveSoftware/halflife). 
+Luckily for us, Valve open sourced the goldsrc engine in 2013. You can find the official repo on GitHub here: [https://github.com/ValveSoftware/halflife](https://github.com/ValveSoftware/halflife). In this post we will take a look at some of these issues and see if we can mitigate them.
 
 ### Enemy corpses block player movement until their death animation is done.
 ----
@@ -125,6 +126,8 @@ if ( p && fastSwitch ) // check for fast weapon switch mode
 
 I have added a variable `currentSel` that keeps track of our last selected weapon.
 `if (currentSel && currentSel->iSlot == iSlot)` if there was a previously selected weapon, and the slot we are trying to move to is in the same slot, we simply get the next valid weapon in the slot. If there is no valid next weapon, we must be at the end of the list. So we default back to the first position.
+
+You can find these changes and more on my fork of of the source https://github.com/sbuggay/halflife/tree/small-qol-changes.
 
 [WIP]
 

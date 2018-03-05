@@ -7,7 +7,7 @@
             <p>players: {{ server.numPlayers }}/{{ server.maxPlayers }}</p>
             <p>map: {{ server.map }}</p>
             <p>game: "{{ server.gameName }}" version {{ server.gameVersion }}</p>
-            <p><a>connect {{ server.ip }}:{{ server.port }}</a></p>
+            <p><a :href="server.connect">connect {{ server.ip }}:{{ server.port }}</a></p>
         </div>
         <div class="map">
             <img :src="server.mapImage"></img>

@@ -11,6 +11,7 @@ const serverTemplate = {
     port: 0,
     secure: 0,
     status: "pending",
+    connect: "",
     url: ""
 };
 
@@ -58,7 +59,8 @@ const serverControl = new Vue({
                 const serverData = Object.assign({}, serverTemplate, json, {
                     status: "available",
                     mapImage: `/images/maps/${json.map}.png`,
-                    gameImage: `/images/games/${convertToGame(json.gameName)}.png`
+                    gameImage: `/images/games/${convertToGame(json.gameName)}.png`,
+                    connect: `steam://connect/${json.ip}:${json.port}`
                 });
 
                 Vue.set(this.servers, index, serverData);

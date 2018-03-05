@@ -69,7 +69,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>At the time of writing, Half-Life 1’s release date <a href="https://en.wikipedia.org/wiki/Half-Life_(video_game)" target="_blank" rel="external">is approaching nearly 20 years</a>. It’s suprising how well the game has held up considering it’s roots are even older than that coming from the Quake 1/2 engine.</p>
+        <p>At the time of writing, Half-Life 1’s release date <a href="https://en.wikipedia.org/wiki/Half-Life_(video_game)" target="_blank" rel="external">is approaching nearly 20 years old</a>. It’s suprising how well the game has held up considering it’s roots are even older than that coming from the Quake 1/2 engine.</p>
 <p>On a recent playthrough of Half-Life 1 I ran in to a few minor annoyances:</p>
 <ul>
 <li>Enemy corpses block player movement until their death animation is done.</li>
@@ -78,9 +78,10 @@
 <li>Doors cannot be opened with the <code>use</code> key.</li>
 <li>Items cannot be picked up with the <code>use</code> key.</li>
 <li>Weapon impact particles appear on skybox textures.</li>
+<li>Autoswitching to newly picked up weapons.</li>
 </ul>
 <p>It’s likely that some of these were intentional design decisions made by the developers, but it would be nice to at least have the option.</p>
-<p>Luckily for us, Valve open sourced the goldsrc engine in 2013. You can find the official repo on GitHub here: <a href="https://github.com/ValveSoftware/halflife" target="_blank" rel="external">https://github.com/ValveSoftware/halflife</a>. </p>
+<p>Luckily for us, Valve open sourced the goldsrc engine in 2013. You can find the official repo on GitHub here: <a href="https://github.com/ValveSoftware/halflife" target="_blank" rel="external">https://github.com/ValveSoftware/halflife</a>. In this post we will take a look at some of these issues and see if we can mitigate them.</p>
 <h3 id="Enemy-corpses-block-player-movement-until-their-death-animation-is-done"><a href="#Enemy-corpses-block-player-movement-until-their-death-animation-is-done" class="headerlink" title="Enemy corpses block player movement until their death animation is done."></a>Enemy corpses block player movement until their death animation is done.</h3><hr>
 <p><img src="/images/solid-nofix.gif" alt="solid-nofix"></p>
 <p>Here is an example. Even though I am holding forward the entire time, the entity is solid until after the death animation is complete.</p>
@@ -101,6 +102,7 @@
 <p>We want to change this behavior to instead cycle through every weapon in the slot.</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><div class="line"><span class="keyword">if</span> ( p &amp;&amp; fastSwitch ) <span class="comment">// check for fast weapon switch mode</span></div><div class="line">&#123;		</div><div class="line">	<span class="comment">// if we already have this weapon select, move on to the next.</span></div><div class="line">	<span class="keyword">if</span> (currentSel &amp;&amp; currentSel-&gt;iSlot == iSlot)</div><div class="line">	&#123;</div><div class="line">		p = GetNextActivePos( currentSel-&gt;iSlot, currentSel-&gt;iSlotPos );</div><div class="line"></div><div class="line">		<span class="comment">// if there was no next active pos, revert to the first in the slot</span></div><div class="line">		<span class="keyword">if</span> ( !p )</div><div class="line">		&#123;</div><div class="line">			p = GetFirstPos( iSlot );</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	ServerCmd( p-&gt;szName );</div><div class="line">	g_weaponselect = p-&gt;iId;</div><div class="line">	currentSel = p;</div><div class="line">	<span class="keyword">return</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>I have added a variable <code>currentSel</code> that keeps track of our last selected weapon.<br><code>if (currentSel &amp;&amp; currentSel-&gt;iSlot == iSlot)</code> if there was a previously selected weapon, and the slot we are trying to move to is in the same slot, we simply get the next valid weapon in the slot. If there is no valid next weapon, we must be at the end of the list. So we default back to the first position.</p>
+<p>You can find these changes and more on my fork of of the source <a href="https://github.com/sbuggay/halflife/tree/small-qol-changes" target="_blank" rel="external">https://github.com/sbuggay/halflife/tree/small-qol-changes</a>.</p>
 <p>[WIP]</p>
 <p>Under <code>pm_shared/pm_shared.c</code>.</p>
 <p><code>PM_PlayerMove</code></p>

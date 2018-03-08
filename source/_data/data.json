@@ -29,7 +29,7 @@
         {
             "name": "srcds-info-proxy",
             "link": "https://github.com/sbuggay/srcds-info-proxy",
-            "description": " A service to proxy A2S_INFO server queries through a REST endpoint. ",
+            "description": "A service to proxy goldsrc/source A2S_INFO server queries through a REST endpoint.",
             "tags": ["javascript", "node", "express"]
         },
         {
@@ -76,7 +76,14 @@
             "link": "https://github.com/sbuggay/gt-scrape",
             "description": "GT scraper for server statistics.",
             "tags": ["typescript", "node"]
+        },
+        {
+            "name": "manta-ray",
+            "link": "https://github.com/sbuggay/manta-ray",
+            "description": "A tiny raytracing toolkit.",
+            "tags": ["c", "make"]
         }
+        
     ],
     "servers": [
         "cocytus.xyz:27015",

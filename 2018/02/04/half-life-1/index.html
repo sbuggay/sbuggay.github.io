@@ -102,12 +102,13 @@
 <p>We want to change this behavior to instead cycle through every weapon in the slot.</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><div class="line"><span class="keyword">if</span> ( p &amp;&amp; fastSwitch ) <span class="comment">// check for fast weapon switch mode</span></div><div class="line">&#123;		</div><div class="line">	<span class="comment">// if we already have this weapon select, move on to the next.</span></div><div class="line">	<span class="keyword">if</span> (currentSel &amp;&amp; currentSel-&gt;iSlot == iSlot)</div><div class="line">	&#123;</div><div class="line">		p = GetNextActivePos( currentSel-&gt;iSlot, currentSel-&gt;iSlotPos );</div><div class="line"></div><div class="line">		<span class="comment">// if there was no next active pos, revert to the first in the slot</span></div><div class="line">		<span class="keyword">if</span> ( !p )</div><div class="line">		&#123;</div><div class="line">			p = GetFirstPos( iSlot );</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	ServerCmd( p-&gt;szName );</div><div class="line">	g_weaponselect = p-&gt;iId;</div><div class="line">	currentSel = p;</div><div class="line">	<span class="keyword">return</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>I have added a variable <code>currentSel</code> that keeps track of our last selected weapon.<br><code>if (currentSel &amp;&amp; currentSel-&gt;iSlot == iSlot)</code> if there was a previously selected weapon, and the slot we are trying to move to is in the same slot, we simply get the next valid weapon in the slot. If there is no valid next weapon, we must be at the end of the list. So we default back to the first position.</p>
-<p>You can find these changes and more on my fork of of the source <a href="https://github.com/sbuggay/halflife/tree/small-qol-changes" target="_blank" rel="external">https://github.com/sbuggay/halflife/tree/small-qol-changes</a>.</p>
-<p>[WIP]</p>
-<p>Under <code>pm_shared/pm_shared.c</code>.</p>
+<h3 id="Using-the-use-key-slows-you-down-to-0-3-speed"><a href="#Using-the-use-key-slows-you-down-to-0-3-speed" class="headerlink" title="Using the use key slows you down to 0.3 speed."></a>Using the <code>use</code> key slows you down to <code>0.3</code> speed.</h3><p>Under <code>pm_shared/pm_shared.c</code>.</p>
 <p><code>PM_PlayerMove</code></p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><div class="line"><span class="comment">// Slow down, I'm pulling it! (a box maybe) but only when I'm standing on ground</span></div><div class="line"><span class="keyword">if</span> ( ( pmove-&gt;onground != <span class="number">-1</span> ) &amp;&amp; ( pmove-&gt;cmd.buttons &amp; IN_USE) )</div><div class="line">&#123;</div><div class="line">	VectorScale( pmove-&gt;velocity, <span class="number">0.3</span>, pmove-&gt;velocity );</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p><a href="https://github.com/sbuggay/halflife/blob/5d761709a31ce1e71488f2668321de05f791b405/pm_shared/pm_shared.c#L3025-L3029" target="_blank" rel="external">https://github.com/sbuggay/halflife/blob/5d761709a31ce1e71488f2668321de05f791b405/pm_shared/pm_shared.c#L3025-L3029</a></p>
+<p>So this seems to slow you down for the case of which a box is being pulled. So we can simply only apply this vector scaling while moving backwards.</p>
+<p>We will take a look at more of these changes in part 2. </p>
+<p>You can find these changes and more on my fork of of the source <a href="https://github.com/sbuggay/halflife/tree/small-qol-changes" target="_blank" rel="external">https://github.com/sbuggay/halflife/tree/small-qol-changes</a>.</p>
 
       
     </div>
@@ -145,6 +146,7 @@ ga('send', 'pageview');
 <!-- End Google Analytics -->
 
 
+<script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
   </div>
 </body>
 </html>

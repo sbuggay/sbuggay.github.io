@@ -127,9 +127,8 @@ if ( p && fastSwitch ) // check for fast weapon switch mode
 I have added a variable `currentSel` that keeps track of our last selected weapon.
 `if (currentSel && currentSel->iSlot == iSlot)` if there was a previously selected weapon, and the slot we are trying to move to is in the same slot, we simply get the next valid weapon in the slot. If there is no valid next weapon, we must be at the end of the list. So we default back to the first position.
 
-You can find these changes and more on my fork of of the source https://github.com/sbuggay/halflife/tree/small-qol-changes.
 
-[WIP]
+### Using the `use` key slows you down to `0.3` speed.
 
 Under `pm_shared/pm_shared.c`.
 
@@ -144,3 +143,9 @@ if ( ( pmove->onground != -1 ) && ( pmove->cmd.buttons & IN_USE) )
 ```
 
 https://github.com/sbuggay/halflife/blob/5d761709a31ce1e71488f2668321de05f791b405/pm_shared/pm_shared.c#L3025-L3029
+
+So this seems to slow you down for the case of which a box is being pulled. So we can simply only apply this vector scaling while moving backwards.
+
+We will take a look at more of these changes in part 2. 
+
+You can find these changes and more on my fork of of the source https://github.com/sbuggay/halflife/tree/small-qol-changes.

@@ -1,4 +1,4 @@
-const domain = "cocytus.xyz:8080"
+const domain = "srcds.devan.network"
 
 const serverTemplate = {
     gameName: "N/A",

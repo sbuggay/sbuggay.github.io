@@ -34,7 +34,10 @@ ul {
   margin: 1em 0 1em;
 }
 ul li {
-  list-style: circle;
+  background-color: #808080;
+  margin: 10px 5px;
+  padding: 5px;
+  list-style: none;
 }
 ul li a {
   color: color-link;

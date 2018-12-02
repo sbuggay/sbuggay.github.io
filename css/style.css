@@ -106,7 +106,7 @@ body,
 }
 body {
   color: #ddd;
-  background: #1d1f21;
+  background: #111;
   font: 16px "Helvetica Neue", Helvetica, 'Open Sans', Arial, sans-serif;
   line-height: 1.5em;
   letter-spacing: 0.03em;
@@ -152,7 +152,7 @@ h4 {
   top: 0;
   left: 0;
   z-index: 1;
-  background: #1d1f21;
+  background: #111;
 }
 #home p {
   margin: 1em 0 1em;
@@ -212,7 +212,10 @@ ul {
   margin: 1em 0 1em;
 }
 ul li {
-  list-style: circle;
+  background-color: #808080;
+  margin: 10px 5px;
+  padding: 5px;
+  list-style: none;
 }
 ul li a {
   color: #73b2cb;
@@ -292,7 +295,7 @@ ul .tag {
 }
 .article-inner,
 .archive-article-inner {
-  background-color: #1d1f21;
+  background-color: #111;
 }
 .article-entry strong {
   font-weight: bold;
@@ -524,7 +527,7 @@ a.article-title:hover {
   padding: 0 10px;
 }
 .article-entry tbody tr:nth-child(odd) {
-  background-color: #2d2d2d;
+  background-color: #121212;
 }
 .article-entry blockquote {
   font-family: Georgia, "Times New Roman", serif;
@@ -559,7 +562,7 @@ a.article-title:hover {
   line-height: 1em;
   padding: 6px 15px;
   border-radius: 15px;
-  background: #1d1f21;
+  background: #111;
   text-shadow: 0 1px #fff;
   text-decoration: none;
 }

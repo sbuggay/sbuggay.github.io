@@ -34,7 +34,8 @@ ul {
   margin: 1em 0 1em;
 }
 ul li {
-  background-color: #808080;
+  background-color: color-background-alt;
+  border-radius: 3px;
   margin: 10px 5px;
   padding: 5px;
   list-style: none;

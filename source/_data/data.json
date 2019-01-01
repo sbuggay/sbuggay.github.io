@@ -86,7 +86,8 @@
         
     ],
     "servers": [
-        "cocytus.xyz:27015",
+        "devan.network:27015",
+        "devan.network:27016",
         "devan.space:27015",
         "devan.space:27020"
     ]

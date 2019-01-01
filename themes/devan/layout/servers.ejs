@@ -1,17 +1,32 @@
 <h1>Servers</h1>
 <div id="servers">
-    <div class="server" v-for="(server, index) in servers">
-        <div>
-        <div><img class="game" :src="server.gameImage"></img> {{ server.serverName }}</div>
-            <p>status: <span :class="server.status">{{ server.status }}</span></p>
-            <p>players: {{ server.numPlayers }}/{{ server.maxPlayers }}</p>
-            <p>map: {{ server.map }}</p>
-            <p>game: "{{ server.gameName }}" version {{ server.gameVersion }}</p>
-            <p><a :href="server.connect">connect {{ server.ip }}:{{ server.port }}</a></p>
+    <div v-for="(server, index) in servers">
+        <div class="server-loading"  v-if="server.loading">
+            <div>
+                {{ server.serverName }}
+            </div>
+            <div style="display: flex; width: 100%; height: 100%; align-self: center;">
+                <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+            </div>
         </div>
-        <div class="map">
-            <img :src="server.mapImage"></img>
+        <div class="server" v-if="!server.loading">
+            <div>
+                <div>
+                    <img class="game" :src="server.gameImage" /> {{ server.serverName }}
+                </div>
+                <div v-if="!server.loading">
+                    <p>status: <span :class="server.status">{{ server.status }}</span></p>
+                    <p>players: {{ server.numPlayers }}/{{ server.maxPlayers }}</p>
+                    <p>map: {{ server.map }}</p>
+                    <p>game: "{{ server.gameName }}" version {{ server.gameVersion }}</p>
+                    <p><a :href="server.connect">connect {{ server.ip }}:{{ server.port }}</a></p>
+                </div>
+            </div>
+            <div v-if="!server.loading" class="map">
+                <img :src="server.mapImage" />
+            </div>
         </div>
+        
     </div>
 </div>
 

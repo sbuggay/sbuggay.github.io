@@ -12,7 +12,8 @@ const serverTemplate = {
     secure: 0,
     status: "pending",
     connect: "",
-    url: ""
+    url: "",
+    loading: true
 };
 
 function convertToGame(game) {
@@ -55,19 +56,20 @@ const serverControl = new Vue({
             const response = await fetch(url);
             const json = await response.json();
             if (json.status !== "error") {
-
                 const serverData = Object.assign({}, serverTemplate, json, {
                     status: "available",
                     mapImage: `/images/maps/${json.map}.png`,
                     gameImage: `/images/games/${convertToGame(json.gameName)}.png`,
-                    connect: `steam://connect/${json.ip}:${json.port}`
+                    connect: `steam://connect/${json.ip}:${json.port}`,
+                    loading: false
                 });
 
                 Vue.set(this.servers, index, serverData);
             }
             else {
                 const serverData = Object.assign({}, serverTemplate, this.servers[index], {
-                    status: "error"
+                    status: "unavailable",
+                    loading: false
                 });
 
                 Vue.set(this.servers, index, serverData);

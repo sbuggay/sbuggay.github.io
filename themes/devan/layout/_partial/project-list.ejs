@@ -1,28 +1,31 @@
 <ul>
-<% if (count == -1) { count = site.data.data.projects.length } %>
-<% to = 0 %>
-<% for(var i=0; i < site.data.data.projects.length; i++) { %>
+    <% if (count == -1) { count = site.data.data.projects.length } %>
+    <% to = 0 %>
+    <% for(var i=0; i < site.data.data.projects.length; i++) { %>
     <% project = site.data.data.projects[i]; %>
     <% if (to < count) { %>
-        <li>
-            <a href="<%- project.link %>"><%- project.name %></a><span> - </span><%- project.description %>
-            <div>
+    <li>
+        <a href="<%- project.link %>">
+            <%- project.name %></a><span> - </span>
+        <%- project.description %>
+        <div>
             <% if (project.date) { %>
             <time class="info">
                 <%= project.date %>
             </time>
             <% } %>
             <% for(var j=0; j < project.tags.length; j++) { %>
-                <span class="tag"><%- project.tags[j] %></span>
+            <span class="tag">
+                <%- project.tags[j] %></span>
             <% } %>
-            </div>
-        </li>
-        <% to++ %>
+        </div>
+    </li>
+    <% to++ %>
     <% } %>
-<% } %>
-<% if (count != site.data.data.projects.length) { %>
+    <% } %>
+    <% if (count != site.data.data.projects.length) { %>
     <li style="list-style: none;"> ... see more projects
         <a href="/projects">here</a>
     </li>
-<% } %>
+    <% } %>
 </ul>

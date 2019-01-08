@@ -4,7 +4,8 @@
       <nav id="main-nav">
         <div id="main-nav-links">
           <% for (var i in theme.menu) { %>
-              <a class="main-nav-link" href="<%- url_for(theme.menu[i]) %>"><%= i %></a>
+          <a class="main-nav-link" href="<%- url_for(theme.menu[i]) %>">
+            <%= i %></a>
           <% } %>
         </div>
         <div id="main-nav-social">
@@ -20,7 +21,7 @@
           <a class="main-nav-icon" href="/atom.xml" aria-label="rss">
             <i class="fa fa-rss" aria-hidden="true"></i>
           </a>
-        <div>
+          <div>
       </nav>
     </div>
   </div>

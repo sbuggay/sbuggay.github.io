@@ -1,12 +1,17 @@
 <h1>Servers</h1>
 <div id="servers">
     <div v-for="(server, index) in servers">
-        <div class="server-loading"  v-if="server.loading">
+        <div class="server-loading" v-if="server.loading">
             <div>
                 {{ server.serverName }}
             </div>
             <div style="display: flex; width: 100%; height: 100%; align-self: center;">
-                <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+                <div class="lds-ellipsis">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
             </div>
         </div>
         <div class="server" v-if="!server.loading">
@@ -23,17 +28,16 @@
                 </div>
             </div>
             <div v-if="!server.loading" class="map">
-                <img :src="server.mapImage" />
+                <img :src="server.mapImage" onerror="this.style.opacity='0'" />
             </div>
         </div>
-        
+
     </div>
 </div>
 
-<p>This page uses two of my projects: <a>srcds-vue</a> and <a href="https://github.com/sbuggay/srcds-info-proxy">srcds-info-proxy</a>. I use <a>sentry</a>, another project of mine, to watch and maintain these servers.</p>
+<p>This page uses two of my projects: <a>srcds-vue</a> and <a href="https://github.com/sbuggay/srcds-info-proxy">srcds-info-proxy</a>.
+    I use <a>sentry</a>, another project of mine, to watch and maintain these servers.</p>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.13/vue.min.js"></script>
-<script>
-    servers = <%- JSON.stringify(site.data.data.servers) %>;
-</script>
+<script>servers = <%- JSON.stringify(site.data.data.servers) %>;</script>
 <%- js("js/servers") %>

@@ -11,49 +11,52 @@
   display: flex;
   flex-wrap: wrap;
 }
-#home #latest .component {
+#home #latest div {
   flex: 0 100%;
 }
 @media mq-normal {
-  #home #latest .component {
+  #home #latest div {
     flex: 0 50%;
   }
 }
-#home #latest .component hr {
+#home #latest div hr {
   margin-bottom: 20px;
   border: none;
   height: 1px;
   background-color: color-border;
 }
 @media mq-normal {
-  #home #latest .component hr {
+  #home #latest div hr {
     display: none;
   }
 }
-ul {
+.component {
+  margin: 0 5px;
+}
+.component ul {
   margin: 1em 0 1em;
 }
-ul li {
+.component ul li {
   background-color: color-background-alt;
   border-radius: 3px;
-  margin: 10px 5px;
+  margin: 10px 0;
   padding: 5px;
   list-style: none;
 }
-ul li a {
+.component ul li a {
   color: color-link;
 }
-ul li a:hover {
+.component ul li a:hover {
   text-decoration: none;
 }
-ul li a span:hover {
+.component ul li a span:hover {
   text-decoration: underline;
 }
-ul li time {
+.component ul li time {
   color: color-orange;
   font-size: 0.9em;
 }
-ul .tag {
+.component ul .tag {
   color: color-orange;
   font-size: 0.9em;
   border: 1px solid #000;

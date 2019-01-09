@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   <title>devanbuggay</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -14,7 +14,7 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"> 
   <link rel="stylesheet" href="/css/style.css">
 </head>
-
+</html>
 <body>
   <div id="container">
     <div id="wrap">
@@ -24,13 +24,17 @@
       <nav id="main-nav">
         <div id="main-nav-links">
           
-              <a class="main-nav-link" href="/">home</a>
+          <a class="main-nav-link" href="/">
+            home</a>
           
-              <a class="main-nav-link" href="/projects">projects</a>
+          <a class="main-nav-link" href="/projects">
+            projects</a>
           
-              <a class="main-nav-link" href="/archives">archives</a>
+          <a class="main-nav-link" href="/archives">
+            archives</a>
           
-              <a class="main-nav-link" href="/servers">servers</a>
+          <a class="main-nav-link" href="/servers">
+            servers</a>
           
         </div>
         <div id="main-nav-social">
@@ -46,13 +50,13 @@
           <a class="main-nav-icon" href="/atom.xml" aria-label="rss">
             <i class="fa fa-rss" aria-hidden="true"></i>
           </a>
-        <div>
-      </nav>
+          <div>
+      </div></div></nav>
     </div>
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-c-garbage-collection" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-c-garbage-collection" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -70,9 +74,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>The simplest garbage collection pattern is mark and sweep. Implementing this in C we need to check 3 data segments for references to allocated memory. The stack, the heap, and .bss. In this post we will take a look at find where the stack exists in memory so we can scan it. There are platform specific ways to find this information, but this solution is platform agnostic.</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><div class="line"><span class="keyword">size_t</span> top_of_stack;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">print_stack_depth</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> bottom_of_stack;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"stack depth: %lu\n"</span>, top_of_stack - (<span class="keyword">size_t</span>) &amp;bottom_of_stack)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> sentinal;</div><div class="line">    top_of_stack = (<span class="keyword">size_t</span>) &amp;sentinal;</div><div class="line"></div><div class="line">    print_stack_depth();</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">size_t</span> top_of_stack;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print_stack_depth</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> bottom_of_stack;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"stack depth: %lu\n"</span>, top_of_stack - (<span class="keyword">size_t</span>) &amp;bottom_of_stack)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> sentinal;</span><br><span class="line">    top_of_stack = (<span class="keyword">size_t</span>) &amp;sentinal;</span><br><span class="line"></span><br><span class="line">    print_stack_depth();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
-<li><a href="http://web.engr.illinois.edu/~maplant2/gc.html" target="_blank" rel="external">http://web.engr.illinois.edu/~maplant2/gc.html</a></li>
+<li><a href="http://web.engr.illinois.edu/~maplant2/gc.html" target="_blank" rel="noopener">http://web.engr.illinois.edu/~maplant2/gc.html</a></li>
 </ul>
 
       

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   <title>devanbuggay</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -14,7 +14,7 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"> 
   <link rel="stylesheet" href="/css/style.css">
 </head>
-
+</html>
 <body>
   <div id="container">
     <div id="wrap">
@@ -24,13 +24,17 @@
       <nav id="main-nav">
         <div id="main-nav-links">
           
-              <a class="main-nav-link" href="/">home</a>
+          <a class="main-nav-link" href="/">
+            home</a>
           
-              <a class="main-nav-link" href="/projects">projects</a>
+          <a class="main-nav-link" href="/projects">
+            projects</a>
           
-              <a class="main-nav-link" href="/archives">archives</a>
+          <a class="main-nav-link" href="/archives">
+            archives</a>
           
-              <a class="main-nav-link" href="/servers">servers</a>
+          <a class="main-nav-link" href="/servers">
+            servers</a>
           
         </div>
         <div id="main-nav-social">
@@ -46,35 +50,54 @@
           <a class="main-nav-icon" href="/atom.xml" aria-label="rss">
             <i class="fa fa-rss" aria-hidden="true"></i>
           </a>
-        <div>
-      </nav>
+          <div>
+      </div></div></nav>
     </div>
   </div>
 </header>
       <div class="outer">
         <section id="main"><h1>Servers</h1>
 <div id="servers">
-    <div class="server" v-for="(server, index) in servers">
-        <div>
-        <div><img class="game" :src="server.gameImage"></img> {{ server.serverName }}</div>
-            <p>status: <span :class="server.status">{{ server.status }}</span></p>
-            <p>players: {{ server.numPlayers }}/{{ server.maxPlayers }}</p>
-            <p>map: {{ server.map }}</p>
-            <p>game: "{{ server.gameName }}" version {{ server.gameVersion }}</p>
-            <p><a :href="server.connect">connect {{ server.ip }}:{{ server.port }}</a></p>
+    <div v-for="(server, index) in servers">
+        <div class="server-loading" v-if="server.loading">
+            <div>
+                {{ server.serverName }}
+            </div>
+            <div style="display: flex; width: 100%; height: 100%; align-self: center;">
+                <div class="lds-ellipsis">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
         </div>
-        <div class="map">
-            <img :src="server.mapImage"></img>
+        <div class="server" v-if="!server.loading">
+            <div>
+                <div>
+                    <img class="game" :src="server.gameImage"> {{ server.serverName }}
+                </div>
+                <div v-if="!server.loading">
+                    <p>status: <span :class="server.status">{{ server.status }}</span></p>
+                    <p>players: {{ server.numPlayers }}/{{ server.maxPlayers }}</p>
+                    <p>map: {{ server.map }}</p>
+                    <p>game: "{{ server.gameName }}" version {{ server.gameVersion }}</p>
+                    <p><a :href="server.connect">connect {{ server.ip }}:{{ server.port }}</a></p>
+                </div>
+            </div>
+            <div v-if="!server.loading" class="map">
+                <img :src="server.mapImage" onerror="this.style.opacity='0'">
+            </div>
         </div>
+
     </div>
 </div>
 
-<p>This page uses two of my projects: <a>srcds-vue</a> and <a href="https://github.com/sbuggay/srcds-info-proxy">srcds-info-proxy</a>. I use <a>sentry</a>, another project of mine, to watch and maintain these servers.</p>
+<p>This page uses two of my projects: <a>srcds-vue</a> and <a href="https://github.com/sbuggay/srcds-info-proxy">srcds-info-proxy</a>.
+    I use <a>sentry</a>, another project of mine, to watch and maintain these servers.</p>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.13/vue.min.js"></script>
-<script>
-    servers = ["devan.network:27015","devan.space:27015","devan.space:27020"];
-</script>
+<script>servers = ["devan.network:27015","devan.network:27016","devan.space:27015","devan.space:27020"];</script>
 <script src="/js/servers.js"></script></section>
       </div>
     </div>

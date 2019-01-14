@@ -28,14 +28,11 @@
   @media mq-normal
     display: block
     
-
 $nav-link
   color: color-default
   font-size: 1.2em
   text-decoration: none
   margin-right: 20px
-  &:hover
-    text-decoration: underline
 
 .main-nav-link
   height: 100%
@@ -49,6 +46,8 @@ $nav-link
     padding: 0 15px
   color: color-default
   transition: color .2s ease
+
+  text-decoration: none
   
   &:before
     content: "/"
@@ -58,13 +57,6 @@ $nav-link
       content: "$"
   &:hover
     color: darken(color-default, 50)
-    text-decoration: none
-
-.main-nav-link-selected
-  @extend $nav-link
-  color: #aaa
-  &:hover
-    text-decoration: none
 
 .main-nav-icon
   color: color-default

@@ -113,9 +113,6 @@ body {
 }
 a {
   color: #73b2cb;
-  text-decoration: none;
-}
-a:hover {
   text-decoration: underline;
 }
 h1 {
@@ -226,12 +223,12 @@ h4 {
   -o-transition: background-color 0.2s ease;
   -ms-transition: background-color 0.2s ease;
   transition: background-color 0.2s ease;
+  text-decoration: none;
 }
 .component a .description {
   color: #9d9d9d;
 }
 .component a:hover {
-  text-decoration: none;
   background-color: #222;
 }
 .component a time {
@@ -648,15 +645,6 @@ h4 {
     display: block;
   }
 }
-.main-nav-link-selected {
-  color: #ddd;
-  font-size: 1.2em;
-  text-decoration: none;
-  margin-right: 20px;
-}
-.main-nav-link-selected:hover {
-  text-decoration: underline;
-}
 .main-nav-link {
   height: 100%;
   padding: 0 15px;
@@ -680,6 +668,7 @@ h4 {
   -o-transition: color 0.2s ease;
   -ms-transition: color 0.2s ease;
   transition: color 0.2s ease;
+  text-decoration: none;
 }
 @media screen and (min-width: 900px) {
   .main-nav-link {
@@ -698,13 +687,6 @@ h4 {
 }
 .main-nav-link:hover {
   color: #5e5e5e;
-  text-decoration: none;
-}
-.main-nav-link-selected {
-  color: #aaa;
-}
-.main-nav-link-selected:hover {
-  text-decoration: none;
 }
 .main-nav-icon {
   color: #ddd;

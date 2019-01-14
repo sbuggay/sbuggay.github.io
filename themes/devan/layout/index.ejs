@@ -3,23 +3,16 @@
     <p>Hello, My name is Devan. I currently work at Microsoft. Before that, I worked professionally on iOS apps. I run
         a few game servers (Counter-Strike mostly) that you can check out over on my <a href="/servers">servers</a>
         page.</p>
-    <hr>
     <div id="latest">
-        <div class="component">
-            <a href="/archives">
-                <h2>Latest posts</h2>
-            </a>
+        <div>
+            <h2>Latest posts</h2>
             <%- partial('_partial/archive-list', {count: 5}) %>
         </div>
-        <div class="component">
-            <hr>
-            <a href="/projects">
-                <h2>Projects</h2>
-            </a>
+        <div>
+            <h2>Projects</h2>
             <%- partial('_partial/project-list', {count: 5}) %>
         </div>
     </div>
-    <hr>
     <h2>
         Contact
     </h2>

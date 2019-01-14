@@ -2,7 +2,8 @@
   height: banner-height * 0.75
   @media mq-normal
     height: banner-height
-  border-bottom: 1px solid color-border
+  // border-bottom: 1px solid color-border
+  background-color: darken(color-background, 50)
   margin-bottom: 20px
   overflow-x: hidden
 
@@ -47,6 +48,8 @@ $nav-link
     font-size: 1.2em
     padding: 0 15px
   color: color-default
+  transition: color .2s ease
+  
   &:before
     content: "/"
   &:first-of-type
@@ -54,7 +57,8 @@ $nav-link
     &:before
       content: "$"
   &:hover
-    background-color: color-backround-alt
+    color: darken(color-default, 50)
+    text-decoration: none
 
 .main-nav-link-selected
   @extend $nav-link
@@ -67,8 +71,8 @@ $nav-link
   text-decoration: none
   margin-left: 10px
   font-size: 1.5em
-  transition: all .2s ease-in-out
+  transition: color .2s ease
   &:hover
-    color: white
+    color: darken(color-default, 50)
     text-decoration: none
     

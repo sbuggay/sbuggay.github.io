@@ -12,7 +12,7 @@
     display: flex
     flex-wrap: wrap
     
-    .component
+    div
       flex: 0 100%
       @media mq-normal
         flex: 0 50%
@@ -25,21 +25,21 @@
         @media mq-normal
           display: none
 
-ul
-  margin: 1em 0 1em
-  li
-    background-color: color-background-alt
-    border-radius: 3px;
-    margin: 10px 5px
+.component
+  margin: 5px
+  a
+    .description
+      color: darken(color-default, 25)
+    border: 2px solid color-background-alt
+    border-radius: 3px
+    margin: 10px 0
     padding: 5px
-    list-style: none
-    a
-      color: color-link 
-      &:hover
-        text-decoration: none
-      span
-        &:hover
-          text-decoration: underline
+    display: block
+    color: color-default
+    transition: background-color .2s ease
+    &:hover
+      text-decoration: none
+      background-color: color-background-alt
     time
       color: color-orange
       font-size: .9em

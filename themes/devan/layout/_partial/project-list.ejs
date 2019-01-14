@@ -1,13 +1,14 @@
-<ul>
+<div class="component">
     <% if (count == -1) { count = site.data.data.projects.length } %>
     <% to = 0 %>
     <% for(var i=0; i < site.data.data.projects.length; i++) { %>
     <% project = site.data.data.projects[i]; %>
     <% if (to < count) { %>
-    <li>
-        <a href="<%- project.link %>">
-            <%- project.name %></a><span> - </span>
-        <%- project.description %>
+    <a href="<%- project.link %>">
+        <span class="title">
+            <%- project.name %>
+        </span>
+        <span class="description"><%- project.description %></span>
         <div>
             <% if (project.date) { %>
             <time class="info">
@@ -19,13 +20,12 @@
                 <%- project.tags[j] %></span>
             <% } %>
         </div>
-    </li>
+    </a>
     <% to++ %>
     <% } %>
     <% } %>
     <% if (count != site.data.data.projects.length) { %>
-    <li style="list-style: none;"> ... see more projects
-        <a href="/projects">here</a>
-    </li>
+    <a style="list-style: none;" href="/projects"> see more projects
+    </a>
     <% } %>
-</ul>
+</div>

@@ -1,30 +1,26 @@
-<ul>
-    <% to = 0 %>
-    <% if (count == -1) { count = page.posts.length } %>
-    <% page.posts.each(function(post) { %>
-    <% if (to < count) { %>
-    <li>
-        <a href="<%- url_for(post.path) %>">
-        <span>
-            <%- post.title %>
-        </span>
-        </a>
-        <div>
-        <time class="info">
-            <%= date(post.date, 'MM-DD-YYYY') %>
-        </time>
-        <% post.tags.forEach(function (item) { %>
-            <span class="tag"><%- item.name %></span>
-        <% }); %>
-        </div>
-    </li>
-    <div></div><% to++ %>
-    <% } %>
-    <% }) %>
+<div class="component">
+<% to = 0 %>
+<% if (count == -1) { count = page.posts.length } %>
+<% page.posts.each(function(post) { %>
+<% if (to < count) { %>
+<a style="display: block;" href="<%- url_for(post.path) %>">
+    <span>
+        <%- post.title %>
+    </span>
+    <div>
+    <time class="info">
+        <%= date(post.date, 'MM-DD-YYYY') %>
+    </time>
+    <% post.tags.forEach(function (item) { %>
+        <span class="tag"><%- item.name %></span>
+    <% }); %>
+    </div>
+</a>
+<% to++ %>
+<% } %>
+<% }) %>
 
-    <% if (count != page.posts.length) { %>
-    <li style="list-style: none;"> ... see more posts
-        <a href="/archives">here</a>
-    </li>
-    <% } %>
-</ul>
+<% if (count != page.posts.length) { %>
+<a href="/archives" style="display: block;">see more posts</a>
+<% } %>
+</div>

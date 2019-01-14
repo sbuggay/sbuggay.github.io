@@ -139,6 +139,9 @@ h4 {
     margin: 0 auto;
   }
 }
+.outer +.bottom {
+  background-color: #000;
+}
 .clear {
   clear: both;
 }
@@ -209,32 +212,33 @@ h4 {
   }
 }
 .component {
-  margin: 0 5px;
+  margin: 1em 5px;
 }
-.component ul {
-  margin: 1em 0 1em;
-}
-.component ul li {
-  background-color: #222;
+.component a {
+  border: 2px solid #222;
   border-radius: 3px;
   margin: 10px 0;
   padding: 5px;
-  list-style: none;
+  display: block;
+  color: #ddd;
+  -webkit-transition: background-color 0.2s ease;
+  -moz-transition: background-color 0.2s ease;
+  -o-transition: background-color 0.2s ease;
+  -ms-transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease;
 }
-.component ul li a {
-  color: #73b2cb;
+.component a .description {
+  color: #9d9d9d;
 }
-.component ul li a:hover {
+.component a:hover {
   text-decoration: none;
+  background-color: #222;
 }
-.component ul li a span:hover {
-  text-decoration: underline;
-}
-.component ul li time {
+.component a time {
   color: #f90;
   font-size: 0.9em;
 }
-.component ul .tag {
+.component .tag {
   color: #f90;
   font-size: 0.9em;
   border: 1px solid #000;
@@ -591,7 +595,7 @@ h4 {
 }
 #header {
   height: 37.5px;
-  border-bottom: 1px solid #ddd;
+  background-color: #000;
   margin-bottom: 20px;
   overflow-x: hidden;
 }
@@ -694,6 +698,7 @@ h4 {
 }
 .main-nav-link:hover {
   color: #5e5e5e;
+  text-decoration: none;
 }
 .main-nav-link-selected {
   color: #aaa;

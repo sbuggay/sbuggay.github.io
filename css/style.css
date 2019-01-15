@@ -210,11 +210,11 @@ h4 {
   }
 }
 .component {
-  margin: 1em 10px 0 0;
+  margin: 1em 0 0 0;
 }
-@media screen and (min-width: 480px) and (max-width: 899px) {
+@media screen and (min-width: 900px) {
   .component {
-    margin: 1em 0 0 0;
+    margin: 1em 10px 0 0;
   }
 }
 .component a {
@@ -573,12 +573,10 @@ h4 {
 [class^="icon-"], [class*=" icon-"] {
     /* use !important to prevent issues with browser extensions that change fonts */
     font-family: 'icomoon' !important;
-    speak: none;
     font-style: normal;
     font-weight: normal;
     font-variant: normal;
     text-transform: none;
-    line-height: 1;
 
     /* Better Font Rendering =========== */
     -webkit-font-smoothing: antialiased;

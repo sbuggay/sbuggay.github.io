@@ -17,11 +17,13 @@ const serverTemplate = {
 };
 
 function convertToGame(game) {
-    switch (game) {
-        case "Counter-Strike": return "cs";
-        case "Counter-Strike: Source": return "css";
-        case "Counter-Strike: Global Offensive": return "csgo"
-    }
+    const gameMapping = {
+        "Counter-Strike": "cs",
+        "Counter-Strike: Source": "css",
+        "Counter-Strike: Global Offensive": "csgo"
+    };
+
+    return gameMapping[game];
 }
 
 // create vue control
@@ -68,7 +70,7 @@ const serverControl = new Vue({
             }
             else {
                 const serverData = Object.assign({}, serverTemplate, this.servers[index], {
-                    status: "unavailable",
+                    status: "error",
                     loading: false
                 });
 

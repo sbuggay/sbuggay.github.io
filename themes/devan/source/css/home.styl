@@ -12,10 +12,12 @@
     display: flex
     flex-wrap: wrap
     
-    div
+    .section
       flex: 0 100%
       @media mq-normal
         flex: 0 50%
+
+      margin-bottom: 1em
     
       hr
         margin-bottom: 20px
@@ -27,6 +29,8 @@
 
 .component
   margin: 1em 10px 0 0
+  @media mq-tablet
+    margin: 1em 0 0 0
   a
     .description
       color: darken(color-default, 25)

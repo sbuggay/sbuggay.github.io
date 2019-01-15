@@ -23,7 +23,7 @@
                     <p>status: <span :class="server.status">{{ server.status }}</span></p>
                     <p>players: {{ server.numPlayers }}/{{ server.maxPlayers }}</p>
                     <p>map: {{ server.map }}</p>
-                    <p>game: "{{ server.gameName }}" version {{ server.gameVersion }}</p>
+                    <p>version: {{ server.gameVersion }}</p>
                     <p><a :href="server.connect">connect {{ server.ip }}:{{ server.port }}</a></p>
                 </div>
             </div>
@@ -36,7 +36,7 @@
 </div>
 
 <p>This page uses two of my projects: <a>srcds-vue</a> and <a href="https://github.com/sbuggay/srcds-info-proxy">srcds-info-proxy</a>.
-    I use <a>sentry</a>, another project of mine, to watch and maintain these servers.</p>
+    I use <a href="https://github.com/sbuggay/sentry">sentry</a>, another project of mine, to watch and maintain these servers.</p>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.13/vue.min.js"></script>
 <script>servers = <%- JSON.stringify(site.data.data.servers) %>;</script>

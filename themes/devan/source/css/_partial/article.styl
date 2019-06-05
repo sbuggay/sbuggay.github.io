@@ -27,9 +27,14 @@
 
 .article-entry
   @extend $base-style
-  color: color-default
+  color: color-subdued
+
+  h1, h2, h3, h4, h5
+    line-height: 1.4
+    color: color-default
+  
   p, table
-    line-height: line-height
+    line-height: 1.7
     margin: line-height 0
   a
     color: color-link
@@ -40,7 +45,7 @@
     margin-top: line-height
     margin-bottom: line-height
   img, video
-    max-width: 100%
+    width: 50%
     margin: 0 auto
     display: block
   iframe

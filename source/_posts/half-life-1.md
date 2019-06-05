@@ -20,14 +20,13 @@ It's likely that some of these were intentional design decisions made by the dev
 
 Luckily for us, Valve open sourced the goldsrc engine in 2013. You can find the official repo on GitHub here: [https://github.com/ValveSoftware/halflife](https://github.com/ValveSoftware/halflife). In this post we will take a look at some of these issues and see if we can mitigate them.
 
-### Enemy corpses block player movement until their death animation is done.
-----
+## Enemy corpses block player movement until their death animation is done.
 
 ![solid-nofix](/images/solid-nofix.gif)
 
 Here is an example. Even though I am holding forward the entire time, the entity is solid until after the death animation is complete.
 
-Let's take a look at the relevant function. (There were a few commented out lines of code that I have removed for clarity.)
+Let's take a look at the relevant function. There were a few commented out lines of code that I have removed for clarity.
 
 {% code combat.cpp lang:cpp https://github.com/sbuggay/halflife/blob/5d761709a31ce1e71488f2668321de05f791b405/dlls/combat.cpp#L518-L532 hldll/dlls/combat.cpp:518 line_number:true first_line:518 mark:532-533 %}
 void CBaseMonster::BecomeDead( void )
@@ -62,8 +61,7 @@ After our change.
 
 As you can see, the marine no longer blocks us.
 
-### With `hud_fastswitch 1`, if there is more than one weapon for that slot there is still an extra action to select it.
-----
+## With `hud_fastswitch 1`, if there is more than one weapon for that slot there is still an extra action to select it.
 
 In Half-Life 2, activating a weapon slot that you are already using will automatically cycle through all the weapons in the slot. In Half-Life 1, the engine will instead present the user with the normal weapon selection menu. Requiring you to click to activate the weapon you have cycled to. This makes `hud_fastswitch 1` useless for any weapon slot that you have more than one valid weapon in.
 
@@ -128,7 +126,7 @@ I have added a variable `currentSel` that keeps track of our last selected weapo
 `if (currentSel && currentSel->iSlot == iSlot)` if there was a previously selected weapon, and the slot we are trying to move to is in the same slot, we simply get the next valid weapon in the slot. If there is no valid next weapon, we must be at the end of the list. So we default back to the first position.
 
 
-### Using the `use` key slows you down to `0.3` speed.
+## Using the `use` key slows you down to `0.3` speed.
 
 Under `pm_shared/pm_shared.c`.
 

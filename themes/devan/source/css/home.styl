@@ -32,6 +32,36 @@
         @media mq-normal
           display: none
 
+.container
+  display: flex
+
+.link
+  width: 50%
+  
+  .description
+    color: darken(color-default, 25)
+  border: 2px solid color-background-alt
+  border-radius: 3px
+  margin: 10px 0
+  margin-right: 8px
+  padding: 5px
+  display: block
+  color: color-default
+  transition: background-color .2s ease
+  text-decoration: none
+  &:hover
+    background-color: color-background-alt
+  time
+    color: color-orange
+    font-size: .9em
+  .tag
+    color: color-orange
+    font-size: .8em
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: #333;
+    padding: 4px 8px;
+
 .component
   margin: 1em 0 0 0
   @media mq-normal

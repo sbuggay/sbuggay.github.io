@@ -1,5 +1,5 @@
 ---
-title: Using systemd-analyze to Debug Boot Time
+title: Using systemd-analyze to Debug Boot Performance
 date: 2019-06-05 01:22:20
 tags:
 ---
@@ -55,9 +55,21 @@ Neat. Seems like what we want.
 ...
 ```
 
-Looks like `plymouth-quit-wait.service` seems to be the culprit here.
+Looks like `plymouth-quit-wait.service` is the culprit here. `plymouth` seems to be related to displaying the splash screen during boot, not something I really care about.
 
-`plymouth` seems to be related to displaying the splash screen during boot, not something I really care about.
+After some quick Googling, [it looks simple enough to disable it during boot](https://askubuntu.com/a/766991). Edit `/etc/default/grub` and change
+
+```
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"
+```
+
+to
+
+```
+GRUB_CMDLINE_LINUX_DEFAULT="quiet"
+```
+
+Apply changes with `sudo update-grub` and reboot.
 
 ```
 [devan:~]$ systemd-analyze blame
@@ -78,3 +90,5 @@ Looks like `plymouth-quit-wait.service` seems to be the culprit here.
 1.458s snap-core18-782.mount
 ...
 ```
+
+Much better :)

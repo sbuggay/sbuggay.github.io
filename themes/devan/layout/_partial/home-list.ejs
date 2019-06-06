@@ -1,0 +1,42 @@
+<div>
+    <% i = 0 %>
+    <% page.posts.each(function(post) { %>
+    <% if (i < 5) { %>
+    <% project = site.data.data.projects[i]; %>
+    <div class="container">
+        <a class="link" href="<%- project.link %>">
+            <span class="title">
+                <%- project.name %>
+            </span>
+            <span class="description"><%- project.description %></span>
+            <div>
+                <% if (project.date) { %>
+                <time class="info">
+                    <%= project.date %>
+                </time>
+                <% } %>
+                <% for(var j=0; j < project.tags.length; j++) { %>
+                <span class="tag">
+                    <%- project.tags[j] %></span>
+                <% } %>
+            </div>
+        </a>
+        <a class="link" href="<%- url_for(post.path) %>">
+            <span>
+                <%- post.title %>
+            </span>
+            <div>
+                <time class="info">
+                    <%= date(post.date, 'MM-DD-YYYY') %>
+                </time>
+                <% post.tags.forEach(function (item) { %>
+                <span class="tag"><%- item.name %></span>
+                <% }); %>
+            </div>
+        </a>
+    </div>
+    <% i++ %>
+    <% } %>
+    <% }); %>
+
+</div>

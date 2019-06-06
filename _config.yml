@@ -61,8 +61,8 @@ pagination_dir: page
 
 # Extensions
 ## Plugins: https://hexo.io/plugins/
-plugins: 
-  - hexo-reference
+# plugins: 
+#   - hexo-reference
 
 ## Themes: https://hexo.io/themes/
 theme: devan

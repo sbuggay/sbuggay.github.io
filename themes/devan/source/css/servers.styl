@@ -1,110 +1,117 @@
-#servers
-  
-  margin-top: 20px
-
-  .available
-    color: color-available
-  .warning
-    color: color-warning
-  .error
-    color: color-error
-  .pending
-    color: white
-
-  .server-loading
-    margin: 20px 0
-    padding: 20px 20px
-    border-radius: 2px;
-    border-left: 4px white solid
-    background-color: #222
-    height: 140px;
-
-  .server
-    margin: 20px 0
-    padding: 20px 20px
-    height: 140px;
+.server {
     display: flex;
     justify-content: space-between;
+    background-color: #222;
+    margin: 20px 0;
+    padding: 20px;
+    height: 96px;
+    border-radius: 3px;
+    border-left: 5px solid white;
+    box-shadow: 0 8px 6px -6px black;
+    position: relative;
+}
+
+.server.available {
+    border-left: 5px solid #b2cb73;
+}
+
+.server.error {
+    border-left: 5px solid #cb7386;
+}
+
+.server .error {
+    color: #cb7386;
+}
+
+.server .detail {
+    color: #aaa;
+}
+
+.server .right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.server .connect {
     border-radius: 2px;
-    border-left: 4px white solid
-    background-color: #222
-    
-    .game
-      width: 20px;
-      height: 20px;
+    text-decoration: none;
+    padding: 5px 10px;
+    border: 0;
+    background: #73b2cb;
+    color: black;
+}
 
-    .loading
-      width: 100%;
-      left: 0;
-      right: 0;
-      margin: auto
+.server .loading {
+    /* width: 200px; */
+    /* border: 1px solid pink; */
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+}
 
-    .map
-      display: block
-      @media mq-mobile
-        display: none
-      align-self: center
-      height: 120px
-      img
-        width: auto
-        max-width: 160px
-        height: 100%
-
-
-// spinner
 .lds-ellipsis {
-  display: inline-block;
-  position: relative;
-  width: 64px;
-  height: 64px;
-  margin:0 auto;
+    display: inline-block;
+    position: relative;
+    width: 64px;
+    height: 64px;
+    margin: 0 auto;
 }
+
 .lds-ellipsis div {
-  position: absolute;
-  top: 27px;
-  width: 11px;
-  height: 11px;
-  border-radius: 50%;
-  background: #fff;
-  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+    position: absolute;
+    top: 27px;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: #fff;
+    animation-timing-function: cubic-bezier(0, 1, 1, 0);
 }
+
 .lds-ellipsis div:nth-child(1) {
-  left: 6px;
-  animation: lds-ellipsis1 0.6s infinite;
+    left: 6px;
+    animation: lds-ellipsis1 0.6s infinite;
 }
+
 .lds-ellipsis div:nth-child(2) {
-  left: 6px;
-  animation: lds-ellipsis2 0.6s infinite;
+    left: 6px;
+    animation: lds-ellipsis2 0.6s infinite;
 }
+
 .lds-ellipsis div:nth-child(3) {
-  left: 26px;
-  animation: lds-ellipsis2 0.6s infinite;
+    left: 26px;
+    animation: lds-ellipsis2 0.6s infinite;
 }
+
 .lds-ellipsis div:nth-child(4) {
-  left: 45px;
-  animation: lds-ellipsis3 0.6s infinite;
+    left: 45px;
+    animation: lds-ellipsis3 0.6s infinite;
 }
+
 @keyframes lds-ellipsis1 {
-  0% {
-    transform: scale(0);
-  }
-  100% {
-    transform: scale(1);
-  }
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
+
 @keyframes lds-ellipsis3 {
-  0% {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(0);
-  }
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(0);
+    }
 }
+
 @keyframes lds-ellipsis2 {
-  0% {
-    transform: translate(0, 0);
-  }
-  100% {
-    transform: translate(19px, 0);
-  }
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(19px, 0);
+    }
 }

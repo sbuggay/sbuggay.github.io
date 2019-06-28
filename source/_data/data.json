@@ -20,11 +20,16 @@
             "tags": ["javascript", "node", "vue", "github"]
         },
         {
+            "name": "yahn",
+            "link": "https://devanbuggay.com/yahn",
+            "description": "(Yet Another) Hacker News client.",
+            "tags": ["typescript", "react", "mobx"]
+        },
+        {
             "name": "DotaSalt",
             "link": "https://github.com/sbuggay/dotasalt",
             "description": "A simple DotA 2 match and player viewer.",
-            "tags": ["python", "flask"],
-            "date": 2013
+            "tags": ["python", "flask"]
         },
         {
             "name": "srcds-info-proxy",
@@ -48,15 +53,13 @@
             "name": "silversrc",
             "link": "https://github.com/sbuggay/silversrc",
             "description": "A reimplementation of the Quake engine for learning purposes.",
-            "tags": ["c"],
-            "date": 2014
+            "tags": ["c"]
         },
         {
             "name": "snarge",
             "link": "https://github.com/sbuggay/snarge",
             "description": "A 3d bird's eye view engine. Built to learn some basic game engine principles.",
-            "tags": ["opengl", "sdl2", "c++"],
-            "date": 2013
+            "tags": ["opengl", "sdl2", "c++"]
         },
         {
             "name": "ctest",
@@ -68,8 +71,7 @@
             "name": "Perusal",
             "link": "https://github.com/sbuggay/Perusal",
             "description": "A simple Reddit client for iOS.",
-            "tags": ["iOS", "obj-c"],
-            "date": 2013
+            "tags": ["iOS", "obj-c"]
         },
         {
             "name": "gt-scrape",
@@ -87,7 +89,7 @@
     ],
     "servers": [
         "devan.network:27015",
-        "devan.network:27016",
+        "devan.network:27020",
         "devan.space:27015",
         "devan.space:27020"
     ]

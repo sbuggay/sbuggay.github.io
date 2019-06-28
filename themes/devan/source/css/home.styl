@@ -17,12 +17,13 @@
     display: flex
     flex-wrap: wrap
     
+    
     .section
       flex: 0 100%
       @media mq-normal
         flex: 0 50%
 
-      margin-bottom: 1em
+      margin-bottom: 60px
     
       hr
         margin-bottom: 20px
@@ -64,15 +65,21 @@
 
 .component
   margin: 1em 0 0 0
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
   @media mq-normal
     margin: 1em 10px 0 0
   a
+    flex-grow: 1;
+    flex-basis: 40px;
     .description
       color: darken(color-default, 25)
     border: 2px solid color-background-alt
     border-radius: 3px
-    margin: 10px 0
     padding: 5px
+    margin: 5px 0;
     display: block
     color: color-default
     transition: background-color .2s ease

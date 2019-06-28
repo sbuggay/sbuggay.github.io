@@ -2,13 +2,11 @@
 <nav id="article-nav">
     <% if (post.next){ %>
       <a href="<%- url_for(post.next.path) %>" id="article-nav-older" class="article-nav-link-wrap">
-        <strong>Previous</strong>
         <div class="article-nav-title"><%= post.next.title %></div>
       </a>
     <% } %>
   <% if (post.prev){ %>
     <a href="<%- url_for(post.prev.path) %>" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong>Next</strong>
       <div class="article-nav-title">
         <% if (post.prev.title){ %>
           <%= post.prev.title %>

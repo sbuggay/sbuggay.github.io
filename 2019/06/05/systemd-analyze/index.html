@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <title>devanbuggay</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <link rel="alternate" href="/atom.xml" title="devanbuggay" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"> 
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <div id="main-nav-links">
+          
+          <a class="main-nav-link " href="/">
+            home</a>
+          
+          <a class="main-nav-link is-active" href="/projects">
+            projects</a>
+          
+          <a class="main-nav-link " href="/archives">
+            archives</a>
+          
+          <a class="main-nav-link " href="/servers">
+            servers</a>
+          
+        </div>
+        <div id="main-nav-social">
+          <a class="main-nav-icon stack-overflow" href="https://stackoverflow.com/users/472974/devan-buggay" aria-label="stackoverflow">
+            <i class="icon-stack-overflow" aria-hidden="true"></i>
+          </a>
+          <a class="main-nav-icon linkedin" href="https://www.linkedin.com/in/devanbuggay/" aria-label="linkedin">
+            <i class="icon-linkedin" aria-hidden="true"></i>
+          </a>
+          <a class="main-nav-icon github" href="https://github.com/sbuggay" aria-label="github">
+            <i class="icon-github" aria-hidden="true"></i>
+          </a>
+          <a class="main-nav-icon" href="/atom.xml" aria-label="rss">
+            <i class="icon-feed" aria-hidden="true"></i>
+          </a>
+          <div>
+      </nav>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-systemd-analyze" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Using systemd-analyze to Debug Boot Performance
+    </h1>
+  
+
+        <time class="archive-article-date" datetime="2019-06-05T08:22:20.000Z" itemprop="datePublished">Jun 5 2019</time>        
+      </header>
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>After doing a dist upgrade to Ubuntu 19.04, booting started taking over 20 seconds. <code>systemd</code> comes with a handy tool called <code>systemd-analyze</code> to debug these kinds of issues.</p>
+<p>From the <code>man</code> file:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">systemd-analyze may be used to determine system boot-up performance</span><br><span class="line">statistics and retrieve other state and tracing information from the</span><br><span class="line">system and service manager, and to verify the correctness of unit</span><br><span class="line">files. It is also used to access special functions useful for advanced</span><br><span class="line">system manager debugging.</span><br></pre></td></tr></table></figure>
+<p>In particular we are interested in the <code>blame</code> functionality of it.</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">systemd-analyze [OPTIONS...] blame</span><br><span class="line"></span><br><span class="line">systemd-analyze blame prints a list of all running units, ordered by</span><br><span class="line">the time they took to initialize. This information may be used to</span><br><span class="line">optimize boot-up times. Note that the output might be misleading as the</span><br><span class="line">initialization of one service might be slow simply because it waits for</span><br><span class="line">the initialization of another service to complete. Also note:</span><br><span class="line">systemd-analyze blame doesn&apos;t display results for services with</span><br><span class="line">Type=simple, because systemd considers such services to be started</span><br><span class="line">immediately, hence no measurement of the initialization delays can be</span><br><span class="line">done.</span><br></pre></td></tr></table></figure>
+<p>Neat. Seems like what we want.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[devan:~]$ systemd-analyze blame</span><br><span class="line"></span><br><span class="line">21.382s plymouth-quit-wait.service</span><br><span class="line">1.982s snap-node-2184.mount</span><br><span class="line">1.973s snap-gnome\x2dsystem\x2dmonitor-81.mount</span><br><span class="line">1.948s snap-vlc-770.mount</span><br><span class="line">1.936s snap-gnome\x2dlogs-61.mount</span><br><span class="line">1.905s snap-gnome\x2dcharacters-272.mount</span><br><span class="line">1.827s snap-gnome\x2d3\x2d28\x2d1804-47.mount</span><br><span class="line">1.781s snap-gnome\x2d3\x2d28\x2d1804-51.mount</span><br><span class="line">1.778s snap-gnome\x2d3\x2d26\x2d1604-82.mount</span><br><span class="line">1.752s snap-gnome\x2dcharacters-280.mount</span><br><span class="line">1.705s snap-spotify-34.mount</span><br><span class="line">1.662s snap-gtk\x2dcommon\x2dthemes-701.mount</span><br><span class="line">1.651s snap-gnome\x2d3\x2d26\x2d1604-70.mount</span><br><span class="line">1.600s snap-node-2212.mount</span><br><span class="line">1.588s snap-core-6531.mount</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>Looks like <code>plymouth-quit-wait.service</code> is the culprit here. <code>plymouth</code> seems to be related to displaying the splash screen during boot, not something I really care about.</p>
+<p>After some quick Googling, <a href="https://askubuntu.com/a/766991" target="_blank" rel="noopener">it looks simple enough to disable it during boot</a>. Edit <code>/etc/default/grub</code> and change</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">GRUB_CMDLINE_LINUX_DEFAULT=&quot;quiet splash&quot;</span><br></pre></td></tr></table></figure>
+<p>to</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">GRUB_CMDLINE_LINUX_DEFAULT=&quot;quiet&quot;</span><br></pre></td></tr></table></figure>
+<p>Apply changes with <code>sudo update-grub</code> and reboot.</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[devan:~]$ systemd-analyze blame</span><br><span class="line">1.858s snap-gnome\x2dcalculator-352.mount</span><br><span class="line">1.855s snap-firefox-216.mount</span><br><span class="line">1.817s snap-gnome\x2dcharacters-272.mount</span><br><span class="line">1.766s snap-gnome\x2dlogs-57.mount</span><br><span class="line">1.763s snap-gtk\x2dcommon\x2dthemes-1198.mount</span><br><span class="line">1.660s snap-gnome\x2dsystem\x2dmonitor-83.mount</span><br><span class="line">1.656s snap-vlc-770.mount</span><br><span class="line">1.628s snap-gnome\x2d3\x2d28\x2d1804-47.mount</span><br><span class="line">1.591s snap-gtk\x2dcommon\x2dthemes-701.mount</span><br><span class="line">1.531s snap-gnome\x2d3\x2d28\x2d1804-51.mount</span><br><span class="line">1.527s snap-core-6964.mount</span><br><span class="line">1.501s snap-spotify-34.mount</span><br><span class="line">1.489s snap-gnome\x2dcalculator-260.mount</span><br><span class="line">1.471s snap-gnome\x2dsystem\x2dmonitor-81.mount</span><br><span class="line">1.458s snap-core18-782.mount</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>Much better :)</p>
+
+      
+    </div>
+    
+    <footer class="article-footer">
+      
+<nav id="article-nav">
+    
+      <a href="/2018/02/04/half-life-1/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">Half-Life 1 Quality of Life Changes</div>
+      </a>
+    
+  
+</nav>
+
+    </footer>
+    
+  </div>
+</article></section>
+      </div>
+    </div>
+    
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-39994684-2', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  </div>
+</body>
+</html>

@@ -1,60 +1,47 @@
-#servers {
-  margin-top: 20px;
-}
-#servers .available {
-  color: color-available;
-}
-#servers .warning {
-  color: color-warning;
-}
-#servers .error {
-  color: color-error;
-}
-#servers .pending {
-  color: #fff;
-}
-#servers .server-loading {
-  margin: 20px 0;
-  padding: 20px 20px;
-  border-radius: 2px;
-  border-left: 4px #fff solid;
-  background-color: #222;
-  height: 140px;
-}
-#servers .server {
-  margin: 20px 0;
-  padding: 20px 20px;
-  height: 140px;
+.server {
   display: flex;
   justify-content: space-between;
-  border-radius: 2px;
-  border-left: 4px #fff solid;
   background-color: #222;
+  margin: 20px 0;
+  padding: 20px;
+  height: 96px;
+  border-radius: 3px;
+  border-left: 5px solid #fff;
+  box-shadow: 0 8px 6px -6px #000;
+  position: relative;
 }
-#servers .server .game {
-  width: 20px;
-  height: 20px;
+.server.available {
+  border-left: 5px solid #b2cb73;
 }
-#servers .server .loading {
-  width: 100%;
-  left: 0;
-  right: 0;
-  margin: auto;
+.server.error {
+  border-left: 5px solid #cb7386;
 }
-#servers .server .map {
-  display: block;
-  align-self: center;
-  height: 120px;
+.server .error {
+  color: #cb7386;
 }
-@media mq-mobile {
-  #servers .server .map {
-    display: none;
-  }
+.server .detail {
+  color: #aaa;
 }
-#servers .server .map img {
-  width: auto;
-  max-width: 160px;
-  height: 100%;
+.server .right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.server .connect {
+  border-radius: 2px;
+  text-decoration: none;
+  padding: 5px 10px;
+  border: 0;
+  background: #73b2cb;
+  color: #000;
+}
+.server .loading {
+/* width: 200px; */
+/* border: 1px solid pink; */
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
 }
 .lds-ellipsis {
   display: inline-block;

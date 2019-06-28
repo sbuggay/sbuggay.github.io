@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   <title>devanbuggay</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -23,16 +23,16 @@
       <nav id="main-nav">
         <div id="main-nav-links">
           
-          <a class="main-nav-link" href="/">
+          <a class="main-nav-link " href="/">
             home</a>
           
-          <a class="main-nav-link" href="/projects">
+          <a class="main-nav-link is-active" href="/projects">
             projects</a>
           
-          <a class="main-nav-link" href="/archives">
+          <a class="main-nav-link " href="/archives">
             archives</a>
           
-          <a class="main-nav-link" href="/servers">
+          <a class="main-nav-link " href="/servers">
             servers</a>
           
         </div>
@@ -50,54 +50,26 @@
             <i class="icon-feed" aria-hidden="true"></i>
           </a>
           <div>
-      </div></div></nav>
+      </nav>
     </div>
   </div>
 </header>
       <div class="outer">
-        <section id="main"><h1>Servers</h1>
-<div id="servers">
-    <div v-for="(server, index) in servers">
-        <div class="server-loading" v-if="server.loading">
-            <div>
-                {{ server.serverName }}
-            </div>
-            <div style="display: flex; width: 100%; height: 100%; align-self: center;">
-                <div class="lds-ellipsis">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </div>
-            </div>
-        </div>
-        <div class="server" v-if="!server.loading">
-            <div>
-                <div>
-                    <img class="game" :src="server.gameImage"> {{ server.serverName }}
-                </div>
-                <div v-if="!server.loading">
-                    <p>status: <span :class="server.status">{{ server.status }}</span></p>
-                    <p>players: {{ server.numPlayers }}/{{ server.maxPlayers }}</p>
-                    <p>map: {{ server.map }}</p>
-                    <p>version: {{ server.gameVersion }}</p>
-                    <p><a :href="server.connect">connect {{ server.ip }}:{{ server.port }}</a></p>
-                </div>
-            </div>
-            <div v-if="!server.loading" class="map">
-                <img :src="server.mapImage" onerror="this.style.opacity='0'">
-            </div>
-        </div>
+        <section id="main">
 
-    </div>
+<div id="mount">
 </div>
 
-<p>This page uses two of my projects: <a>srcds-vue</a> and <a href="https://github.com/sbuggay/srcds-info-proxy">srcds-info-proxy</a>.
+<p>This page uses two of my projects: <a href="https://github.com/sbuggay/srcds-view">srcds-view</a> and <a href="https://github.com/sbuggay/srcds-info-proxy">srcds-info-proxy</a>.
     I use <a href="https://github.com/sbuggay/sentry">sentry</a>, another project of mine, to watch and maintain these servers.</p>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.13/vue.min.js"></script>
-<script>servers = ["devan.network:27015","devan.network:27016","devan.space:27015","devan.space:27020"];</script>
-<script src="/js/servers.js"></script></section>
+<script>servers = ["devan.network:27015","devan.network:27020","devan.space:27015","devan.space:27020"];</script>
+<script src="/js/srcdsview.js"></script>
+<script>
+    const view = new View(servers);
+    view.mount("mount");
+</script>
+</section>
       </div>
     </div>
     

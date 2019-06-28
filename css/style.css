@@ -115,6 +115,10 @@ a {
   color: #73b2cb;
   text-decoration: underline;
 }
+p {
+  color: #bbbbbf;
+  line-height: 1.7;
+}
 h1 {
   font-size: 2em;
 }
@@ -128,7 +132,7 @@ h4 {
   font-size: 1.25em;
 }
 .outer {
-  max-width: 900px;
+  max-width: 1000px;
   margin: 0 20px;
 }
 @media screen and (min-width: 900px) {
@@ -154,8 +158,13 @@ h4 {
   z-index: 1;
   background: #111;
 }
+#home h1 {
+  line-height: 1.4;
+}
 #home p {
   margin: 1em 0 1em;
+  color: #bbbbbf;
+  line-height: 1.7;
 }
 #home hr {
   margin-bottom: 20px;
@@ -185,7 +194,7 @@ h4 {
   -webkit-flex: 0 100%;
   -ms-flex: 0 100%;
   flex: 0 100%;
-  margin-bottom: 1em;
+  margin-bottom: 60px;
 }
 @media screen and (min-width: 900px) {
   #home #latest .section {
@@ -209,8 +218,69 @@ h4 {
     display: none;
   }
 }
+.container {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+}
+.link {
+  width: 50%;
+  border: 2px solid #222;
+  border-radius: 3px;
+  margin: 10px 0;
+  margin-right: 8px;
+  padding: 5px;
+  display: block;
+  color: #ddd;
+  -webkit-transition: background-color 0.2s ease;
+  -moz-transition: background-color 0.2s ease;
+  -o-transition: background-color 0.2s ease;
+  -ms-transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease;
+  text-decoration: none;
+}
+.link .description {
+  color: #9d9d9d;
+}
+.link:hover {
+  background-color: #222;
+}
+.link time {
+  color: #f90;
+  font-size: 0.9em;
+}
+.link .tag {
+  color: #f90;
+  font-size: 0.8em;
+  border: 1px solid #000;
+  border-radius: 5px;
+  background-color: #333;
+  padding: 4px 8px;
+}
 .component {
   margin: 1em 0 0 0;
+  height: 100%;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -o-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: stretch;
+  -moz-box-align: stretch;
+  -o-box-align: stretch;
+  -ms-flex-align: stretch;
+  -webkit-align-items: stretch;
+  align-items: stretch;
 }
 @media screen and (min-width: 900px) {
   .component {
@@ -218,10 +288,19 @@ h4 {
   }
 }
 .component a {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -o-box-flex: 1;
+  -ms-box-flex: 1;
+  box-flex: 1;
+  -webkit-flex-grow: 1;
+  flex-grow: 1;
+  -webkit-flex-basis: 40px;
+  flex-basis: 40px;
   border: 2px solid #222;
   border-radius: 3px;
-  margin: 10px 0;
   padding: 5px;
+  margin: 5px 0;
   display: block;
   color: #ddd;
   -webkit-transition: background-color 0.2s ease;
@@ -249,33 +328,7 @@ h4 {
   background-color: #333;
   padding: 4px 8px;
 }
-#servers {
-  margin-top: 20px;
-}
-#servers .available {
-  color: #b2cb73;
-}
-#servers .warning {
-  color: #cbb873;
-}
-#servers .error {
-  color: #cb7386;
-}
-#servers .pending {
-  color: #fff;
-}
-#servers .server-loading {
-  margin: 20px 0;
-  padding: 20px 20px;
-  border-radius: 2px;
-  border-left: 4px #fff solid;
-  background-color: #222;
-  height: 140px;
-}
-#servers .server {
-  margin: 20px 0;
-  padding: 20px 20px;
-  height: 140px;
+.server {
   display: -webkit-box;
   display: -moz-box;
   display: -webkit-flex;
@@ -288,36 +341,67 @@ h4 {
   -ms-flex-pack: justify;
   -webkit-justify-content: space-between;
   justify-content: space-between;
-  border-radius: 2px;
-  border-left: 4px #fff solid;
   background-color: #222;
+  margin: 20px 0;
+  padding: 20px;
+  height: 96px;
+  border-radius: 3px;
+  border-left: 5px solid #fff;
+  -webkit-box-shadow: 0 8px 6px -6px #000;
+  box-shadow: 0 8px 6px -6px #000;
+  position: relative;
 }
-#servers .server .game {
-  width: 20px;
-  height: 20px;
+.server.available {
+  border-left: 5px solid #b2cb73;
 }
-#servers .server .loading {
-  width: 100%;
-  left: 0;
-  right: 0;
-  margin: auto;
+.server.error {
+  border-left: 5px solid #cb7386;
 }
-#servers .server .map {
-  display: block;
-  -webkit-align-self: center;
-  align-self: center;
-  -ms-flex-item-align: center;
-  height: 120px;
+.server .error {
+  color: #cb7386;
 }
-@media screen and (max-width: 479px) {
-  #servers .server .map {
-    display: none;
-  }
+.server .detail {
+  color: #aaa;
 }
-#servers .server .map img {
-  width: auto;
-  max-width: 160px;
-  height: 100%;
+.server .right {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -o-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -o-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+.server .connect {
+  border-radius: 2px;
+  text-decoration: none;
+  padding: 5px 10px;
+  border: 0;
+  background: #73b2cb;
+  color: #000;
+}
+.server .loading {
+/* width: 200px; */
+/* border: 1px solid pink; */
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  position: absolute;
 }
 .lds-ellipsis {
   display: inline-block;
@@ -717,8 +801,11 @@ h4 {
     padding: 0 15px;
   }
 }
+.main-nav-link.is-active {
+  text-decoration: underline;
+}
 .main-nav-link:before {
-  content: "/";
+  content: "~/";
 }
 .main-nav-link:first-of-type {
   padding-left: 0;
@@ -776,11 +863,18 @@ a.article-title:hover {
   text-decoration: underline;
 }
 .article-entry {
+  color: #bbbbbf;
+}
+.article-entry h1,
+.article-entry h2,
+.article-entry h3,
+.article-entry h4,
+.article-entry h5 {
+  line-height: 1.4;
   color: #ddd;
 }
 .article-entry p,
 .article-entry table {
-  line-height: 1.5em;
   margin: 1.5em 0;
 }
 .article-entry a {
@@ -798,7 +892,7 @@ a.article-title:hover {
 }
 .article-entry img,
 .article-entry video {
-  max-width: 100%;
+  width: 50%;
   margin: 0 auto;
   display: block;
 }

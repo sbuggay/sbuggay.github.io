@@ -140,9 +140,6 @@ h4 {
     margin: 0 auto;
   }
 }
-.outer +.bottom {
-  background-color: #000;
-}
 .clear {
   clear: both;
 }
@@ -157,6 +154,9 @@ h4 {
   left: 0;
   z-index: 1;
   background: #111;
+}
+#main {
+  margin-bottom: 200px;
 }
 #home h1 {
   line-height: 1.4;
@@ -362,6 +362,8 @@ h4 {
 }
 .server .detail {
   color: #aaa;
+  -o-text-overflow: clip;
+  text-overflow: clip;
 }
 .server .right {
   display: -webkit-box;
@@ -382,6 +384,11 @@ h4 {
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
+}
+@media screen and (max-width: 479px) {
+  .server .right {
+    display: none;
+  }
 }
 .server .connect {
   border-radius: 2px;

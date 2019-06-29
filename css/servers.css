@@ -21,11 +21,17 @@
 }
 .server .detail {
   color: #aaa;
+  text-overflow: clip;
 }
 .server .right {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+@media mq-mobile {
+  .server .right {
+    display: none;
+  }
 }
 .server .connect {
   border-radius: 2px;

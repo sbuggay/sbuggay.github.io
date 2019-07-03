@@ -25,13 +25,17 @@
 
 .server .detail {
     color: #aaa;
+    text-overflow: clip;
 }
 
-.server .right {
+
+.server .right 
     display: flex;
     flex-direction: column;
     justify-content: center;
-}
+    @media mq-mobile
+        display: none
+
 
 .server .connect {
     border-radius: 2px;

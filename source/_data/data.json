@@ -26,6 +26,12 @@
             "tags": ["typescript", "react", "mobx"]
         },
         {
+            "name": "rnes",
+            "link": "https://github.com/sbuggay/rnes",
+            "description": "NES emulator. Currently only emulates the 6502.",
+            "tags": ["rust, sdl2"]
+        },
+        {
             "name": "DotaSalt",
             "link": "https://github.com/sbuggay/dotasalt",
             "description": "A simple DotA 2 match and player viewer.",
@@ -90,6 +96,7 @@
     "servers": [
         "devan.network:27015",
         "devan.network:27020",
+        "devan.network:27016",
         "devan.space:27015",
         "devan.space:27020"
     ]

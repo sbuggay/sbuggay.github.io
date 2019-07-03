@@ -1,20 +1,36 @@
 <div id="home">
-    <h2>About Me</h2>
-    <p>Hello, my name is Devan. I currently work at Microsoft. Before that, I worked professionally on iOS apps. I run
-        a few game servers (Counter-Strike mostly) that you can check out over on my <a href="/servers">servers</a>
-        page.</p>
-    <div id="latest">
-        <div class="section">
-            <h2><i className="far fa-newspaper"></i> Latest Posts</h2>
-            <%- partial('_partial/archive-list', {count: 5}) %>
+    <div id="left">
+
+        <%- partial('_partial/archive-list', {count: -1}) %>
+
+    </div>
+    <div id="right">
+        <div>   
+            <img src="/images/avatar.jpg"/>
         </div>
-        <div class="section">
-            <h2>Projects</h2>
-            <%- partial('_partial/project-list', {count: 5}) %>
+        
+        <div>
+
+        <p>
+            Hello, my name is Devan. I currently work at Microsoft. Before that, I worked professionally on iOS apps.
+        </p>
+        <p>
+            I run a few game servers (Counter-Strike mostly) that you can check out over on my <a href="/servers">servers page</a>.
+        </p>
+
+    
+        <ul>
+            <li><a href="https://github.com/sbuggay/sentry">sentry</a> - server and service monitoring</li>
+            <li><a href="https://github.com/sbuggay/irxi">irxi</a> - IRC core client</li>
+            <li><a href="https://github.com/sbuggay/rnes">rnes</a> - 6502 emulator in Rust</li>
+        </ul>
+
+        <p>
+            You can check out more of my projects on my <a href="/projects">projects page</a>.
+        </p>
+
+        <p>Contact: <a href="mailto:sbuggay@gmail.com">sbuggay@gmail.com</a></p>
+
         </div>
     </div>
-    <h2>
-        Contact
-    </h2>
-    <p>For inquiries, you can reach me at sbuggay (at) gmail (dot) com or on my <a href="https://www.linkedin.com/in/devanbuggay/">linkedin</a>.</p>
 </div>

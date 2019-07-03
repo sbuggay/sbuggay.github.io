@@ -11,9 +11,6 @@
     <time class="info">
         <%= date(post.date, 'MM-DD-YYYY') %>
     </time>
-    <% post.tags.forEach(function (item) { %>
-        <span class="tag"><%- item.name %></span>
-    <% }); %>
     </div>
 </a>
 <% to++ %>

@@ -4,7 +4,7 @@
       <nav id="main-nav">
         <div id="main-nav-links">
           <% for (var i in theme.menu) { %>
-          <a class="main-nav-link <% if(is_current(url_for(theme.menu[i]))) { %>is-active<% } %>" href="<%- url_for(theme.menu[i]) %>">
+          <a class="main-nav-link" href="<%- url_for(theme.menu[i]) %>">
             <%= i %></a>
           <% } %>
         </div>

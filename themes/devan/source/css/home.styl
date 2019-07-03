@@ -1,4 +1,8 @@
 #home
+
+  display: flex
+  flex-wrap: wrap
+
   h1
     line-height: 1.4
 
@@ -15,77 +19,56 @@
 
   #latest
     display: flex
-    flex-wrap: wrap
-    
-    
-    .section
-      flex: 0 100%
-      @media mq-normal
-        flex: 0 50%
 
-      margin-bottom: 60px
-    
-      hr
-        margin-bottom: 20px
-        border: none
-        height: 1px
-        background-color: color-border
-        @media mq-normal
-          display: none
+
+#left
+  width 100%;
+  @media mq-normal
+    width: 66%
+
+#right
+  color: color-subdued
+  margin-top: 50px;
+
+  img 
+    margin: 0 auto;
+    border-radius: 50%;
+    width: 150px;
+    display: block;
+
+  width 100%;
+  box-sizing: border-box;
+  @media mq-normal
+    margin-top: 0;
+    padding: 10px;
+    width: 33%
 
 .container
   display: flex
 
-.link
-  width: 50%
-  
-  .description
-    color: darken(color-default, 25)
-  border: 2px solid color-background-alt
-  border-radius: 3px
-  margin: 10px 0
-  margin-right: 8px
-  padding: 5px
-  display: block
-  color: color-default
-  transition: background-color .2s ease
-  text-decoration: none
-  &:hover
-    background-color: color-background-alt
-  time
-    color: color-orange
-    font-size: .9em
-  .tag
-    color: color-orange
-    font-size: .8em
-    border: 1px solid black;
-    border-radius: 5px;
-    background-color: #333;
-    padding: 4px 8px;
-
 .component
-  margin: 1em 0 0 0
+  margin: 0 0 0 0
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: stretch;
   @media mq-normal
-    margin: 1em 10px 0 0
+    margin: 0 10px 0 0
   a
     flex-grow: 1;
     flex-basis: 40px;
     .description
       color: darken(color-default, 25)
-    border: 2px solid color-background-alt
+    background-color: color-background-alt
     border-radius: 3px
-    padding: 5px
+    padding: 4px 8px
     margin: 5px 0;
     display: block
     color: color-default
-    transition: background-color .2s ease
+    transition: all .2s ease
     text-decoration: none
-    &:hover
-      background-color: color-background-alt
+    box-shadow: 0 8px 6px -6px black;
+ 
     time
       color: color-orange
       font-size: .9em

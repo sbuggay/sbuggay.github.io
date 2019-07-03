@@ -158,6 +158,20 @@ h4 {
 #main {
   margin-bottom: 200px;
 }
+#home {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-lines: multiple;
+  -moz-box-lines: multiple;
+  -o-box-lines: multiple;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
 #home h1 {
   line-height: 1.4;
 }
@@ -179,43 +193,34 @@ h4 {
   display: -ms-flexbox;
   display: box;
   display: flex;
-  -webkit-box-lines: multiple;
-  -moz-box-lines: multiple;
-  -o-box-lines: multiple;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
 }
-#home #latest .section {
-  -webkit-box-flex: 1;
-  -moz-box-flex: 1;
-  -o-box-flex: 1;
-  box-flex: 1;
-  -webkit-flex: 0 100%;
-  -ms-flex: 0 100%;
-  flex: 0 100%;
-  margin-bottom: 60px;
+#left {
+  width: 100%;
 }
 @media screen and (min-width: 900px) {
-  #home #latest .section {
-    -webkit-box-flex: 1;
-    -moz-box-flex: 1;
-    -o-box-flex: 1;
-    box-flex: 1;
-    -webkit-flex: 0 50%;
-    -ms-flex: 0 50%;
-    flex: 0 50%;
+  #left {
+    width: 66%;
   }
 }
-#home #latest .section hr {
-  margin-bottom: 20px;
-  border: none;
-  height: 1px;
-  background-color: #ddd;
+#right {
+  color: #bbbbbf;
+  margin-top: 50px;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+#right img {
+  margin: 0 auto;
+  border-radius: 50%;
+  width: 150px;
+  display: block;
 }
 @media screen and (min-width: 900px) {
-  #home #latest .section hr {
-    display: none;
+  #right {
+    margin-top: 0;
+    padding: 10px;
+    width: 33%;
   }
 }
 .container {
@@ -226,42 +231,8 @@ h4 {
   display: box;
   display: flex;
 }
-.link {
-  width: 50%;
-  border: 2px solid #222;
-  border-radius: 3px;
-  margin: 10px 0;
-  margin-right: 8px;
-  padding: 5px;
-  display: block;
-  color: #ddd;
-  -webkit-transition: background-color 0.2s ease;
-  -moz-transition: background-color 0.2s ease;
-  -o-transition: background-color 0.2s ease;
-  -ms-transition: background-color 0.2s ease;
-  transition: background-color 0.2s ease;
-  text-decoration: none;
-}
-.link .description {
-  color: #9d9d9d;
-}
-.link:hover {
-  background-color: #222;
-}
-.link time {
-  color: #f90;
-  font-size: 0.9em;
-}
-.link .tag {
-  color: #f90;
-  font-size: 0.8em;
-  border: 1px solid #000;
-  border-radius: 5px;
-  background-color: #333;
-  padding: 4px 8px;
-}
 .component {
-  margin: 1em 0 0 0;
+  margin: 0 0 0 0;
   height: 100%;
   display: -webkit-box;
   display: -moz-box;
@@ -284,7 +255,7 @@ h4 {
 }
 @media screen and (min-width: 900px) {
   .component {
-    margin: 1em 10px 0 0;
+    margin: 0 10px 0 0;
   }
 }
 .component a {
@@ -297,24 +268,23 @@ h4 {
   flex-grow: 1;
   -webkit-flex-basis: 40px;
   flex-basis: 40px;
-  border: 2px solid #222;
+  background-color: #222;
   border-radius: 3px;
-  padding: 5px;
+  padding: 4px 8px;
   margin: 5px 0;
   display: block;
   color: #ddd;
-  -webkit-transition: background-color 0.2s ease;
-  -moz-transition: background-color 0.2s ease;
-  -o-transition: background-color 0.2s ease;
-  -ms-transition: background-color 0.2s ease;
-  transition: background-color 0.2s ease;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  -ms-transition: all 0.2s ease;
+  transition: all 0.2s ease;
   text-decoration: none;
+  -webkit-box-shadow: 0 8px 6px -6px #000;
+  box-shadow: 0 8px 6px -6px #000;
 }
 .component a .description {
   color: #9d9d9d;
-}
-.component a:hover {
-  background-color: #222;
 }
 .component a time {
   color: #f90;

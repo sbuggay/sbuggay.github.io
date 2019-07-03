@@ -5,12 +5,14 @@ tags:
 	- c++
 ---
 
+[Updated 7/2/2019]
+
 At the time of writing, Half-Life 1's release date <a href="https://en.wikipedia.org/wiki/Half-Life_(video_game)">is approaching nearly 20 years old</a>. It's suprising how well the game has held up considering it's roots are even older than that coming from the Quake 1/2 engine.
 
 On a recent playthrough of Half-Life 1 I ran in to a few minor annoyances:
 - Enemy corpses block player movement until their death animation is done.
 - With `hud_fastswitch 1`, if there is more than one weapon for that slot there is still an extra action to select it.
-- Using the `use` key slows you down to `0.3` speed.
+- ~~Using the `use` key slows you down to `0.3` speed.~~ (This is actually used in speedruns for prop boosting, best to leave it alone.)
 - Doors cannot be opened with the `use` key.
 - Items cannot be picked up with the `use` key.
 - Weapon impact particles appear on skybox textures.
@@ -126,7 +128,9 @@ I have added a variable `currentSel` that keeps track of our last selected weapo
 `if (currentSel && currentSel->iSlot == iSlot)` if there was a previously selected weapon, and the slot we are trying to move to is in the same slot, we simply get the next valid weapon in the slot. If there is no valid next weapon, we must be at the end of the list. So we default back to the first position.
 
 
-## Using the `use` key slows you down to `0.3` speed.
+## ~~Using the `use` key slows you down to `0.3` speed.~~
+
+Update: This actually isn't a good idea, but I'm leaving the code changes here for anyone curious.
 
 Under `pm_shared/pm_shared.c`.
 
@@ -144,6 +148,8 @@ https://github.com/sbuggay/halflife/blob/5d761709a31ce1e71488f2668321de05f791b40
 
 So this seems to slow you down for the case of which a box is being pulled. So we can simply only apply this vector scaling while moving backwards.
 
-We will take a look at more of these changes in part 2. 
+
+
+## Links
 
 You can find these changes and more on my fork of of the source https://github.com/sbuggay/halflife/tree/small-qol-changes.

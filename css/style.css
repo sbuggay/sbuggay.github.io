@@ -186,6 +186,19 @@ h4 {
   height: 1px;
   background-color: #ddd;
 }
+@media screen and (max-width: 479px) {
+  #home {
+    -webkit-box-direction: reverse;
+    -moz-box-direction: reverse;
+    -o-box-direction: reverse;
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    -o-box-orient: vertical;
+    -webkit-flex-direction: column-reverse;
+    -ms-flex-direction: column-reverse;
+    flex-direction: column-reverse;
+  }
+}
 #home #latest {
   display: -webkit-box;
   display: -moz-box;

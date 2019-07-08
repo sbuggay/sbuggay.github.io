@@ -171,6 +171,15 @@ h4 {
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
+  -webkit-box-direction: reverse;
+  -moz-box-direction: reverse;
+  -o-box-direction: reverse;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -o-box-orient: vertical;
+  -webkit-flex-direction: column-reverse;
+  -ms-flex-direction: column-reverse;
+  flex-direction: column-reverse;
 }
 #home h1 {
   line-height: 1.4;
@@ -186,17 +195,14 @@ h4 {
   height: 1px;
   background-color: #ddd;
 }
-@media screen and (max-width: 479px) {
+@media screen and (min-width: 900px) {
   #home {
-    -webkit-box-direction: reverse;
-    -moz-box-direction: reverse;
-    -o-box-direction: reverse;
-    -webkit-box-orient: vertical;
-    -moz-box-orient: vertical;
-    -o-box-orient: vertical;
-    -webkit-flex-direction: column-reverse;
-    -ms-flex-direction: column-reverse;
-    flex-direction: column-reverse;
+    -webkit-box-orient: horizontal;
+    -moz-box-orient: horizontal;
+    -o-box-orient: horizontal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
   }
 }
 #home #latest {
@@ -217,7 +223,6 @@ h4 {
 }
 #right {
   color: #bbbbbf;
-  margin-top: 50px;
   width: 100%;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;

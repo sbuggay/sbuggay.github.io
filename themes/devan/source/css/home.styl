@@ -2,6 +2,7 @@
 
   display: flex
   flex-wrap: wrap
+  flex-direction: column-reverse
 
   h1
     line-height: 1.4
@@ -17,8 +18,9 @@
     height: 1px
     background-color: color-border
 
-  @media mq-mobile
-      flex-direction: column-reverse
+
+  @media mq-normal
+      flex-direction: row
 
   #latest
     display: flex
@@ -31,7 +33,6 @@
 
 #right
   color: color-subdued
-  margin-top: 50px;
 
   img 
     margin: 0 auto;

@@ -1,7 +1,6 @@
 #header
-  height: banner-height * 0.75
-  @media mq-normal
-    height: banner-height
+  height: banner-height
+  margin: 0 auto
   // border-bottom: 1px solid color-border
   background-color: darken(color-background, 50)
   margin-bottom: 20px
@@ -18,15 +17,18 @@
   justify-content: space-between
   align-items: center
   height: 100%
+  @media mq-mobile
+    justify-content: center
 
 #main-nav-links
   display: flex
   height: 100%
 
 #main-nav-social
-  display: none
-  @media mq-normal
-    display: block
+  display: block
+  @media mq-mobile
+    display: none
+    
     
 $nav-link
   color: color-default
@@ -39,11 +41,8 @@ $nav-link
   padding: 0 15px
   display: flex
   align-items: center
-  font-size: 1em
+  font-size: 1.2em
   padding: 0 10px
-  @media mq-normal
-    font-size: 1.2em
-    padding: 0 15px
   color: color-default
   transition: color .2s ease
 

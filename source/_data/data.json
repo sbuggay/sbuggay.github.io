@@ -2,16 +2,16 @@
     "about": "",
     "projects": [
         {
+            "name": "vaclist.net",
+            "link": "https://vaclist.net",
+            "description": "A Steam VAC account indexer and tracker.",
+            "tags": ["typescript", "react", "mobx", "node"]
+        },
+        {
             "name": "Sentry",
             "link": "https://github.com/sbuggay/sentry",
             "description": "A self hosted dashboard to monitor servers and services.",
             "tags": ["typescript", "react", "redux", "node"]
-        },
-        {
-            "name": "SongBar",
-            "link": "https://github.com/sbuggay/SongBar",
-            "description": "An application to show track information from iTunes or Spotify in the menu bar.",
-            "tags": ["macOS", "obj-c"]
         },
         {
             "name": "github-commit-vue",
@@ -54,6 +54,12 @@
             "link": "https://github.com/sbuggay/srcds-manager",
             "description": "A web frontend allowing RCON control of hosted servers.",
             "tags": ["typescript", "node"]
+        },
+        {
+            "name": "SongBar",
+            "link": "https://github.com/sbuggay/SongBar",
+            "description": "An application to show track information from iTunes or Spotify in the menu bar.",
+            "tags": ["macOS", "obj-c"]
         },
         {
             "name": "silversrc",

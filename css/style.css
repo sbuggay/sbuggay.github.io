@@ -277,13 +277,6 @@ h4 {
   }
 }
 .component a {
-  -webkit-box-flex: 1;
-  -moz-box-flex: 1;
-  -o-box-flex: 1;
-  -ms-box-flex: 1;
-  box-flex: 1;
-  -webkit-flex-grow: 1;
-  flex-grow: 1;
   -webkit-flex-basis: 40px;
   flex-basis: 40px;
   background-color: #222;

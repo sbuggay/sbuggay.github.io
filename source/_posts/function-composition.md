@@ -64,9 +64,11 @@ With that simple change we get something much cleaner. We can simplify even futh
 
 ```javascript
 function compose(functions) {
-    return (value) => functions.reduce((a, f) => f(a), value);
+    return (value) => functions.reduceReduce((a, f) => f(a), value);
 }
 ```
+
+Update 7/21: Technically this should be `reduceRight` and not `reduce`.
 
 Let's take a look at a working example.
 

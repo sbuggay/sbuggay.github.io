@@ -37,3 +37,5 @@ Make sure to correctly set your web root and specify that the location of `/serv
 
     }
 ```
+
+Any custom error page will do, for example mine just links to my twitter account where I post updates on maintenance/downtime. You can even have it route to a different server all-together with another proxy_pass rule.

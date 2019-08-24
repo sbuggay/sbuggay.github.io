@@ -76,6 +76,8 @@
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">error_page 500 502 503 504 /server-error.html</span><br></pre></td></tr></table></figure>
 <p>Make sure to correctly set your web root and specify that the location of <code>/server-error.html</code> is <code>internal</code>.</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    server_name &lt;server_name&gt;</span><br><span class="line">    root &lt;web_root&gt;</span><br><span class="line"></span><br><span class="line">    error_page 500 502 503 504 /server-error.html</span><br><span class="line">    </span><br><span class="line">    location /server-error.html &#123;</span><br><span class="line">        internal;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    location / &#123;</span><br><span class="line">        include proxypass.conf;</span><br><span class="line">        proxy_pass http://localhost:5000;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Any custom error page will do, for example mine just links to my twitter account where I post updates on maintenance/downtime. You can even have it route to a different server all-together with another proxy_pass rule.</p>
+
       
     </div>
     

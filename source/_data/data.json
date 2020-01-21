@@ -26,16 +26,16 @@
             "tags": ["typescript", "react", "mobx"]
         },
         {
+            "name": "WoW Classic Attack Table",
+            "link": "https://devanbuggay.com/attack-table",
+            "description": "Interactive WoW classic attack table simulator.",
+            "tags": ["javascript"]
+        },
+        {
             "name": "rnes",
             "link": "https://github.com/sbuggay/rnes",
             "description": "NES emulator. Currently only emulates the 6502.",
             "tags": ["rust, sdl2"]
-        },
-        {
-            "name": "DotaSalt",
-            "link": "https://github.com/sbuggay/dotasalt",
-            "description": "A simple DotA 2 match and player viewer.",
-            "tags": ["python", "flask"]
         },
         {
             "name": "srcds-info-proxy",
@@ -60,6 +60,12 @@
             "link": "https://github.com/sbuggay/SongBar",
             "description": "An application to show track information from iTunes or Spotify in the menu bar.",
             "tags": ["macOS", "obj-c"]
+        },
+        {
+            "name": "DotaSalt",
+            "link": "https://github.com/sbuggay/dotasalt",
+            "description": "A simple DotA 2 match and player viewer.",
+            "tags": ["python", "flask"]
         },
         {
             "name": "silversrc",

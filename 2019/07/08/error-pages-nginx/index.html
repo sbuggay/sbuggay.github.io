@@ -69,7 +69,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>I use NGINX to <a href="https://docs.nginx.com/nginx/admin-guide/web-server/reverse-proxy/" target="_blank" rel="noopener">reverse proxy</a> a few of my services so that they can be reached at proper domain names (e.g. <a href="https://vaclist.net)" target="_blank" rel="noopener">https://vaclist.net)</a>.<br>NGINX makes it very easy to redirect specific error codes to static pages. A common one for reverse proxy is <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502" target="_blank" rel="noopener">502 Bad Gateway</a>, meaning the service couldn’t be reached (server crashed, being upgraded, etc).</p>
+        <p>I use NGINX to <a href="https://docs.nginx.com/nginx/admin-guide/web-server/reverse-proxy/" target="_blank" rel="noopener">reverse proxy</a> a few of my services so that they can be reached at proper domain names.<br>NGINX makes it very easy to redirect specific error codes to static pages. A common one for reverse proxy is <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502" target="_blank" rel="noopener">502 Bad Gateway</a>, meaning the service couldn’t be reached (server crashed, being upgraded, etc).</p>
 <p>The default error page for NGINX is pretty ugly:</p>
 <p><img src="/images/502.png" alt="502"></p>
 <p>You can easily catch these with the <code>error_page</code> server directive:</p>

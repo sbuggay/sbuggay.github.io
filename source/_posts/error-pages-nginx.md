@@ -4,7 +4,7 @@ date: 2019-07-08 23:38:07
 tags:
 ---
 
-I use NGINX to [reverse proxy](https://docs.nginx.com/nginx/admin-guide/web-server/reverse-proxy/) a few of my services so that they can be reached at proper domain names (e.g. https://vaclist.net).
+I use NGINX to [reverse proxy](https://docs.nginx.com/nginx/admin-guide/web-server/reverse-proxy/) a few of my services so that they can be reached at proper domain names.
 NGINX makes it very easy to redirect specific error codes to static pages. A common one for reverse proxy is [502 Bad Gateway](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502), meaning the service couldn't be reached (server crashed, being upgraded, etc).
 
 The default error page for NGINX is pretty ugly:

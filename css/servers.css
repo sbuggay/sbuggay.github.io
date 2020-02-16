@@ -1,7 +1,7 @@
 @font-face {
   font-family: 'icomoon';
   src: url("/fonts/icomoon.eot?ya5ohw");
-  src: url("/fonts/icomoon.eot?ya5ohw#iefix") format('embedded-opentype'), url("/fonts/icomoon.ttf?ya5ohw") format('truetype'), url("/fonts/icomoon.woff?ya5ohw") format('woff'), url("/fonts/icomoon.svg?ya5ohw#icomoon") format('svg');
+  src: url("/fonts/icomoon.eot?ya5ohw#iefix") format('embedded-opentype'), url("/fonts/icomoon.ttf?ya5ohw") format('truetype'), url("/fonts/icomoon.woff?ya5ohw") format('woff'), url("/tsconfig.json/icomoon.svg?ya5ohw#icomoon") format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -21,14 +21,13 @@
 }
 body {
   background: #111;
-  color: #fff;
-  font-family: Arial, Helvetica, sans-serif;
-  line-height: 1.5em;
-  font-weight: 400;
-  font-size: 16px;
 }
 #srcds {
   margin-top: 20px;
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
 }
 .header {
   display: flex;
@@ -39,10 +38,12 @@ body {
   height: 30px;
   border-radius: 3px;
   margin-right: 10px;
+  box-shadow: 0 8px 6px -6px #000;
 }
 .copySection {
   margin-right: 20px;
   position: relative;
+  font-size: 1em;
 }
 .copySection button {
   width: 30px;
@@ -73,9 +74,10 @@ body {
 .server {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   background-color: #222;
   margin: 20px 0 20px 45px;
-  padding: 20px;
+  padding: 10px 20px;
   height: 50px;
   border-radius: 3px;
   border-left: 5px solid #fff;
@@ -90,9 +92,11 @@ body {
 }
 .server .error {
   color: #cb7386;
+  font-size: 0.9em;
 }
 .server .detail {
   color: #aaa;
+  font-size: 0.9em;
 }
 .server .right {
   display: flex;

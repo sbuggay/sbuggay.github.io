@@ -1,10 +1,82 @@
+@font-face {
+  font-family: 'icomoon';
+  src: url("/fonts/icomoon.eot?ya5ohw");
+  src: url("/fonts/icomoon.eot?ya5ohw#iefix") format('embedded-opentype'), url("/fonts/icomoon.ttf?ya5ohw") format('truetype'), url("/fonts/icomoon.woff?ya5ohw") format('woff'), url("/fonts/icomoon.svg?ya5ohw#icomoon") format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+[class^="icon-"],
+[class*=" icon-"] {
+/* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+/* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+body {
+  background: #111;
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5em;
+  font-weight: 400;
+  font-size: 16px;
+}
+#srcds {
+  margin-top: 20px;
+}
+.header {
+  display: flex;
+  align-items: center;
+}
+.header img {
+  width: 30px;
+  height: 30px;
+  border-radius: 3px;
+  margin-right: 10px;
+}
+.copySection {
+  margin-right: 20px;
+  position: relative;
+}
+.copySection button {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  border: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.copySection button:hover {
+  cursor: pointer;
+}
+.copyInput {
+  background: #111;
+  color: #fff;
+  height: 30px;
+  width: 250px;
+  padding: 0 60px 0 10px;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+  border: 0;
+}
 .server {
   display: flex;
   justify-content: space-between;
   background-color: #222;
-  margin: 20px 0;
+  margin: 20px 0 20px 45px;
   padding: 20px;
-  height: 72px;
+  height: 50px;
   border-radius: 3px;
   border-left: 5px solid #fff;
   box-shadow: 0 8px 6px -6px #000;
@@ -21,22 +93,17 @@
 }
 .server .detail {
   color: #aaa;
-  text-overflow: clip;
 }
 .server .right {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-@media mq-mobile {
-  .server .right {
-    display: none;
-  }
+  align-items: center;
 }
 .server .connect {
+  height: 30px;
   border-radius: 2px;
   text-decoration: none;
-  padding: 5px 10px;
+  padding: 0 10px;
+  line-height: 30px;
   border: 0;
   background: #73b2cb;
   color: #000;
@@ -48,6 +115,9 @@
   top: 50%;
   transform: translate(-50%, -50%);
   position: absolute;
+}
+.icon-paste:before {
+  content: "\e92d";
 }
 .lds-ellipsis {
   display: inline-block;

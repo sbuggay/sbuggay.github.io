@@ -465,6 +465,11 @@ body {
   -webkit-align-items: center;
   align-items: center;
 }
+@media screen and (max-width: 479px) {
+  .server .right {
+    display: none;
+  }
+}
 .server .connect {
   height: 30px;
   border-radius: 2px;

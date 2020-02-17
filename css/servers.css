@@ -102,6 +102,11 @@ body {
   display: flex;
   align-items: center;
 }
+@media mq-mobile {
+  .server .right {
+    display: none;
+  }
+}
 .server .connect {
   height: 30px;
   border-radius: 2px;

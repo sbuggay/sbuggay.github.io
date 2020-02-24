@@ -988,6 +988,9 @@ a.article-title:hover {
   width: 50%;
   margin: 0 auto;
   display: block;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 @media screen and (max-width: 479px) {
   .article-entry img,

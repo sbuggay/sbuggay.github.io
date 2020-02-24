@@ -6,9 +6,8 @@
 <%# <p>This page uses two of my projects: <a href="https://github.com/sbuggay/srcds-view">srcds-view</a> and <a href="https://github.com/sbuggay/srcds-info-proxy">srcds-info-proxy</a>.
     I use <a href="https://github.com/sbuggay/sentry">sentry</a>, another project of mine, to watch and maintain these servers.</p> %>
 
-<script>servers = <%- JSON.stringify(site.data.data.servers) %>;</script>
 <%- js("js/srcdsview")%>
 <script>
-    const view = new View(servers);
+    const view = new View("srcds.devan.space");
     view.mount("mount");
 </script>

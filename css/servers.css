@@ -29,6 +29,11 @@ body {
   font-weight: 400;
   font-size: 16px;
 }
+.loading {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+}
 .header {
   display: flex;
   align-items: center;
@@ -84,6 +89,16 @@ body {
   box-shadow: 0 8px 6px -6px #000;
   position: relative;
 }
+@media mq-tablet {
+  .server {
+    margin: 20px 0;
+  }
+}
+@media mq-mobile {
+  .server {
+    margin: 20px 0;
+  }
+}
 .server.available {
   border-left: 5px solid #b2cb73;
 }
@@ -101,6 +116,11 @@ body {
 .server .right {
   display: flex;
   align-items: center;
+}
+@media mq-tablet {
+  .server .right {
+    display: none;
+  }
 }
 @media mq-mobile {
   .server .right {

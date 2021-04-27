@@ -5,105 +5,169 @@
             "name": "vaclist.net",
             "link": "https://vaclist.net",
             "description": "A Steam VAC account indexer and tracker.",
-            "tags": ["typescript", "react", "mobx", "node"]
+            "tags": [
+                "typescript",
+                "react",
+                "mobx",
+                "node"
+            ]
         },
         {
             "name": "Sentry",
             "link": "https://github.com/sbuggay/sentry",
             "description": "A self hosted dashboard to monitor servers and services.",
-            "tags": ["typescript", "react", "redux", "node"]
+            "tags": [
+                "typescript",
+                "react",
+                "redux",
+                "node"
+            ]
+        },
+        {
+            "name": "bspview",
+            "link": "https://github.com/sbuggay/bspview",
+            "description": "Quake/GoldSrc BSP viewer",
+            "tags": [
+                "typescript",
+                "three.js"
+            ]
         },
         {
             "name": "github-commit-vue",
             "link": "https://github.com/sbuggay/github-commit-vue",
-            "description": "A single page app that displays your latest GitHub commits ",
-            "tags": ["javascript", "node", "vue", "github"]
+            "description": "A single page app that displays your latest GitHub commits.",
+            "tags": [
+                "javascript",
+                "node",
+                "vue",
+                "github"
+            ]
         },
         {
             "name": "yahn",
             "link": "https://devanbuggay.com/yahn",
             "description": "(Yet Another) Hacker News client.",
-            "tags": ["typescript", "react", "mobx"]
+            "tags": [
+                "typescript",
+                "react",
+                "mobx"
+            ]
         },
         {
             "name": "WoW Classic Attack Table",
             "link": "https://devanbuggay.com/attack-table",
             "description": "Interactive WoW classic attack table simulator.",
-            "tags": ["javascript"]
+            "tags": [
+                "javascript"
+            ]
         },
         {
             "name": "rnes",
             "link": "https://github.com/sbuggay/rnes",
             "description": "NES emulator. Currently only emulates the 6502.",
-            "tags": ["rust, sdl2"]
+            "tags": [
+                "rust, sdl2"
+            ]
         },
         {
             "name": "srcds-info-proxy",
             "link": "https://github.com/sbuggay/srcds-info-proxy",
             "description": "A service to proxy goldsrc/source A2S_INFO server queries through a REST endpoint.",
-            "tags": ["javascript", "node", "express"]
+            "tags": [
+                "javascript",
+                "node",
+                "express"
+            ]
         },
         {
             "name": "csgo-sync",
             "link": "https://github.com/sbuggay/csgo-sync",
             "description": "npm application to back up and synchronize Counter-Strike: Global Offensive configs.",
-            "tags": ["typescript", "node"]
+            "tags": [
+                "typescript",
+                "node"
+            ]
         },
         {
             "name": "srcds-manager",
             "link": "https://github.com/sbuggay/srcds-manager",
             "description": "A web frontend allowing RCON control of hosted servers.",
-            "tags": ["typescript", "node"]
+            "tags": [
+                "typescript",
+                "node"
+            ]
         },
         {
             "name": "SongBar",
             "link": "https://github.com/sbuggay/SongBar",
             "description": "An application to show track information from iTunes or Spotify in the menu bar.",
-            "tags": ["macOS", "obj-c"]
+            "tags": [
+                "macOS",
+                "obj-c"
+            ]
         },
         {
             "name": "DotaSalt",
             "link": "https://github.com/sbuggay/dotasalt",
             "description": "A simple DotA 2 match and player viewer.",
-            "tags": ["python", "flask"]
+            "tags": [
+                "python",
+                "flask"
+            ]
         },
         {
             "name": "silversrc",
             "link": "https://github.com/sbuggay/silversrc",
             "description": "A reimplementation of the Quake engine for learning purposes.",
-            "tags": ["c"]
+            "tags": [
+                "c"
+            ]
         },
         {
             "name": "snarge",
             "link": "https://github.com/sbuggay/snarge",
             "description": "A 3d bird's eye view engine. Built to learn some basic game engine principles.",
-            "tags": ["opengl", "sdl2", "c++"]
+            "tags": [
+                "opengl",
+                "sdl2",
+                "c++"
+            ]
         },
         {
             "name": "ctest",
             "link": "https://github.com/sbuggay/ctest",
             "description": "A simple C unit testing framework with auto registering test suites.",
-            "tags": ["c"]
+            "tags": [
+                "c"
+            ]
         },
         {
             "name": "Perusal",
             "link": "https://github.com/sbuggay/Perusal",
             "description": "A simple Reddit client for iOS.",
-            "tags": ["iOS", "obj-c"]
+            "tags": [
+                "iOS",
+                "obj-c"
+            ]
         },
         {
             "name": "gt-scrape",
             "link": "https://github.com/sbuggay/gt-scrape",
             "description": "GT scraper for server statistics.",
-            "tags": ["typescript", "node"]
+            "tags": [
+                "typescript",
+                "node"
+            ]
         },
         {
             "name": "manta-ray",
             "link": "https://github.com/sbuggay/manta-ray",
             "description": "A tiny raytracing toolkit.",
-            "tags": ["c", "make"]
+            "tags": [
+                "c",
+                "make"
+            ]
         }
-        
     ],
     "servers": [
         "devan.network:27015",

@@ -6,10 +6,32 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="devanbuggay.com/"/>
-  <updated>2020-03-23T07:10:52.744Z</updated>
+  <updated>2021-04-27T23:26:50.312Z</updated>
   <id>devanbuggay.com/</id>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>FreeBSD Brogue Terminal Mode</title>
+    <link href="devanbuggay.com/2021/04/27/brogue-freebsd/"/>
+    <id>devanbuggay.com/2021/04/27/brogue-freebsd/</id>
+    <published>2021-04-27T22:12:55.000Z</published>
+    <updated>2021-04-27T23:26:50.312Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/images/broguet.png" alt="brogue"></p><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/tmewett/BrogueCE/</span><br></pre></td></tr></table></figure><p>Add terminal and webrogue support to <code>config.mk</code>. I turned off graphics support because this is running on a headless rpi.</p><figure class="highlight diff"><table><tr><td class="code"><pre><span class="line">index b33967b..22b4d35 100644</span><br><span class="line"><span class="comment">--- a/config.mk</span></span><br><span class="line"><span class="comment">+++ b/config.mk</span></span><br><span class="line"><span class="meta">@@ -2,15 +2,15 @@</span></span><br><span class="line"> DATADIR := .</span><br><span class="line"> </span><br><span class="line"> # Include terminal support. Requires ncurses</span><br><span class="line"><span class="deletion">-TERMINAL := NO</span></span><br><span class="line"><span class="addition">+TERMINAL := YES</span></span><br><span class="line"> </span><br><span class="line"> # Include graphical support. Requires SDL2 and SDL2_image</span><br><span class="line"><span class="deletion">-GRAPHICS := YES</span></span><br><span class="line"><span class="addition">+GRAPHICS := NO</span></span><br><span class="line"> # Path to sdl2-config script</span><br><span class="line"> SDL_CONFIG := sdl2-config</span><br><span class="line"> </span><br><span class="line"> # Select web brogue mode. Requires POSIX system.</span><br><span class="line"><span class="deletion">-WEBBROGUE := NO</span></span><br><span class="line"><span class="addition">+WEBBROGUE := YES</span></span><br><span class="line"> </span><br><span class="line"> # Enable debugging mode. See top of Rogue.h for features</span><br><span class="line"> DEBUG := NO</span><br></pre></td></tr></table></figure><p>Disable <code>snprintf</code> in <code>web-platform.c</code>. For some reason adding <code>-std=c99</code> wasn’t enough to appease clang so I just disabled the warnings.</p><figure class="highlight diff"><table><tr><td class="code"><pre><span class="line">index f199d3c..84851d9 100644</span><br><span class="line"><span class="comment">--- a/src/platform/web-platform.c</span></span><br><span class="line"><span class="comment">+++ b/src/platform/web-platform.c</span></span><br><span class="line">@@ -116,10 +116,10 @@ static void flushOutputBuffer() &#123;</span><br><span class="line"> </span><br><span class="line">     no_bytes_sent = sendto(wfd, outputBuffer, outputBufferPos, 0, (struct sockaddr *)&amp;addr_write, sizeof(struct sockaddr_un));</span><br><span class="line">     if (no_bytes_sent == -1) &#123;</span><br><span class="line"><span class="deletion">-        snprintf(msg, 80, "Error: %s\n", strerror(errno));</span></span><br><span class="line"><span class="addition">+        // snprintf(msg, 80, "Error: %s\n", strerror(errno));</span></span><br><span class="line">         writeToLog(msg);</span><br><span class="line">     &#125; else if (no_bytes_sent != outputBufferPos) &#123;</span><br><span class="line"><span class="deletion">-        snprintf(msg, 80, "Sent %d bytes only - %s\n", no_bytes_sent, strerror(errno));</span></span><br><span class="line"><span class="addition">+        // snprintf(msg, 80, "Sent %d bytes only - %s\n", no_bytes_sent, strerror(errno));</span></span><br><span class="line">         writeToLog(msg);</span><br><span class="line">     &#125;</span><br></pre></td></tr></table></figure><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">gmake</span><br></pre></td></tr></table></figure><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">./rogue -t</span><br></pre></td></tr></table></figure><p>All the web-platform exposes is a socket to interface with the game. You can use something like <a href="https://github.com/kipraske/web-brogue" target="_blank" rel="noopener">https://github.com/kipraske/web-brogue</a> as a frontend for it.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;img src=&quot;/images/broguet.png&quot; alt=&quot;brogue&quot;&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;git &lt;sp
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Explore Quake/GoldSrc Maps in Your Browser</title>

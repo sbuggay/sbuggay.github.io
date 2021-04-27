@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <title>devanbuggay</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <link rel="alternate" href="/atom.xml" title="devanbuggay" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"> 
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <div id="main-nav-links">
+          
+          <a class="main-nav-link" href="/">
+            home</a>
+          
+          <a class="main-nav-link" href="/projects">
+            projects</a>
+          
+          <a class="main-nav-link" href="/servers">
+            servers</a>
+          
+        </div>
+        <div id="main-nav-social">
+          <a class="main-nav-icon stack-overflow" href="https://stackoverflow.com/users/472974/devan-buggay" aria-label="stackoverflow">
+            <i class="icon-stack-overflow" aria-hidden="true"></i>
+          </a>
+          <a class="main-nav-icon linkedin" href="https://www.linkedin.com/in/devanbuggay/" aria-label="linkedin">
+            <i class="icon-linkedin" aria-hidden="true"></i>
+          </a>
+          <a class="main-nav-icon github" href="https://github.com/sbuggay" aria-label="github">
+            <i class="icon-github" aria-hidden="true"></i>
+          </a>
+          <a class="main-nav-icon" href="/atom.xml" aria-label="rss">
+            <i class="icon-feed" aria-hidden="true"></i>
+          </a>
+          <div>
+      </nav>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-brogue-freebsd" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      FreeBSD Brogue Terminal Mode
+    </h1>
+  
+
+        <time class="archive-article-date" datetime="2021-04-27T22:12:55.000Z" itemprop="datePublished">Apr 27 2021</time>        
+      </header>
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/images/broguet.png" alt="brogue"></p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/tmewett/BrogueCE/</span><br></pre></td></tr></table></figure>
+<p>Add terminal and webrogue support to <code>config.mk</code>. I turned off graphics support because this is running on a headless rpi.</p>
+<figure class="highlight diff"><table><tr><td class="code"><pre><span class="line">index b33967b..22b4d35 100644</span><br><span class="line"><span class="comment">--- a/config.mk</span></span><br><span class="line"><span class="comment">+++ b/config.mk</span></span><br><span class="line"><span class="meta">@@ -2,15 +2,15 @@</span></span><br><span class="line"> DATADIR := .</span><br><span class="line"> </span><br><span class="line"> # Include terminal support. Requires ncurses</span><br><span class="line"><span class="deletion">-TERMINAL := NO</span></span><br><span class="line"><span class="addition">+TERMINAL := YES</span></span><br><span class="line"> </span><br><span class="line"> # Include graphical support. Requires SDL2 and SDL2_image</span><br><span class="line"><span class="deletion">-GRAPHICS := YES</span></span><br><span class="line"><span class="addition">+GRAPHICS := NO</span></span><br><span class="line"> # Path to sdl2-config script</span><br><span class="line"> SDL_CONFIG := sdl2-config</span><br><span class="line"> </span><br><span class="line"> # Select web brogue mode. Requires POSIX system.</span><br><span class="line"><span class="deletion">-WEBBROGUE := NO</span></span><br><span class="line"><span class="addition">+WEBBROGUE := YES</span></span><br><span class="line"> </span><br><span class="line"> # Enable debugging mode. See top of Rogue.h for features</span><br><span class="line"> DEBUG := NO</span><br></pre></td></tr></table></figure>
+<p>Disable <code>snprintf</code> in <code>web-platform.c</code>. For some reason adding <code>-std=c99</code> wasn’t enough to appease clang so I just disabled the warnings.</p>
+<figure class="highlight diff"><table><tr><td class="code"><pre><span class="line">index f199d3c..84851d9 100644</span><br><span class="line"><span class="comment">--- a/src/platform/web-platform.c</span></span><br><span class="line"><span class="comment">+++ b/src/platform/web-platform.c</span></span><br><span class="line">@@ -116,10 +116,10 @@ static void flushOutputBuffer() &#123;</span><br><span class="line"> </span><br><span class="line">     no_bytes_sent = sendto(wfd, outputBuffer, outputBufferPos, 0, (struct sockaddr *)&amp;addr_write, sizeof(struct sockaddr_un));</span><br><span class="line">     if (no_bytes_sent == -1) &#123;</span><br><span class="line"><span class="deletion">-        snprintf(msg, 80, "Error: %s\n", strerror(errno));</span></span><br><span class="line"><span class="addition">+        // snprintf(msg, 80, "Error: %s\n", strerror(errno));</span></span><br><span class="line">         writeToLog(msg);</span><br><span class="line">     &#125; else if (no_bytes_sent != outputBufferPos) &#123;</span><br><span class="line"><span class="deletion">-        snprintf(msg, 80, "Sent %d bytes only - %s\n", no_bytes_sent, strerror(errno));</span></span><br><span class="line"><span class="addition">+        // snprintf(msg, 80, "Sent %d bytes only - %s\n", no_bytes_sent, strerror(errno));</span></span><br><span class="line">         writeToLog(msg);</span><br><span class="line">     &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">gmake</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">./rogue -t</span><br></pre></td></tr></table></figure>
+<p>All the web-platform exposes is a socket to interface with the game. You can use something like <a href="https://github.com/kipraske/web-brogue" target="_blank" rel="noopener">https://github.com/kipraske/web-brogue</a> as a frontend for it.</p>
+
+      
+    </div>
+    
+    <footer class="article-footer">
+      
+<nav id="article-nav">
+    
+      <a href="/2020/03/22/bspview/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">Explore Quake/GoldSrc Maps in Your Browser</div>
+      </a>
+    
+  
+</nav>
+
+    </footer>
+    
+  </div>
+</article></section>
+      </div>
+    </div>
+    
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-39994684-2', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  </div>
+</body>
+</html>

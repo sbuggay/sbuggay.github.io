@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <title>devanbuggay</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <link rel="alternate" href="/atom.xml" title="devanbuggay" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"> 
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <div id="main-nav-links">
+          
+          <a class="main-nav-link" href="/">
+            home</a>
+          
+          <a class="main-nav-link" href="/projects">
+            projects</a>
+          
+          <a class="main-nav-link" href="/servers.devan.network">
+            servers</a>
+          
+        </div>
+        <div id="main-nav-social">
+          <a class="main-nav-icon stack-overflow" href="https://stackoverflow.com/users/472974/devan-buggay" aria-label="stackoverflow">
+            <i class="icon-stack-overflow" aria-hidden="true"></i>
+          </a>
+          <a class="main-nav-icon linkedin" href="https://www.linkedin.com/in/devanbuggay/" aria-label="linkedin">
+            <i class="icon-linkedin" aria-hidden="true"></i>
+          </a>
+          <a class="main-nav-icon github" href="https://github.com/sbuggay" aria-label="github">
+            <i class="icon-github" aria-hidden="true"></i>
+          </a>
+          <a class="main-nav-icon" href="/atom.xml" aria-label="rss">
+            <i class="icon-feed" aria-hidden="true"></i>
+          </a>
+          <div>
+      </nav>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-boids-quadtree" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      The Boids and the Trees
+    </h1>
+  
+
+        <time class="archive-article-date" datetime="2020-02-24T08:00:08.000Z" itemprop="datePublished">Feb 24 2020</time>        
+      </header>
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>I have recently been binge watching <a href="https://www.youtube.com/user/shiffman" target="_blank" rel="noopener">The Coding Train</a> by Daniel Shiffman. In two of his videos he <a href="https://www.youtube.com/watch?v=mhjuuHl6qHM" target="_blank" rel="noopener">creates a flocking simulation</a> and a <a href="https://www.youtube.com/watch?v=OJxEcs0w_kE" target="_blank" rel="noopener">Quadtree</a>. I thought it would be a good excercise to try and combine the two concepts. </p>
+<p><a href="https://devanbuggay.com/boids"><img src="/images/quadtree.png" alt="quadtree"></a></p>
+<p>I was fairly happy with the result. You can play around with the simulation here: <a href="https://devanbuggay.com/boids">https://devanbuggay.com/boids</a>.</p>
+<p>There is also another amazing YouTube channel by <a href="https://www.youtube.com/channel/UCmtyQOKKmrMVaKuRXz02jbQ" target="_blank" rel="noopener">Sebastian Lague</a> where he creates <a href="https://www.youtube.com/watch?v=bqtqltqcQhw" target="_blank" rel="noopener">3D boids with collision detection</a>.</p>
+<h3 id="Improvements"><a href="#Improvements" class="headerlink" title="Improvements"></a>Improvements</h3><p>A list of an improvements I want to make in the future.</p>
+<ul>
+<li>Sliders for simulation variables (perception radius, cohesion/alignment/seperation factors, speed, etc)</li>
+<li>Better quadtree performance by having it be incremental (only update a boid in the tree once it’s left it’s boundary)</li>
+<li>Improved interaction</li>
+<li>Wrap the range checks on the quadtree to have it emulate a “sphere” instead of disjoint space.</li>
+</ul>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<li><a href="https://en.wikipedia.org/wiki/Boids" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Boids</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Quadtree" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Quadtree</a></li>
+</ul>
+
+      
+    </div>
+    
+    <footer class="article-footer">
+      
+<nav id="article-nav">
+    
+      <a href="/2019/07/08/error-pages-nginx/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">Error Pages for Reverse Proxied NGINX Directives</div>
+      </a>
+    
+  
+    <a href="/2020/03/22/bspview/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title">
+        
+          Explore Quake/GoldSrc Maps in Your Browser
+        
+      </div>
+    </a>
+  
+</nav>
+
+    </footer>
+    
+  </div>
+</article></section>
+      </div>
+    </div>
+    
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-39994684-2', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  </div>
+</body>
+</html>
